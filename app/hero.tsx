@@ -18,7 +18,7 @@ export default async function Hero() {
       <OverlayWrapper opacity={0.5} />
       <WidthWrapper transparent>
         <div className="w-full xl:w-[90%] h-fit flex flex-col items-center xl:items-start justify-center xl:justify-start z-20 xl:gap-y-20">
-          <h1 className="text-white font-bold text-[70px] md:text-[120px]">
+          <h1 className="text-white font-bold text-[60px] md:text-[100px]">
             HELLO!
           </h1>
           <div className="w-full h-full flex flex-col items-end justify-start">
