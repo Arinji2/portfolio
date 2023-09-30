@@ -21,7 +21,7 @@ export default function WidthWrapper({
         } as React.CSSProperties
       }
     >
-      <section className="w-full md:max-w-[1280px] h-full flex flex-col items-center justify-center">
+      <section className="w-full relative md:max-w-[1280px] h-full flex flex-col items-center justify-center">
         {children}
       </section>
     </section>

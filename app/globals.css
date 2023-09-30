@@ -17,3 +17,8 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.small-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}

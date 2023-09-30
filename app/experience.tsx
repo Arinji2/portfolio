@@ -20,12 +20,12 @@ export default async function Experience() {
       </div>
       <WidthWrapper transparent>
         <div className="w-full h-full flex flex-col  items-center justify-start  z-20">
-          <div className=" md:pl-10 shrink-0 h-fit w-[95%]  xl:w-full  flex flex-row items-center  gap-3 justify-start z-10">
-            <h2 className="text-[50px] xl:text-[70px] text-brand-primary font-bold text-center">
+          <div className=" md:pl-10 shrink-0 h-fit w-[95%]  xl:w-full  flex flex-row items-center  gap-3 justify-center md:justify-start z-10">
+            <h2 className="text-[40px] md:text-[50px] xl:text-[70px] text-brand-primary font-bold text-center">
               Experience
             </h2>
           </div>
-          <div className="w-[95%] xl:w-full gap-5 pl-10  h-full flex flex-row items-start pt-10 no-scrollbar justify-start overflow-x-scroll z-50">
+          <div className="w-[95%] xl:w-full gap-5 md:pl-10  h-full flex flex-row items-start pt-10 no-scrollbar justify-center overflow-x-scroll z-50">
             <TechBlock
               name="Revivenode"
               description="Premium servers at a pocket friendly price"
