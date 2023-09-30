@@ -11,7 +11,7 @@ export default async function Freelance() {
         <div className="w-full h-full flex flex-col  items-center justify-start  z-20">
           <div className=" md:pl-10 shrink-0 h-fit w-[95%]  xl:w-full  flex flex-row items-center  gap-3 justify-center md:justify-start z-10">
             <h2 className="text-[30px] md:text-[50px] xl:text-[70px] text-white font-bold xl:text-left text-center">
-              Let's Build the,
+              Let&apos;s Build the,
               <br />
               <span className="text-brand-primary">Next big thing</span>
             </h2>
