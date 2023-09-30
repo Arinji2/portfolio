@@ -5,7 +5,10 @@ import Image from "next/image";
 
 export default async function About() {
   return (
-    <section className="w-full relative h-[100svh] flex flex-row items-center justify-end md:justify-center ">
+    <section
+      tabIndex={0}
+      className="w-full relative h-[100svh] flex flex-row items-center justify-end md:justify-center "
+    >
       <div className="w-[30%] h-full relative md:block hidden">
         <Image
           src="/about-pc.png"

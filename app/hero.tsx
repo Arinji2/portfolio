@@ -5,7 +5,10 @@ import Image from "next/image";
 
 export default async function Hero() {
   return (
-    <section className="w-full relative h-[100svh] flex flex-col items-center justify-center xl:justify-start">
+    <section
+      tabIndex={0}
+      className="w-full relative h-[100svh] flex flex-col items-center justify-center xl:justify-start"
+    >
       <Image
         src="/hero.png"
         fill

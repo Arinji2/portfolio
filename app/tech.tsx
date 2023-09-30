@@ -4,7 +4,10 @@ import Image from "next/image";
 
 export default async function Tech() {
   return (
-    <section className="w-full relative h-[100svh] flex flex-row items-center justify-start">
+    <section
+      tabIndex={0}
+      className="w-full relative h-[100svh] flex flex-row items-center justify-start"
+    >
       <div className="h-[100svh] w-full absolute top-0 left-0">
         <Image
           src="/tech.png"
