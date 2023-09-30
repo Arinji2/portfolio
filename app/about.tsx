@@ -12,7 +12,6 @@ export default async function About() {
           fill
           className="object-cover absolute"
           alt="About PC Image"
-          priority
           sizes="30vw"
           quality={100}
         />
