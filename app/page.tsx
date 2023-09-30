@@ -4,6 +4,7 @@ import About from "./about";
 import Tech from "./tech";
 import Experience from "./experience";
 import Projects from "./(projects)/main";
+import Freelance from "./freelance";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Tech />
       <Experience />
       <Projects />
+      <Freelance />
     </main>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import FooterWrapper from "@/components/footerWrapper";
 import WidthWrapper from "@/components/widthWrapper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AppWindow, LayoutGrid, ChevronRight, Pointer } from "lucide-react";
@@ -137,6 +138,7 @@ export default function Projects() {
           />
         </div>
       </div>
+      <FooterWrapper />
     </div>
   );
 }
