@@ -12,7 +12,7 @@ export default async function Experience() {
           src="/experience.png"
           fill
           className="object-cover absolute"
-          alt="Hero Image"
+          alt="Experience Image"
           sizes="100vw"
           quality={100}
         />

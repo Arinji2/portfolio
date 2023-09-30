@@ -72,7 +72,10 @@ function TechBlock({
   projects: number;
 }) {
   return (
-    <article className="w-[300px] md:w-[370px] relative shrink-0 h-[400px] flex flex-col items-center justify-center gap-5 text-center">
+    <article
+      tabIndex={0}
+      className="w-[300px] md:w-[370px] relative shrink-0 h-[400px] flex flex-col items-center justify-center gap-5 text-center"
+    >
       <div className="w-[90%] h-[5px] bg-white absolute top-0"></div>
       <h3 className="text-[30px] md:text-[40px] text-brand-primary font-bold">
         {name}

@@ -86,12 +86,14 @@ export default function Projects() {
             </p>
             <div className="w-fit h-full flex flex-row items-center justify-end gap-8">
               <AppWindow
+                tabIndex={!expanded ? 0 : -1}
                 onClick={() => setExpanded(!expanded)}
                 className={`${
                   expanded ? "text-brand-primary " : "text-white "
                 }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
               />
               <LayoutGrid
+                tabIndex={!expanded ? 0 : -1}
                 onClick={() => setExpanded(!expanded)}
                 className={`${
                   !expanded ? "text-brand-primary " : "text-white "
@@ -102,6 +104,7 @@ export default function Projects() {
         </div>
         <div className="w-full relative flex h-full flex-row items-center justify-start overflow-x-scroll small-scrollbar gap-8">
           <ProjectMinified
+            expanded={expanded}
             name="Listify"
             description="Spotify Playlists, Redesigned"
             image="listify.png"
@@ -109,6 +112,7 @@ export default function Projects() {
             github="https://github.com/Arinji2/listify"
           />
           <ProjectMinified
+            expanded={expanded}
             name="News Nest"
             description="Discover. Explore. Stay Informed."
             image="news.png"
@@ -116,6 +120,7 @@ export default function Projects() {
             github="https://github.com/Arinji2/news-nest"
           />
           <ProjectMinified
+            expanded={expanded}
             name="Gourmet Gusto"
             description="Savor. Create. Inspire."
             image="gourmet.png"
@@ -123,6 +128,7 @@ export default function Projects() {
             github="https://github.com/Arinji2/gourmet-gusto"
           />
           <ProjectMinified
+            expanded={expanded}
             name="Fusion Mania"
             description="RNG Game with Unique Avatars"
             image="fusion.png"
@@ -130,6 +136,7 @@ export default function Projects() {
             github="https://github.com/Arinji2/fusion-mania"
           />
           <ProjectMinified
+            expanded={expanded}
             name="Word Or Not"
             description="AI Game to guess valid words"
             image="word.png"
@@ -183,12 +190,14 @@ function ProjectExpanded({
             </p>
             <div className="w-fit h-full flex flex-row items-center justify-end gap-8">
               <AppWindow
+                tabIndex={expanded ? 0 : -1}
                 onClick={() => setExpanded(!expanded)}
                 className={`${
                   expanded ? "text-brand-primary " : "text-white "
                 }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
               />
               <LayoutGrid
+                tabIndex={expanded ? 0 : -1}
                 onClick={() => setExpanded(!expanded)}
                 className={`${
                   !expanded ? "text-brand-primary " : "text-white "
@@ -211,6 +220,7 @@ function ProjectExpanded({
             </div>
             <div className="w-full pt-5 h-fit flex flex-col xl:flex-row items-center justify-start gap-y-6 gap-3">
               <Link
+                tabIndex={expanded ? 0 : -1}
                 href={link}
                 target="_blank"
                 className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-center gap-2"
@@ -221,6 +231,7 @@ function ProjectExpanded({
                 <ChevronRight className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
               </Link>
               <Link
+                tabIndex={expanded ? 0 : -1}
                 href={github}
                 target="_blank"
                 className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-secondary flex flex-row items-center justify-center gap-2"
@@ -267,12 +278,14 @@ function ProjectMinified({
   image,
   link,
   github,
+  expanded,
 }: {
   name: string;
   description: string;
   image: string;
   link: string;
   github: string;
+  expanded: boolean;
 }) {
   return (
     <section className="w-full xl:w-[500px] shrink-0 h-full flex flex-col items-center justify-start relative">
@@ -300,6 +313,7 @@ function ProjectMinified({
           </div>
           <div className="w-full pt-5 h-fit flex flex-col  items-center justify-start gap-y-6 gap-3">
             <Link
+              tabIndex={!expanded ? 0 : -1}
               href={link}
               target="_blank"
               className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-center gap-2"
@@ -310,6 +324,7 @@ function ProjectMinified({
               <ChevronRight className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
             </Link>
             <Link
+              tabIndex={!expanded ? 0 : -1}
               href={github}
               target="_blank"
               className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-secondary flex flex-row items-center justify-center gap-2"
