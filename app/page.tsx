@@ -2,6 +2,7 @@ import Image from "next/image";
 import Hero from "./hero";
 import About from "./about";
 import Tech from "./tech";
+import Experience from "./experience";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <About />
       <Tech />
+      <Experience />
     </main>
   );
 }
