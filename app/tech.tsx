@@ -38,7 +38,7 @@ export default async function Tech() {
           />
           <TechBlock
             name="supabase"
-            description="An open source baas, using postgress. Comes with auth, storage, and more"
+            description="An open source baas, using postgress. Comes with auth and storage."
             projects={5}
           />
           <TechBlock
