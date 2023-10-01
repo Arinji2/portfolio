@@ -11,7 +11,9 @@ export function Form() {
       <div className="md:w-[40%] w-[95%] md:h-[300px] h-[40%] flex flex-col items-center gap-5 justify-start">
         <div className="h-fit w-full flex flex-row items-center justify-start gap-5">
           <div className="w-[60%] h-full flex flex-col items-start justify-center">
-            <p className="text-white text-[20px] shrink-0">Name:</p>
+            <label htmlFor="name" className="text-white text-[20px] shrink-0">
+              Name:
+            </label>
           </div>
           <input
             id="name"
@@ -23,7 +25,12 @@ export function Form() {
         </div>
         <div className="h-fit w-full flex flex-row items-center justify-start gap-5">
           <div className="w-[60%] h-full flex flex-col items-start justify-center">
-            <p className="text-white text-[20px] shrink-0">Subject:</p>
+            <label
+              htmlFor="subject"
+              className="text-white text-[20px] shrink-0"
+            >
+              Subject:
+            </label>
           </div>
           <input
             id="subject"
@@ -35,7 +42,9 @@ export function Form() {
         </div>
         <div className="h-fit w-full flex flex-row items-center justify-start gap-5">
           <div className="w-[60%] h-full flex flex-col items-start justify-center">
-            <p className="text-white text-[20px] shrink-0">Your Email:</p>
+            <label htmlFor="email" className="text-white text-[20px] shrink-0">
+              Your Email:
+            </label>
           </div>
           <input
             id="email"
@@ -49,7 +58,9 @@ export function Form() {
       <div className="md:w-[40%] w-[95%] md:h-[300px] h-fit flex flex-col items-center gap-5 justify-start">
         <div className="h-[60%] w-full flex flex-row items-start justify-start gap-5">
           <div className="w-[60%] md:w-[20%] h-full flex flex-col items-start justify-start">
-            <p className="text-white text-[20px] shrink-0">Body:</p>
+            <label htmlFor="body" className="text-white text-[20px] shrink-0">
+              Body:
+            </label>
           </div>
           <textarea
             id="body"

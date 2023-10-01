@@ -20,6 +20,7 @@ export default async function Contact() {
             <Link
               href="https://www.github.com/Arinji2"
               target="_blank"
+              aria-label="Github Link"
               className="w-[90px] h-[90px] flex flex-col items-center justify-center gap-1"
             >
               <FontAwesomeIcon
@@ -30,6 +31,7 @@ export default async function Contact() {
             <Link
               href="https://discord.com/users/890486507872342027"
               target="_blank"
+              aria-label="Discord Link"
               className="w-[90px] h-[90px] flex flex-col items-center justify-center gap-1"
             >
               <FontAwesomeIcon
