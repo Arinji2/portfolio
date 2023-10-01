@@ -13,7 +13,7 @@ export default async function Contact() {
     >
       <WidthWrapper transparent>
         <div className="w-full xl:w-[90%] h-full flex flex-col items-start justify-start z-20">
-          <h2 className="text-brand-primary font-bold text-center md:text-left text-[60px] nd:text-[80px] xl:text-[100px]">
+          <h2 className="text-brand-primary font-bold text-center md:text-left text-[50px] md:text-[80px] xl:text-[100px]">
             Contact Me!
           </h2>
           <div className="w-full  md:w-[95%] h-fit flex-nowrap flex flex-row items-center justify-center md:justify-start  gap-12">
@@ -21,7 +21,7 @@ export default async function Contact() {
               href="https://www.github.com/Arinji2"
               target="_blank"
               aria-label="Github Link"
-              className="w-[90px] h-[90px] flex flex-col items-center justify-center gap-1"
+              className="md:w-[90px] md:h-[90px] w-[45px] h-[45px] flex flex-col items-center justify-center gap-1"
             >
               <FontAwesomeIcon
                 icon={faGithub}
@@ -32,7 +32,7 @@ export default async function Contact() {
               href="https://discord.com/users/890486507872342027"
               target="_blank"
               aria-label="Discord Link"
-              className="w-[90px] h-[90px] flex flex-col items-center justify-center gap-1"
+              className="md:w-[90px] md:h-[90px] w-[45px] h-[45px] flex flex-col items-center justify-center gap-1"
             >
               <FontAwesomeIcon
                 icon={faDiscord}
