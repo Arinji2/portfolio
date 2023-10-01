@@ -8,6 +8,7 @@ import Freelance from "./freelance";
 import Github from "./github";
 import Contact from "./(contact)/contact";
 import Toast from "./toast";
+import Game from "./(tetris)/game";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Freelance />
       <Github />
       <Contact />
+      <Game />
     </main>
   );
 }

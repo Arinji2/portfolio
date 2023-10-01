@@ -1,0 +1,28 @@
+.cell.Empty {
+  background-color: #323232;
+}
+
+.cell.I {
+  background-color: #66fce1;
+}
+.cell.J {
+  background-color: #66fc90;
+}
+.cell.L {
+  background-color: #fc6666;
+}
+.cell.O {
+  background-color: #fcf666;
+}
+.cell.S {
+  background-color: #7266fc;
+}
+.cell.T {
+  background-color: #fc66ed;
+}
+.cell.Z {
+  background-color: #fc9c66;
+}
+.cell.hidden {
+  visibility: hidden;
+}
