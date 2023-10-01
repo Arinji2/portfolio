@@ -9,6 +9,17 @@ export const metadata: Metadata = {
   title: "Arinji",
   description:
     "A Web Developer and UI/UX Designer  based in India, who loves to build things for the web.",
+  openGraph: {
+    title: `Arinji`,
+    description:
+      "A Web Developer and UI/UX Designer  based in India, who loves to build things for the web.",
+    images: [
+      {
+        url: "/logo.png",
+        alt: `Arinji Logo Picture`,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

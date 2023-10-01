@@ -22,6 +22,7 @@ export default function Home() {
       <Freelance />
       <Github />
       <Contact />
+      <Game />
     </main>
   );
 }
