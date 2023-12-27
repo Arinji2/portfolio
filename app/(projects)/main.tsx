@@ -21,11 +21,11 @@ export default function Projects() {
         aria-hidden={!expanded}
       >
         <ProjectExpanded
-          name="Listify"
-          description="Spotify Playlists, Redesigned"
+          name="VIBEIFY"
+          description="Giving Love to your Spotify Playlists"
           image="listify.png"
-          link="https://listify.arinji.com"
-          github="https://github.com/Arinji2/listify"
+          link="https://vibeify.arinji.com"
+          github="https://github.com/Arinji2/vibeify"
           expanded={expanded}
           setExpanded={setExpanded}
           stack={["Next JS", "Supabase", "Tailwind"]}
@@ -44,7 +44,7 @@ export default function Projects() {
           name="Gourmet Gusto"
           description="Savor. Create. Inspire."
           image="gourmet.png"
-          link="https://gourmet.arinji.com"
+          link="https://food.arinji.com"
           github="https://github.com/Arinji2/gourmet-gusto"
           expanded={expanded}
           setExpanded={setExpanded}
