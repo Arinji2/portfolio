@@ -29,7 +29,7 @@ export const ConfirmationEmail = ({ name }: { name: string }) => {
                   Note: This is an automated email. Please do not reply to this
                 </Text>
 
-                <Button pY={19} style={button} href="https://arinji.com/">
+                <Button style={button} href="https://arinji.com/">
                   Check out my website
                 </Button>
               </Row>
@@ -86,6 +86,8 @@ const button = {
   textAlign: "center" as const,
   display: "block",
   width: "100%",
+  paddingTop: "19px",
+  paddingBottom: "19px",
 };
 
 const hr = {

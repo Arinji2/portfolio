@@ -10,18 +10,18 @@
     "email": "email dev --dir emails"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@react-email/button": "0.0.10",
-    "@react-email/components": "^0.0.12",
-    "@react-email/html": "0.0.4",
-    "lucide-react": "^0.279.0",
-    "next": "^14.0.4",
+    "@react-email/button": "0.0.14",
+    "@react-email/components": "^0.0.16",
+    "@react-email/html": "0.0.7",
+    "lucide-react": "^0.365.0",
+    "next": "^14.1.4",
     "react": "latest",
     "react-dom": "latest",
-    "react-email": "1.9.5",
-    "resend": "^1.1.0"
+    "react-email": "2.1.1",
+    "resend": "^3.2.0"
   },
   "devDependencies": {
     "@types/node": "latest",
