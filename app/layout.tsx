@@ -28,10 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className="bg-brand-background-primary snap-y snap-proximity"
-    >
+    <html lang="en" className="bg-brand-background-primary">
       <body className={`${silkscreen.className} `}>{children}</body>
     </html>
   );

@@ -19,7 +19,7 @@ export default function Game() {
 
   return (
     <main
-      className={`h-[100svh] snap-center p-2 overflow-hidden w-full flex flex-col items-center justify-center relative bg-[#323232] gap-5 md:gap-7 xl:gap-10`}
+      className={`h-[100svh]  p-2 overflow-hidden w-full flex flex-col items-center justify-center relative bg-[#323232] gap-5 md:gap-7 xl:gap-10`}
     >
       <Image
         src="/tetris/bg.gif"

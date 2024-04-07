@@ -5,7 +5,7 @@ export default async function Tech() {
   return (
     <section
       tabIndex={0}
-      className="w-full relative h-fit snap-center flex flex-row items-center justify-start pb-3 md:pb-0 z-[80] shadow-lg shadow-black"
+      className="w-full relative h-fit  flex flex-row items-center justify-start pb-3 md:pb-0 z-[80] shadow-lg shadow-black"
     >
       <div className="h-full w-full absolute top-0 left-0">
         <Image
@@ -119,7 +119,7 @@ function TechBlock({
   return (
     <article
       tabIndex={0}
-      className="w-[300px] snap-center  md:w-[370px] relative shrink-0 md:h-[300px] h-[400px] flex flex-col items-center justify-center gap-5 text-center"
+      className="w-[300px]   md:w-[370px] relative shrink-0 md:h-[300px] h-[400px] flex flex-col items-center justify-center gap-5 text-center"
     >
       <div
         className={`${

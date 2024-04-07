@@ -7,7 +7,7 @@ export default async function Github() {
   return (
     <section
       tabIndex={0}
-      className="w-full snap-center relative h-[100svh] flex flex-col items-center justify-start py-5 px-2"
+      className="w-full  relative h-[100svh] flex flex-col items-center justify-start py-5 px-2"
     >
       <Image
         src="/github.png"

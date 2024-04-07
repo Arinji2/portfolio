@@ -9,7 +9,7 @@ export default async function Contact() {
   return (
     <section
       tabIndex={0}
-      className="w-full snap-center relative h-full md:h-[100svh] flex flex-col items-center justify-start py-5 px-2"
+      className="w-full  relative h-full md:h-[100svh] flex flex-col items-center justify-start py-5 px-2"
     >
       <WidthWrapper transparent>
         <div className="w-full xl:w-[90%] h-full flex flex-col items-center justify-start z-20">
