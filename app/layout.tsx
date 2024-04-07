@@ -1,12 +1,13 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { Silkscreen } from "next/font/google";
 import DisableArrows from "./disableArrows";
+import "./globals.css";
 
 const silkscreen = Silkscreen({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Arinji",
+  metadataBase: new URL(process.env.METADATA_BASE_URL!),
   description:
     "A Web Developer and UI/UX Designer  based in India, who loves to build things for the web.",
   openGraph: {
