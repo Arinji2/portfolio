@@ -19,7 +19,7 @@ export default async function Experience() {
       </div>
       <WidthWrapper transparent>
         <div className="w-full h-full flex flex-col  items-center justify-start  z-20">
-          <div className=" md:pl-10 shrink-0 h-fit w-[95%]  xl:w-full  flex flex-row items-center  gap-3 justify-center md:justify-start z-10">
+          <div className=" md:pl-10 shrink-0 h-fit w-[95%]  xl:w-full  flex flex-row items-center  gap-3 justify-center  z-10">
             <h2 className="text-[40px] md:text-[50px] xl:text-[70px] text-brand-primary font-bold text-center">
               Experience
             </h2>
@@ -29,7 +29,7 @@ export default async function Experience() {
               name="Revivenode"
               description="Premium servers at a pocket friendly price"
               post="Frontend, Ui/Ux"
-              time="2023 - Present"
+              time="June 2023 - May 2024"
               link="https://revivenode.com"
             />
           </div>

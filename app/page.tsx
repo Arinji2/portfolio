@@ -1,14 +1,13 @@
-import Image from "next/image";
-import Hero from "./hero";
-import About from "./about";
-import Tech from "./tech";
-import Experience from "./experience";
+import Contact from "./(contact)/contact";
 import Projects from "./(projects)/main";
+import Game from "./(tetris)/game";
+import About from "./about";
+import Experience from "./experience";
 import Freelance from "./freelance";
 import Github from "./github";
-import Contact from "./(contact)/contact";
+import Hero from "./hero";
+import Tech from "./tech";
 import Toast from "./toast";
-import Game from "./(tetris)/game";
 
 export default function Home() {
   return (
