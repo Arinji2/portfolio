@@ -24,9 +24,9 @@ export default async function Github() {
             Github Stats
           </h2>
           <div className="w-full  md:w-[95%] h-full flex-nowrap flex md:flex-row items-center justify-start md:justify-center gap-8 flex-col">
-            <Card name="Repos" description="30+" />
-            <Card name="Commits" description="1500+" />
-            <Card name="Stars" description="20+" />
+            <Card name="Repos" description="45+" />
+            <Card name="Commits" description="2000+" />
+            <Card name="Stars" description="50+" />
           </div>
           <Link
             href="https://github.com/Arinji2"
