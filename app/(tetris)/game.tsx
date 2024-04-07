@@ -4,7 +4,7 @@ import { Board } from "@/app/(tetris)/Board";
 import { useTetris } from "@/app/(tetris)/hooks/useTetris";
 import Image from "next/image";
 import * as React from "react";
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useMobTetris } from "./hooks/useMobTetris";
 
 export default function Game() {

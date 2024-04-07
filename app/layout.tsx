@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Silkscreen } from "next/font/google";
-import DisableArrows from "./disableArrows";
 import "./globals.css";
 
 const silkscreen = Silkscreen({ subsets: ["latin"], weight: ["400", "700"] });
@@ -30,10 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-brand-background-primary">
-      <body className={silkscreen.className}>
-        <DisableArrows />
-        {children}
-      </body>
+      <body className={silkscreen.className}>{children}</body>
     </html>
   );
 }

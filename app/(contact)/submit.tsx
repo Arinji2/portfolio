@@ -1,9 +1,10 @@
 "use client";
+
 export function SubmitButton() {
   return (
     <button
       type="submit"
-      onClick={() => {
+      onClick={async () => {
         window.dispatchEvent(new Event("mailSent"));
       }}
       className="w-fit py-3 px-5 h-fit bg-brand-background-secondary text-white rounded-md"
