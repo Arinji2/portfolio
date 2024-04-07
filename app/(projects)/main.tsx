@@ -1,6 +1,5 @@
 "use client";
 
-import FooterWrapper from "@/components/footerWrapper";
 import { AppWindow, LayoutGrid } from "lucide-react";
 import { useRef, useState } from "react";
 import { ProjectExpanded, ProjectMinified } from "./components";
@@ -157,7 +156,6 @@ export default function Projects() {
           />
         </div>
       </div>
-      <FooterWrapper />
     </div>
   );
 }

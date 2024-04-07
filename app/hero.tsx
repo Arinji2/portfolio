@@ -1,4 +1,3 @@
-import FooterWrapper from "@/components/footerWrapper";
 import OverlayWrapper from "@/components/overlayWrapper";
 import WidthWrapper from "@/components/widthWrapper";
 import Image from "next/image";
@@ -7,7 +6,7 @@ export default async function Hero() {
   return (
     <section
       tabIndex={0}
-      className="w-full relative h-[100svh] flex flex-col items-center justify-center xl:justify-start"
+      className="w-full relative h-[100svh] flex flex-col items-center justify-center xl:justify-start z-[100] shadow-lg shadow-black"
     >
       <Image
         src="/hero.png"
@@ -41,7 +40,6 @@ export default async function Hero() {
           </div>
         </div>
       </WidthWrapper>
-      <FooterWrapper />
     </section>
   );
 }

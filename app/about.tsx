@@ -1,4 +1,3 @@
-import FooterWrapper from "@/components/footerWrapper";
 import OverlayWrapper from "@/components/overlayWrapper";
 import WidthWrapper from "@/components/widthWrapper";
 import Image from "next/image";
@@ -7,7 +6,7 @@ export default async function About() {
   return (
     <section
       tabIndex={0}
-      className="w-full relative h-[100svh] flex flex-row items-center justify-end md:justify-center "
+      className="w-full relative h-[100svh] flex flex-row items-center justify-end md:justify-center z-[90] shadow-lg shadow-black "
     >
       <div className="w-[30%] h-full relative md:block hidden">
         <Image
@@ -66,7 +65,6 @@ export default async function About() {
         />
         <OverlayWrapper opacity={0.5} />
       </div>
-      <FooterWrapper />
     </section>
   );
 }

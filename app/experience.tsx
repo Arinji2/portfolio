@@ -1,4 +1,3 @@
-import FooterWrapper from "@/components/footerWrapper";
 import OverlayWrapper from "@/components/overlayWrapper";
 import WidthWrapper from "@/components/widthWrapper";
 import Image from "next/image";
@@ -6,7 +5,7 @@ import Link from "next/link";
 
 export default async function Experience() {
   return (
-    <section className="w-full relative h-[100svh] flex flex-row items-center justify-start">
+    <section className="w-full relative h-[100svh] flex flex-row items-center justify-start ">
       <div className="h-[100svh] w-full absolute top-0 left-0">
         <Image
           src="/experience.png"
@@ -36,8 +35,6 @@ export default async function Experience() {
           </div>
         </div>
       </WidthWrapper>
-
-      <FooterWrapper />
     </section>
   );
 }

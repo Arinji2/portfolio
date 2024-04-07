@@ -1,4 +1,3 @@
-import FooterWrapper from "@/components/footerWrapper";
 import OverlayWrapper from "@/components/overlayWrapper";
 import WidthWrapper from "@/components/widthWrapper";
 import Image from "next/image";
@@ -41,7 +40,6 @@ export default async function Github() {
           </Link>
         </div>
       </WidthWrapper>
-      <FooterWrapper />
     </section>
   );
 }

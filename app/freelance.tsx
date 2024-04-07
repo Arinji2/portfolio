@@ -1,8 +1,5 @@
-import FooterWrapper from "@/components/footerWrapper";
-import OverlayWrapper from "@/components/overlayWrapper";
 import WidthWrapper from "@/components/widthWrapper";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Freelance() {
   return (
@@ -26,8 +23,6 @@ export default async function Freelance() {
           </div>
         </div>
       </WidthWrapper>
-
-      <FooterWrapper />
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import FooterWrapper from "@/components/footerWrapper";
 import OverlayWrapper from "@/components/overlayWrapper";
 import Image from "next/image";
 
@@ -6,7 +5,7 @@ export default async function Tech() {
   return (
     <section
       tabIndex={0}
-      className="w-full relative h-fit  flex flex-row items-center justify-start"
+      className="w-full relative h-fit  flex flex-row items-center justify-start pb-3 md:pb-0 z-[80] shadow-lg shadow-black"
     >
       <div className="h-full w-full absolute top-0 left-0">
         <Image
@@ -102,8 +101,6 @@ export default async function Tech() {
           </div>
         </div>
       </div>
-
-      <FooterWrapper />
     </section>
   );
 }
