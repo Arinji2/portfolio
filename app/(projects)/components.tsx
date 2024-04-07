@@ -13,6 +13,7 @@ export function ProjectExpanded({
   setExpanded,
   stack,
   scrollFunction,
+  top,
 }: {
   name: string;
   description: string;
@@ -23,6 +24,7 @@ export function ProjectExpanded({
   setExpanded: Function;
   stack: string[];
   scrollFunction: Function;
+  top?: boolean;
 }) {
   return (
     <section className="w-full h-[100svh] flex flex-col items-center justify-start relative">
@@ -30,7 +32,7 @@ export function ProjectExpanded({
         <Image
           src={`/projects/${image}`}
           fill
-          className="object-cover absolute"
+          className={`object-cover  absolute ${top && "object-top"}`}
           alt={name}
           sizes="100vw"
           quality={100}
@@ -51,7 +53,7 @@ export function ProjectExpanded({
                 }}
                 className={`${
                   expanded ? "text-brand-primary " : "text-white "
-                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
+                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer outline-none  transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
               />
               <LayoutGrid
                 tabIndex={expanded ? 0 : -1}
@@ -62,7 +64,7 @@ export function ProjectExpanded({
                 }}
                 className={`${
                   !expanded ? "text-brand-primary " : "text-white "
-                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
+                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] outline-none  hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
               />
             </div>
           </div>
