@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function Experience() {
   return (
-    <section className="w-full relative h-[100svh] flex flex-row items-center justify-start ">
+    <section className="w-full snap-center relative h-[100svh] flex flex-row items-center justify-start ">
       <div className="h-[100svh] w-full absolute top-0 left-0">
         <Image
           src="/experience.png"

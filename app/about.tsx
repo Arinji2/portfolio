@@ -6,7 +6,7 @@ export default async function About() {
   return (
     <section
       tabIndex={0}
-      className="w-full relative h-[100svh] flex flex-row items-center justify-end md:justify-center z-[90] shadow-lg shadow-black "
+      className="w-full snap-center relative h-[100svh] flex flex-row items-center justify-end md:justify-center z-[90] shadow-lg shadow-black "
     >
       <div className="w-[30%] h-full relative md:block hidden">
         <Image

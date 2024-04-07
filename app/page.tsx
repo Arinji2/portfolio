@@ -11,7 +11,7 @@ import Toast from "./toast";
 
 export default function Home() {
   return (
-    <main className="w-full h-full flex flex-col items-center justify-start">
+    <main className="w-full h-full flex flex-col items-center justify-start ">
       <Toast />
       <Hero />
       <About />

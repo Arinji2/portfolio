@@ -27,7 +27,7 @@ export function ProjectExpanded({
   top?: boolean;
 }) {
   return (
-    <section className="w-full h-[100svh] flex flex-col items-center justify-start relative">
+    <section className="w-full snap-center h-[100svh] flex flex-col items-center justify-start relative">
       <div className="h-[100svh] w-full absolute top-0 left-0">
         <Image
           src={`/projects/${image}`}
