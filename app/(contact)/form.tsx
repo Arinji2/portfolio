@@ -9,7 +9,7 @@ export function Form() {
       className="w-full h-full flex flex-col md:flex-row items-center justify-center gap-6 mt-10"
     >
       <div className="md:w-[40%] w-[95%] md:h-[300px] h-[40%] flex flex-col items-center gap-5 justify-start">
-        <div className="h-fit w-full flex flex-row items-center justify-start gap-5">
+        <div className="h-fit w-full flex flex-col md:flex-row items-start md:items-center justify-start gap-5">
           <div className="w-[60%] h-full flex flex-col items-start justify-center">
             <label htmlFor="name" className="text-white text-[20px] shrink-0">
               Name:
@@ -23,7 +23,7 @@ export function Form() {
             className="w-full rounded-md  outline-transparent h-[50px] bg-brand-background-secondary p-3 text-white text-[20px] "
           />
         </div>
-        <div className="h-fit w-full flex flex-row items-center justify-start gap-5">
+        <div className="h-fit w-full flex flex-col md:flex-row items-start md:items-center justify-start gap-5">
           <div className="w-[60%] h-full flex flex-col items-start justify-center">
             <label
               htmlFor="subject"
@@ -40,7 +40,7 @@ export function Form() {
             className="w-full rounded-md  outline-transparent h-[50px] bg-brand-background-secondary p-3 text-white text-[20px] "
           />
         </div>
-        <div className="h-fit w-full flex flex-row items-center justify-start gap-5">
+        <div className="h-fit w-full flex flex-col md:flex-row items-start md:items-center justify-start gap-5">
           <div className="w-[60%] h-full flex flex-col items-start justify-center">
             <label htmlFor="email" className="text-white text-[20px] shrink-0">
               Your Email:
@@ -56,7 +56,7 @@ export function Form() {
         </div>
       </div>
       <div className="md:w-[40%] w-[95%] md:h-[300px] h-fit flex flex-col items-center gap-5 justify-start">
-        <div className="h-[60%] w-full flex flex-row items-start justify-start gap-5">
+        <div className="h-[60%] w-full flex flex-col md:flex-row items-start justify-start gap-5">
           <div className="w-[60%] md:w-[20%] h-full flex flex-col items-start justify-start">
             <label htmlFor="body" className="text-white text-[20px] shrink-0">
               Body:
