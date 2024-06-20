@@ -29,7 +29,7 @@ export default async function Experience() {
               name="Revivenode"
               description="Premium servers at a pocket friendly price"
               post="Frontend, Ui/Ux"
-              time="June 2023 - May 2024"
+              time="June 2023 - July 2024"
               link="https://revivenode.com"
             />
           </div>
