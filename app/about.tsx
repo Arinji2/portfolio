@@ -46,7 +46,7 @@ export default async function About() {
             </div>
             <div className="w-full h-[30%] p-2 flex flex-col items-center justify-center text-center">
               <p className="text-white text-[15px] md:text-[25px]">
-                i am 16 years old, and started coding at the age of 14.
+                i am 17 years old, and started coding at the age of 14.
               </p>
             </div>
           </div>
