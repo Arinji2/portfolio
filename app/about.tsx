@@ -23,8 +23,8 @@ export default async function About() {
         <WidthWrapper color="#6D6D6D">
           <div className="w-full h-full flex flex-col items-center justify-center">
             <div className="w-full h-[30%] p-2 flex flex-col items-center justify-center text-center">
-              <p className="text-white text-[15px] md:text-[25px]">
-                I am a ui/ux designer from India, born in America.
+              <p className="text-white text-[15px] md:text-[30px]">
+                I am a UI/UX designer from India, born in America.
               </p>
             </div>
             <div
@@ -34,7 +34,7 @@ export default async function About() {
               <div className="h-3 w-[75%] bg-white"></div>
             </div>
             <div className="w-full h-[30%] my-4 p-2 flex flex-col items-center justify-center text-center">
-              <h2 className="text-brand-primary text-[50px] md:text-[70px]">
+              <h2 className="text-brand-primary text-[50px] md:text-[80px] font-bold">
                 ABOUT ME
               </h2>
             </div>
@@ -45,7 +45,7 @@ export default async function About() {
               <div className="h-3 w-[75%] bg-white"></div>
             </div>
             <div className="w-full h-[30%] p-2 flex flex-col items-center justify-center text-center">
-              <p className="text-white text-[15px] md:text-[25px]">
+              <p className="text-white text-[15px] md:text-[30px]">
                 i am 17 years old, and started coding at the age of 14.
               </p>
             </div>

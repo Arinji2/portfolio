@@ -42,7 +42,7 @@ export function ProjectExpanded({
       <div className="sticky top-0 h-[80px] w-full z-50 bg-brand-background-primary flex flex-col items-center justify-center">
         <WidthWrapper transparent>
           <div className="w-[90%] h-full flex flex-row items-center justify-between">
-            <p className="text-white text-[13px] md:text-[20px] font-bold">
+            <p className="text-white text-[13px] md:text-[20px] font-bold tracking-wider">
               Projects/<span className="text-brand-primary">{name}</span>
             </p>
             <div className="w-fit h-full flex flex-row items-center justify-end gap-8">
@@ -117,17 +117,17 @@ export function StackAnimation({ stack }: { stack: string[] }) {
     <div className="w-full md:w-[500px] shrink-0 md:aspect-video flex flex-col items-center justify-center aspect-square  relative group z-30">
       <Pointer className="text-white w-[20px] h-[20px] z-40 absolute -top-5 right-20" />
       <div className=" w-[30%] rounded-md aspect-[63/88] flex flex-col items-center justify-center transition-all ease-[0.7, -0.4, 0.4, 1.4] duration-500 bg-[#141414]  absolute group-hover:translate-x-[110%] group-hover:rotate-2 group-hover:translate-y-3 -rotate-2 z-30">
-        <p className="text-brand-primary font-bold text-[10px] md:text-[15px]">
+        <p className="text-brand-primary font-medium text-[10px] md:text-[20px]">
           {stack[0]}
         </p>
       </div>
       <div className=" w-[30%] rounded-md aspect-[63/88] flex flex-col items-center justify-center transition-all ease-[0.7, -0.4, 0.4, 1.4] duration-500 bg-[#3f3f3f]  absolute group-hover:rotate-0 group-hover:translate-x-0 -rotate-3 -translate-y-2 z-20 -translate-x-2">
-        <p className="text-brand-primary font-bold text-[10px] md:text-[15px]">
+        <p className="text-brand-primary font-medium text-[10px] md:text-[20px]">
           {stack[1]}
         </p>
       </div>
       <div className=" w-[30%] rounded-md aspect-[63/88] flex flex-col items-center justify-center transition-all ease-[0.7, -0.4, 0.4, 1.4] duration-500 ] bg-[#696969] absolute group-hover:-rotate-[2deg] -rotate-[4deg] group-hover:-translate-x-[110%] group-hover:translate-y-3 -translate-y-3 z-10 -translate-x-3">
-        <p className="text-brand-primary font-bold text-[10px] md:text-[15px]">
+        <p className="text-brand-primary font-medium text-[10px] md:text-[20px]">
           {stack[2]}
         </p>
       </div>

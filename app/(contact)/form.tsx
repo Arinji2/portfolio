@@ -55,6 +55,7 @@ export function Form() {
           />
         </div>
       </div>
+      <input type="hidden" name="From" />
       <div className="md:w-[40%] w-[95%] md:h-[300px] h-fit flex flex-col items-center gap-5 justify-start">
         <div className="h-[60%] w-full flex flex-col md:flex-row items-start justify-start gap-5">
           <div className="w-[60%] md:w-[20%] h-full flex flex-col items-start justify-start">

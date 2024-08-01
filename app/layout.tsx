@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Silkscreen } from "next/font/google";
+import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
-
-const silkscreen = Silkscreen({ subsets: ["latin"], weight: ["400", "700"] });
+const pixelifySans = Pixelify_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Arinji",
@@ -29,7 +31,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-brand-background-primary">
-      <body className={`${silkscreen.className} `}>{children}</body>
+      <body className={`${pixelifySans.className} tracking-[0.2em] `}>
+        {children}
+      </body>
     </html>
   );
 }

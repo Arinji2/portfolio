@@ -6,7 +6,7 @@ import { ProjectExpanded, ProjectMinified } from "./components";
 
 const projects = [
   {
-    name: "VIBEIFY",
+    name: "Vibeify",
     description: "Giving Love to your Spotify Playlists",
     image: "vibeify.png",
     link: "https://vibeify.arinji.com",
