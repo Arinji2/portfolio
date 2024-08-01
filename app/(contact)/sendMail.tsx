@@ -10,6 +10,12 @@ export async function sendMail(formData: FormData) {
   const email = form.get("email") as string;
   const subject = form.get("subject") as string;
   const body = form.get("body") as string;
+  const from = form.get("From") as string;
+
+  if (from) {
+    cookies().set("emailSent", "true");
+    return;
+  }
 
   const resend = new Resend(process.env.EMAIL_KEY);
 
