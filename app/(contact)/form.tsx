@@ -82,6 +82,7 @@ export function Form() {
         <Turnstile
           sitekey="0x4AAAAAAAgk0KI7mfH7t1k9"
           fixedSize
+          appearance="interaction-only"
           onVerify={(token) => {
             setVerified(true);
             setCaptchaToken(token);
