@@ -4,6 +4,16 @@ import { AppWindow, LayoutGrid } from "lucide-react";
 import { useRef, useState } from "react";
 import { ProjectExpanded, ProjectMinified } from "./components";
 
+export type TechStackType = {
+  name: string;
+  used: string;
+  key: string;
+};
+
+export type DesignType = {
+  type: string;
+  details: string;
+};
 const projects = [
   {
     name: "Vibeify",
@@ -11,7 +21,28 @@ const projects = [
     image: "vibeify.png",
     link: "https://vibeify.arinji.com",
     github: "https://github.com/Arinji2/vibeify",
-    stack: ["Next JS", "Supabase", "Tailwind"],
+    stack: [
+      {
+        name: "Next JS",
+        used: "It is the base for this project, it is used for the frontend and backend.",
+        key: "Frontend",
+      },
+      {
+        name: "Pocketbase",
+        used: "It is the database for this project, it is also used to authenticate.",
+        key: "Database",
+      },
+      {
+        name: "Tailwind",
+        used: "It is used for the styling of the project.",
+        key: "Styling",
+      },
+    ],
+    design: {
+      type: "Modern Fusion",
+      details:
+        "The site has a modern and simplistic light mode design, with a slight new brutalist style. There are also themes you can choose, like pixel and neo brutalism. ",
+    },
   },
   {
     name: "Imagee",
@@ -19,7 +50,28 @@ const projects = [
     image: "imagee.jpg",
     link: "https://imagee.arinji.com",
     github: "https://github.com/Arinji2/imagee/",
-    stack: ["Next JS", "DiscordJS", "Tailwind"],
+    stack: [
+      {
+        name: "Next JS",
+        used: "It is used for the frontend and backend.",
+        key: "Frontend",
+      },
+      {
+        name: "DiscordJS",
+        used: "It is used for interacting with the Discord API.",
+        key: "Backend",
+      },
+      {
+        name: "Tailwind",
+        used: "It is used for styling.",
+        key: "Styling",
+      },
+    ],
+    design: {
+      type: "Neo Brutalism Pocket",
+      details:
+        "This site has a very intense neo brutalist design with emphasis on vibrant colors. The site has a pocket feel with compact components placed together.",
+    },
     top: true,
   },
   {
@@ -28,7 +80,28 @@ const projects = [
     image: "news.png",
     link: "https://news.arinji.com",
     github: "https://github.com/Arinji2/news-nest",
-    stack: ["Next JS", "News API", "Tailwind"],
+    stack: [
+      {
+        name: "Next JS",
+        used: "It is used for the frontend and backend.",
+        key: "Frontend",
+      },
+      {
+        name: "News API",
+        used: "It is used to fetch news articles.",
+        key: "Backend",
+      },
+      {
+        name: "Tailwind",
+        used: "It is used for styling.",
+        key: "Styling",
+      },
+    ],
+    design: {
+      type: "Modern Dark",
+      details:
+        "A modern site with a dark background and a asset-rich design. The site has a clean and simple layout with a focus on the content. A sharp red color is used for emphasis.",
+    },
   },
   {
     name: "Gourmet Gusto",
@@ -36,7 +109,28 @@ const projects = [
     image: "gourmet.png",
     link: "https://food.arinji.com",
     github: "https://github.com/Arinji2/gourmet-gusto",
-    stack: ["Next JS", "Open AI", "Tailwind"],
+    stack: [
+      {
+        name: "Next JS",
+        used: "It is used for the frontend and backend.",
+        key: "Frontend",
+      },
+      {
+        name: "Open AI",
+        used: "It is used for generating recipes and suggestions.",
+        key: "Backend",
+      },
+      {
+        name: "Tailwind",
+        used: "It is used for styling.",
+        key: "Styling",
+      },
+    ],
+    design: {
+      type: "Modern Asset Focused",
+      details:
+        "With large assets and minimal usage of text, this site has a lively feel. ",
+    },
   },
   {
     name: "Word Or Not",
@@ -44,7 +138,28 @@ const projects = [
     image: "word.png",
     link: "https://word.arinji.com",
     github: "https://github.com/Arinji2/Word-Or-Nonsence/",
-    stack: ["Next JS", "Open AI", "Tailwind"],
+    stack: [
+      {
+        name: "Next JS",
+        used: "It is used for the frontend and backend.",
+        key: "Frontend",
+      },
+      {
+        name: "Open AI",
+        used: "It is used for validating words.",
+        key: "Backend",
+      },
+      {
+        name: "Tailwind",
+        used: "It is used for styling.",
+        key: "Styling",
+      },
+    ],
+    design: {
+      type: "Pixelated Asset Heavy",
+      details:
+        "This site has a entirely pixelated design with usage of pixelated assets. The site has a lot of contrasting colors and no clear primary palette.",
+    },
   },
   {
     name: "Taskation",
@@ -52,7 +167,28 @@ const projects = [
     image: "task.jpg",
     link: "https://taskation.arinji.com",
     github: "https://github.com/Arinji2/taskation/",
-    stack: ["Next JS", "MySQL", "Tailwind"],
+    stack: [
+      {
+        name: "Next JS",
+        used: "It is used for the frontend and backend.",
+        key: "Frontend",
+      },
+      {
+        name: "MySQL",
+        used: "It is used as the database.",
+        key: "Backend",
+      },
+      {
+        name: "Tailwind",
+        used: "It is used for styling.",
+        key: "Styling",
+      },
+    ],
+    design: {
+      type: "Monochromatic Minimalist",
+      details:
+        "A minimalistic design with a monochromatic color scheme of black and white. The site has a clean and simple layout with a focus on the content.",
+    },
   },
   {
     name: "Fusion Mania",
@@ -60,7 +196,27 @@ const projects = [
     image: "fusion.png",
     link: "https://fusion.arinji.com",
     github: "https://github.com/Arinji2/fusion-mania",
-    stack: ["React", "Firebase", "Tailwind"],
+    stack: [
+      {
+        name: "React",
+        used: "It is used for the frontend.",
+        key: "Frontend",
+      },
+      {
+        name: "Firebase",
+        used: "It is used for the backend and authentication.",
+        key: "Backend",
+      },
+      {
+        name: "Tailwind",
+        used: "It is used for styling.",
+        key: "Styling",
+      },
+    ],
+    design: {
+      type: "Pixelated",
+      details: "This site has a pixelated design with a large usage of colors.",
+    },
   },
 ];
 
@@ -98,6 +254,7 @@ export default function Projects() {
             expanded={expanded}
             setExpanded={setExpanded}
             top={project.top}
+            design={project.design}
           />
         ))}
       </div>

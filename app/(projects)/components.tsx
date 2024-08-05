@@ -2,6 +2,8 @@ import WidthWrapper from "@/components/widthWrapper";
 import { AppWindow, ChevronRight, LayoutGrid, Pointer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ProjectInfo from "./info.client";
+import { DesignType, TechStackType } from "./main";
 
 export function ProjectExpanded({
   name,
@@ -14,6 +16,7 @@ export function ProjectExpanded({
   stack,
   scrollFunction,
   top,
+  design,
 }: {
   name: string;
   description: string;
@@ -22,7 +25,8 @@ export function ProjectExpanded({
   github: string;
   expanded: boolean;
   setExpanded: Function;
-  stack: string[];
+  stack: TechStackType[];
+  design: DesignType;
   scrollFunction: Function;
   top?: boolean;
 }) {
@@ -105,7 +109,9 @@ export function ProjectExpanded({
               </Link>
             </div>
           </div>
-          <StackAnimation stack={stack} />{" "}
+          <div className="h-[80%] w-fit flex flex-col items-center justify-start">
+            <ProjectInfo stack={stack} design={design} />
+          </div>
         </div>
       </WidthWrapper>
     </section>
