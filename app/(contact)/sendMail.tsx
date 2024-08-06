@@ -1,7 +1,7 @@
 "use server";
 import ConfirmationEmail from "@/emails/confirmation";
 import SenderEmail from "@/emails/sender";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { Resend } from "resend";
 
 export async function sendMail(formData: FormData) {
@@ -10,9 +10,26 @@ export async function sendMail(formData: FormData) {
   const email = form.get("email") as string;
   const subject = form.get("subject") as string;
   const body = form.get("body") as string;
-  const from = form.get("From") as string;
 
-  if (from) {
+  const token = form.get("g-recaptcha-response") as string;
+  const ip = headers().get("CF-Connecting-IP")!;
+
+  const secretKey = process.env.TURNSTILE_KEY!;
+  // Validate the token by calling the
+  // "/siteverify" API endpoint.
+  let captchaFormData = new FormData();
+  captchaFormData.append("secret", secretKey);
+  captchaFormData.append("response", token);
+  captchaFormData.append("remoteip", ip);
+
+  const url = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+  const result = await fetch(url, {
+    body: captchaFormData,
+    method: "POST",
+  });
+
+  const outcome = await result.json();
+  if (!outcome.success) {
     cookies().set("emailSent", "true");
     return;
   }
