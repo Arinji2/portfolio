@@ -86,7 +86,10 @@ export default function ProjectInfo({
 
         <div className="w-full h-fit flex flex-col items-start justify-start gap-2 pl-3">
           {stats?.map((stat, index) => (
-            <div className="w-fit h-fit flex flex-row items-center  justify-start">
+            <div
+              key={index}
+              className="w-fit h-fit flex flex-row items-center  justify-start"
+            >
               <p className="text-brand-primary  text-[14px] xl:text-[15px] font-medium">
                 {stat.name}
               </p>
