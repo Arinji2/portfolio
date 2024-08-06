@@ -1,3 +1,4 @@
+import { scrollbarGutter } from "tailwind-scrollbar-utilities";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -22,6 +23,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [scrollbarGutter()],
 };
 export default config;

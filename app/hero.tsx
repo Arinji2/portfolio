@@ -6,7 +6,7 @@ export default async function Hero() {
   return (
     <section
       tabIndex={0}
-      className="w-full  relative h-[100svh] flex flex-col items-center justify-center xl:justify-start z-[100] shadow-lg shadow-black"
+      className="w-full  relative  h-[100svh] flex flex-col items-center justify-center xl:justify-start z-[100] shadow-lg shadow-black"
     >
       <Image
         src="/hero.png"

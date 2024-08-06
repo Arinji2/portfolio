@@ -88,7 +88,7 @@ export default async function Tech() {
           <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
             <TechBlock
               name="HONO"
-              description="Hono is a small, simple, and ultrafast web framework with an express like API."
+              description="Hono is a simple and ultrafast web framework with an express like API."
               projects={2}
               position="top"
             />
@@ -130,7 +130,7 @@ function TechBlock({
         {name}
       </h3>
       <div className="w-[90%] h-fit flex flex-col items-center justify-center text-center ">
-        <p className="text-white/60 ease-in-out duration-200 transition-colors group-hover:text-white text-[15px] md:text-[20px] my-5">
+        <p className="text-white/60 ease-in-out duration-200 transition-colors line-clamp-3 group-hover:text-white text-[15px] md:text-[20px] my-5">
           {description}
         </p>
         <p className="text-[15px] md:text-[20px] font-bold text-brand-primary">

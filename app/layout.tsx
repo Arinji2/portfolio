@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-brand-background-primary">
+    <html lang="en" className="bg-brand-background-primary ">
       <body className={`${pixelifySans.className} tracking-[0.2em] `}>
         {children}
       </body>

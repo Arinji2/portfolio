@@ -9,10 +9,10 @@ export default async function Contact() {
   return (
     <section
       tabIndex={0}
-      className="w-full  relative h-full md:h-[100svh] flex flex-col items-center justify-start py-5 px-2"
+      className="w-full  relative h-fit  flex flex-col items-center justify-center py-5  px-2"
     >
       <WidthWrapper transparent>
-        <div className="w-full xl:w-[90%] h-full flex flex-col items-center justify-start z-20">
+        <div className="w-full xl:w-[90%] h-full flex flex-col items-center justify-start gap-10 z-20">
           <h2 className="text-brand-primary font-bold text-center md:text-left text-[50px] md:text-[80px] xl:text-[80px]">
             CONTACT ME!
           </h2>

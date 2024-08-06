@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default async function Freelance() {
   return (
-    <section className="w-full  relative h-[100svh] mt-10 flex flex-row items-center justify-start">
+    <section className="w-full  relative h-fit pb-10 mt-10 flex flex-row items-center justify-start">
       <WidthWrapper color="">
         <div className="w-full h-full flex flex-col  items-center justify-start  z-20">
           <div className=" md:pl-10 shrink-0 h-fit w-[95%]  xl:w-full  flex flex-row items-center  gap-3 justify-center md:justify-start z-10">

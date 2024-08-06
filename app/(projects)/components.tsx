@@ -2,6 +2,8 @@ import WidthWrapper from "@/components/widthWrapper";
 import { AppWindow, ChevronRight, LayoutGrid, Pointer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ProjectInfo from "./info.client";
+import { InfoType } from "./main";
 
 export function ProjectExpanded({
   name,
@@ -11,9 +13,10 @@ export function ProjectExpanded({
   github,
   expanded,
   setExpanded,
-  stack,
+
   scrollFunction,
   top,
+  info,
 }: {
   name: string;
   description: string;
@@ -22,12 +25,13 @@ export function ProjectExpanded({
   github: string;
   expanded: boolean;
   setExpanded: Function;
-  stack: string[];
+
   scrollFunction: Function;
   top?: boolean;
+  info: InfoType;
 }) {
   return (
-    <section className="w-full  h-[100svh] flex flex-col items-center justify-start relative">
+    <section className="w-full  h-[100svh] flex flex-col items-center justify-start relative ">
       <div className="h-[100svh] w-full absolute top-0 left-0">
         <Image
           src={`/projects/${image}`}
@@ -35,7 +39,7 @@ export function ProjectExpanded({
           className={`object-cover  absolute ${top && "object-top"}`}
           alt={name}
           sizes="100vw"
-          quality={100}
+          quality={50}
         />
         <div className="bg-gradient-to-r from-[#1E1E1E] to-[#1E1E1E80] z-20 absolute w-full h-full top-0 left-0"></div>
       </div>
@@ -71,8 +75,8 @@ export function ProjectExpanded({
         </WidthWrapper>
       </div>
       <WidthWrapper transparent>
-        <div className="w-[90%] h-full flex flex-row items-center justify-between overflow-x-scroll small-scrollbar gap-8 z-30">
-          <div className="shrink-0 xl:w-fit w-full h-full flex flex-col items-center xl:items-start justify-center gap-8">
+        <div className="w-[90%] h-full flex flex-row items-center justify-between snap-x snap-mandatory overflow-x-auto small-scrollbar gap-8 z-30">
+          <div className="shrink-0 xl:w-fit w-full h-full snap-center flex flex-col items-center xl:items-start justify-center gap-8">
             <div className="h-fit w-full flex flex-col items-center xl:items-start justify-center gap-3">
               <h2 className="text-[50px] md:text-[50px] text-center text-brand-primary font-bold">
                 {name}
@@ -105,7 +109,9 @@ export function ProjectExpanded({
               </Link>
             </div>
           </div>
-          <StackAnimation stack={stack} />{" "}
+          <div className="h-[80%] w-fit flex flex-col items-center snap-center justify-start">
+            <ProjectInfo info={info} imageName={image} />
+          </div>
         </div>
       </WidthWrapper>
     </section>
@@ -151,7 +157,7 @@ export function ProjectMinified({
   expanded: boolean;
 }) {
   return (
-    <section className="w-full xl:w-[500px] shrink-0 h-full flex flex-col items-center justify-start relative">
+    <section className="w-full xl:w-[500px] shrink-0 h-full flex flex-col items-center  justify-start relative">
       <div className="h-full w-full absolute top-0 left-0">
         <Image
           src={`/projects/${image}`}
