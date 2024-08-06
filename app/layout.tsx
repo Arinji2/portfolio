@@ -7,8 +7,17 @@ const pixelifySans = Pixelify_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Arinji",
+  title: "Arinji | UI/UX Designer and Developer",
+
   metadataBase: new URL(process.env.METADATA_BASE_URL!),
+  keywords: [
+    "Arinji",
+    "Arinjay Dhar",
+    "Arinjay",
+    "UI/UX",
+    "Indian",
+    "Developer",
+  ],
   description:
     "A Web Developer and UI/UX Designer  based in India, who loves to build things for the web.",
   openGraph: {

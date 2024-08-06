@@ -1,12 +1,30 @@
 "use client";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ArrowUp, Mail } from "lucide-react";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function QuickActions() {
+  const [isScrollable, setIsScrollable] = useState(false);
   const goToTop = useMemo(() => {
     return () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrollable(true);
+      } else {
+        setIsScrollable(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -22,9 +40,28 @@ export default function QuickActions() {
         >
           <Mail className="size-8 text-brand-primary" />
         </Link>
-        <div className="w-1 ml-5 mr-3  bg-white/20"></div>
-        <button onClick={goToTop} className="w-fit h-fit ">
-          <ArrowUp className="size-8 text-brand-primary " />
+        <div className="w-1 mx-3  bg-white/20"></div>
+        <Link
+          href={`https://github.com/Arinji2`}
+          target="_blank"
+          aria-label="Github Link"
+        >
+          <FontAwesomeIcon
+            icon={faGithub}
+            className="size-8 text-brand-primary"
+          />
+        </Link>
+        <div className="w-1 mx-3  bg-white/20"></div>
+        <button
+          disabled={!isScrollable}
+          onClick={goToTop}
+          className="w-fit h-fit "
+        >
+          <ArrowUp
+            className={`${
+              isScrollable ? "opacity-100 " : "opacity-50 "
+            } size-8 text-brand-primary`}
+          />
         </button>
       </div>
     </div>

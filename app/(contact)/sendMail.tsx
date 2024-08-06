@@ -42,7 +42,7 @@ export async function sendMail(formData: FormData) {
   cookies().set("emailSent", "true");
 
   await resend.emails.send({
-    from: "portfolio@mail.arinji.com",
+    from: process.env.NEXT_PUBLIC_FROM_EMAIL!,
     to: email,
     subject: subject,
     react: <ConfirmationEmail name={name} />,
