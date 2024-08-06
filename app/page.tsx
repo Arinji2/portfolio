@@ -6,12 +6,14 @@ import Experience from "./experience";
 import Freelance from "./freelance";
 import Github from "./github";
 import Hero from "./hero";
+import QuickActions from "./quick-actions";
 import Tech from "./tech";
 import Toast from "./toast";
 
 export default function Home() {
   return (
     <main className="w-full h-full flex flex-col items-center justify-start ">
+      <QuickActions />
       <Toast />
       <Hero />
       <About />
