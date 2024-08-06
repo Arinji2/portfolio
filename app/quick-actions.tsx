@@ -38,7 +38,7 @@ export default function QuickActions() {
           }}
           href={`mailto:${process.env.NEXT_PUBLIC_FROM_EMAIL}`}
         >
-          <Mail className="size-8 text-brand-primary" />
+          <Mail className="size-5 md:size-8 text-brand-primary" />
         </Link>
         <div className="w-1 mx-3  bg-white/20"></div>
         <Link
@@ -48,7 +48,7 @@ export default function QuickActions() {
         >
           <FontAwesomeIcon
             icon={faGithub}
-            className="size-8 text-brand-primary"
+            className="size-5 md:size-8 text-brand-primary"
           />
         </Link>
         <div className="w-1 mx-3  bg-white/20"></div>
@@ -60,7 +60,7 @@ export default function QuickActions() {
           <ArrowUp
             className={`${
               isScrollable ? "opacity-100 " : "opacity-50 "
-            } size-8 text-brand-primary`}
+            } size-5 md:size-8 text-brand-primary`}
           />
         </button>
       </div>
