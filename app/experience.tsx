@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default async function Experience() {
   return (
-    <section className="w-full  relative h-[100svh] flex flex-row items-center justify-start ">
-      <div className="h-[100svh] w-full absolute top-0 left-0">
+    <section className="w-full  relative h-fit flex flex-row items-center justify-start ">
+      <div className="h-full w-full absolute top-0 left-0">
         <Image
           src="/experience.png"
           fill
@@ -24,7 +24,7 @@ export default async function Experience() {
               EXPERIENCE
             </h2>
           </div>
-          <div className="w-[95%] mt-auto xl:w-full gap-5 md:pl-10  h-fit flex flex-row items-start pt-10 no-scrollbar justify-center overflow-x-scroll z-50">
+          <div className="w-[95%] mt-auto xl:w-full gap-5 md:pl-10  h-fit flex flex-row items-start pt-10 no-scrollbar justify-center overflow-x-scroll overflow-y-hidden z-50">
             <TechBlock
               name="REVIVENODE"
               description="Premium servers at a pocket friendly price"
@@ -56,7 +56,7 @@ function TechBlock({
     <Link
       href={link}
       target="_blank"
-      className="hover:scale-100 scale-90 group hover:cursor-pointer will-change-transform transition-all ease-in-out duration-300 w-[300px] md:w-[400px] bg-brand-background-overlay bg-opacity-60 rounded-md relative shrink-0 h-[450px] flex flex-col items-center justify-center gap-5 text-center"
+      className="hover:scale-90 scale-[.80] group hover:cursor-pointer will-change-transform transition-all ease-in-out duration-300 w-[300px] md:w-[400px] bg-brand-background-overlay bg-opacity-60 rounded-md relative shrink-0 h-[450px] flex flex-col items-center justify-center gap-5 text-center"
     >
       <h3 className="text-[30px] md:text-[40px] text-brand-primary font-bold">
         {name}

@@ -31,6 +31,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
+    "tailwind-scrollbar-utilities": "^0.2.0",
     "tailwindcss": "latest",
     "typescript": "latest"
   }

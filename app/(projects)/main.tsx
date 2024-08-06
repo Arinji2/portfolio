@@ -14,65 +14,119 @@ export type DesignType = {
   type: string;
   details: string;
 };
+
+export type StatsType = {
+  name: string;
+  value: string | boolean;
+};
+
+export type InfoType = {
+  stack: TechStackType[];
+  design: DesignType;
+  showImage?: boolean;
+  about?: string;
+  stats?: StatsType[];
+};
 const projects = [
   {
     name: "Vibeify",
-    description: "Giving Love to your Spotify Playlists",
+    description: "Giving Love to Your Spotify Playlists",
     image: "vibeify.png",
     link: "https://vibeify.arinji.com",
     github: "https://github.com/Arinji2/vibeify",
-    stack: [
-      {
-        name: "Next JS",
-        used: "It is the base for this project, it is used for the frontend and backend.",
-        key: "Frontend",
+    info: {
+      stack: [
+        {
+          name: "Next JS",
+          used: "It is the base for this project, used for the frontend and backend.",
+          key: "Frontend",
+        },
+        {
+          name: "Pocketbase",
+          used: "It is the database for this project and also used for authentication.",
+          key: "Database",
+        },
+        {
+          name: "Tailwind",
+          used: "It is used for the styling of the project.",
+          key: "Styling",
+        },
+      ],
+      design: {
+        type: "Modern Fusion",
+        details:
+          "The site has a modern and simplistic light mode design, with a slight new brutalist style. There are also themes you can choose, like pixel and neo brutalism.",
       },
-      {
-        name: "Pocketbase",
-        used: "It is the database for this project, it is also used to authenticate.",
-        key: "Database",
-      },
-      {
-        name: "Tailwind",
-        used: "It is used for the styling of the project.",
-        key: "Styling",
-      },
-    ],
-    design: {
-      type: "Modern Fusion",
-      details:
-        "The site has a modern and simplistic light mode design, with a slight new brutalist style. There are also themes you can choose, like pixel and neo brutalism. ",
+      showImage: true,
+      about:
+        "Vibeify is a web app that allows you to customize your Spotify playlists and make them unique to you. You can give your playlists a custom design, custom links, etc. Vibeify also has features to compare two playlists and split a playlist into selected genres with the help of AI.",
+      stats: [
+        {
+          name: "Dependencies",
+          value: "12",
+        },
+        {
+          name: "Has separate backend",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "3 months",
+        },
+        {
+          name: "Uses AI",
+          value: true,
+        },
+      ],
     },
   },
   {
     name: "Imagee",
-    description: "Custom Emojis for Discord, for free.",
-    image: "imagee.jpg",
+    description: "Custom Emojis for Discord, for Free.",
+    image: "imagee.png",
     link: "https://imagee.arinji.com",
     github: "https://github.com/Arinji2/imagee/",
-    stack: [
-      {
-        name: "Next JS",
-        used: "It is used for the frontend and backend.",
-        key: "Frontend",
+    info: {
+      stack: [
+        {
+          name: "Next JS",
+          used: "It is used for the frontend and backend.",
+          key: "Frontend",
+        },
+        {
+          name: "DiscordJS",
+          used: "It is used for interacting with the Discord API.",
+          key: "Backend",
+        },
+        {
+          name: "Tailwind",
+          used: "It is used for styling.",
+          key: "Styling",
+        },
+      ],
+      design: {
+        type: "Neo Brutalism Pocket",
+        details:
+          "This site has a very intense neo-brutalist design with an emphasis on vibrant colors. The site has a pocket feel with compact components placed together.",
       },
-      {
-        name: "DiscordJS",
-        used: "It is used for interacting with the Discord API.",
-        key: "Backend",
-      },
-      {
-        name: "Tailwind",
-        used: "It is used for styling.",
-        key: "Styling",
-      },
-    ],
-    design: {
-      type: "Neo Brutalism Pocket",
-      details:
-        "This site has a very intense neo brutalist design with emphasis on vibrant colors. The site has a pocket feel with compact components placed together.",
+      showImage: true,
+      about:
+        "Imagee is a web app that allows you to upload custom emojis to be used in Discord. The site has reverse-engineered how Discord displays images and will try its best to match a normal custom emoji.",
+      stats: [
+        {
+          name: "Dependencies",
+          value: "13",
+        },
+        {
+          name: "Discord Bot",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "2 months",
+        },
+      ],
     },
-    top: true,
   },
   {
     name: "News Nest",
@@ -80,27 +134,46 @@ const projects = [
     image: "news.png",
     link: "https://news.arinji.com",
     github: "https://github.com/Arinji2/news-nest",
-    stack: [
-      {
-        name: "Next JS",
-        used: "It is used for the frontend and backend.",
-        key: "Frontend",
+    info: {
+      stack: [
+        {
+          name: "Next JS",
+          used: "It is used for the frontend and backend.",
+          key: "Frontend",
+        },
+        {
+          name: "News API",
+          used: "It is used to fetch news articles.",
+          key: "Backend",
+        },
+        {
+          name: "Tailwind",
+          used: "It is used for styling.",
+          key: "Styling",
+        },
+      ],
+      design: {
+        type: "Modern Dark",
+        details:
+          "A modern site with a dark background and an asset-rich design. The site has a clean and simple layout with a focus on the content. A sharp red color is used for emphasis.",
       },
-      {
-        name: "News API",
-        used: "It is used to fetch news articles.",
-        key: "Backend",
-      },
-      {
-        name: "Tailwind",
-        used: "It is used for styling.",
-        key: "Styling",
-      },
-    ],
-    design: {
-      type: "Modern Dark",
-      details:
-        "A modern site with a dark background and a asset-rich design. The site has a clean and simple layout with a focus on the content. A sharp red color is used for emphasis.",
+      showImage: true,
+      about:
+        "News Nest is a web app that hosts news articles from reputable news sources. You can save articles, view more about them, etc. There are sections for different topics, countries, and even live news.",
+      stats: [
+        {
+          name: "Dependencies",
+          value: "18",
+        },
+        {
+          name: "Has separate backend",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "4 months",
+        },
+      ],
     },
   },
   {
@@ -109,113 +182,146 @@ const projects = [
     image: "gourmet.png",
     link: "https://food.arinji.com",
     github: "https://github.com/Arinji2/gourmet-gusto",
-    stack: [
-      {
-        name: "Next JS",
-        used: "It is used for the frontend and backend.",
-        key: "Frontend",
+    info: {
+      stack: [
+        {
+          name: "Next JS",
+          used: "It is used for the frontend and backend.",
+          key: "Frontend",
+        },
+        {
+          name: "Open AI",
+          used: "It is used for generating recipes and suggestions.",
+          key: "Backend",
+        },
+        {
+          name: "Tailwind",
+          used: "It is used for styling.",
+          key: "Styling",
+        },
+      ],
+      design: {
+        type: "Modern Asset Focused",
+        details:
+          "With large assets and minimal usage of text, this site has a lively feel. The site uses images to describe and detail different sections of the site.",
       },
-      {
-        name: "Open AI",
-        used: "It is used for generating recipes and suggestions.",
-        key: "Backend",
-      },
-      {
-        name: "Tailwind",
-        used: "It is used for styling.",
-        key: "Styling",
-      },
-    ],
-    design: {
-      type: "Modern Asset Focused",
-      details:
-        "With large assets and minimal usage of text, this site has a lively feel. ",
+      showImage: true,
+      about:
+        "Gourmet Gusto is a web app that allows you to access food recipes. There are two ways to access recipes: by searching for one or by adding ingredients, which we then use to generate a recipe.",
+      stats: [
+        {
+          name: "Dependencies",
+          value: "8",
+        },
+        {
+          name: "Uses AI",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "1 month",
+        },
+      ],
     },
   },
   {
-    name: "Word Or Not",
-    description: "AI Game to guess valid words",
+    name: "Sense or Nonsense",
+    description: "AI Game to Guess Fake or Real Words",
     image: "word.png",
-    link: "https://word.arinji.com",
-    github: "https://github.com/Arinji2/Word-Or-Nonsence/",
-    stack: [
-      {
-        name: "Next JS",
-        used: "It is used for the frontend and backend.",
-        key: "Frontend",
+    link: "https://sense.arinji.com",
+    github: "https://github.com/Arinji2/sense-or-nonsense",
+    info: {
+      stack: [
+        {
+          name: "Next JS",
+          used: "It is used for the frontend and backend.",
+          key: "Frontend",
+        },
+        {
+          name: "Open AI",
+          used: "It is used for validating words.",
+          key: "Backend",
+        },
+        {
+          name: "Tailwind",
+          used: "It is used for styling.",
+          key: "Styling",
+        },
+      ],
+      design: {
+        type: "Pixelated Asset Heavy",
+        details:
+          "This site has an entirely pixelated design with the use of pixelated assets. The site has a lot of contrasting colors and no clear primary palette.",
       },
-      {
-        name: "Open AI",
-        used: "It is used for validating words.",
-        key: "Backend",
-      },
-      {
-        name: "Tailwind",
-        used: "It is used for styling.",
-        key: "Styling",
-      },
-    ],
-    design: {
-      type: "Pixelated Asset Heavy",
-      details:
-        "This site has a entirely pixelated design with usage of pixelated assets. The site has a lot of contrasting colors and no clear primary palette.",
+      showImage: true,
+      about:
+        "Sense or Nonsense is a web game that allows you to practice your English skills. It will show you a word and its definition, and you have to guess if the word is fake or not. The words are generated based on a selected difficulty level.",
+      stats: [
+        {
+          name: "Dependencies",
+          value: "18",
+        },
+        {
+          name: "Uses AI",
+          value: true,
+        },
+        {
+          name: "Has separate backend",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "4 months",
+        },
+      ],
     },
   },
   {
     name: "Taskation",
-    description: "An app to manage your tasks",
-    image: "task.jpg",
+    description: "An App to Manage Your Tasks",
+    image: "task.png",
     link: "https://taskation.arinji.com",
     github: "https://github.com/Arinji2/taskation/",
-    stack: [
-      {
-        name: "Next JS",
-        used: "It is used for the frontend and backend.",
-        key: "Frontend",
+    info: {
+      stack: [
+        {
+          name: "Next JS",
+          used: "It is used for the frontend and backend.",
+          key: "Frontend",
+        },
+        {
+          name: "MySQL",
+          used: "It is used as the database.",
+          key: "Backend",
+        },
+        {
+          name: "Tailwind",
+          used: "It is used for styling.",
+          key: "Styling",
+        },
+      ],
+      design: {
+        type: "Monochromatic Minimalist",
+        details:
+          "A minimalistic design with a monochromatic color scheme and simple highlights. The site has a clean and simple layout with a focus on the content.",
       },
-      {
-        name: "MySQL",
-        used: "It is used as the database.",
-        key: "Backend",
-      },
-      {
-        name: "Tailwind",
-        used: "It is used for styling.",
-        key: "Styling",
-      },
-    ],
-    design: {
-      type: "Monochromatic Minimalist",
-      details:
-        "A minimalistic design with a monochromatic color scheme of black and white. The site has a clean and simple layout with a focus on the content.",
-    },
-  },
-  {
-    name: "Fusion Mania",
-    description: "RNG Game with Unique Avatars",
-    image: "fusion.png",
-    link: "https://fusion.arinji.com",
-    github: "https://github.com/Arinji2/fusion-mania",
-    stack: [
-      {
-        name: "React",
-        used: "It is used for the frontend.",
-        key: "Frontend",
-      },
-      {
-        name: "Firebase",
-        used: "It is used for the backend and authentication.",
-        key: "Backend",
-      },
-      {
-        name: "Tailwind",
-        used: "It is used for styling.",
-        key: "Styling",
-      },
-    ],
-    design: {
-      type: "Pixelated",
-      details: "This site has a pixelated design with a large usage of colors.",
+      showImage: true,
+      about:
+        "Taskation is a web app that allows you to manage your tasks. You can add tasks, mark them as completed, delete them, etc. Each task can have multiple sub-tasks, with their own tasks. There is also a system for making your tasks public.",
+      stats: [
+        {
+          name: "Dependencies",
+          value: "13",
+        },
+        {
+          name: "Has In-House Auth",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "1 month",
+        },
+      ],
     },
   },
 ];
@@ -249,12 +355,10 @@ export default function Projects() {
             image={project.image}
             link={project.link}
             github={project.github}
-            stack={project.stack}
             scrollFunction={handleMinifiedScroll}
             expanded={expanded}
             setExpanded={setExpanded}
-            top={project.top}
-            design={project.design}
+            info={project.info}
           />
         ))}
       </div>
