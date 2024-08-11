@@ -1,3 +1,4 @@
+import QuickActions from "@/components/quick-actions/base";
 import Contact from "./(contact)/contact";
 import Projects from "./(projects)/main";
 import Game from "./(tetris)/game";
@@ -6,7 +7,6 @@ import Experience from "./experience";
 import Freelance from "./freelance";
 import Github from "./github";
 import Hero from "./hero";
-import QuickActions from "./quick-actions";
 import Tech from "./tech";
 import Toast from "./toast";
 
