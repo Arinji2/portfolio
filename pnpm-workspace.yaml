@@ -1,7 +1,0 @@
-packages:
-  # Include all packages in the "packages" directory
-  - "packages/*"
-  # Include the apps (Next.js sites) in the "apps" directory
-  - "apps/*"
-  # Include shared libraries or other utilities
-  - "libs/*"
