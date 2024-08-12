@@ -18,7 +18,7 @@
     "@react-email/html": "0.0.8",
     "bright": "0.8.5",
     "lucide-react": "0.395.0",
-    "next": "14.2.4",
+    "next": "^14.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-email": "2.1.4",
