@@ -12,7 +12,7 @@ export default function ModalController() {
   const memoizedSearchParams = useMemo(() => {
     if (
       searchParams.get("developer") === "true" ||
-      searchParams.get("designs") === "true"
+      searchParams.get("designer") === "true"
     ) {
       return true;
     } else {

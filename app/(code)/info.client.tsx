@@ -135,7 +135,7 @@ export function InfoContent({
           />
         </div>
       </button>
-      <p className="xl:text-lg line-clamp-3 xl:line-clamp-2 text-sm text-brand-primary/50  text-center">
+      <p className="xl:text-lg line-clamp-3 shrink-0 xl:line-clamp-2 text-sm text-brand-primary/50  text-center">
         {info.info}
       </p>
       <Link

@@ -3,11 +3,13 @@ import WidthWrapper from "@/components/widthWrapper";
 import Image from "next/image";
 import Link from "next/link";
 import { DeveloperCTA } from "./(code)/info";
+import { DesignerCTA } from "./(designer)/info";
 
 export default function Hero() {
   return (
     <>
       <DeveloperCTA />
+      <DesignerCTA />
 
       <section
         tabIndex={0}
@@ -43,9 +45,12 @@ export default function Hero() {
                   >
                     <p className="text-white text-[25px]">DEVELOPER</p>
                   </Link>
-                  <div className="w-[250px] h-fit p-1 bg-brand-red bg-opacity-60 flex flex-col items-center justify-center">
+                  <Link
+                    href={"?designer=true"}
+                    className="w-[250px] h-fit p-1 bg-brand-red bg-opacity-60 flex flex-col items-center justify-center"
+                  >
                     <p className="text-white text-[25px]">DESIGNER</p>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
