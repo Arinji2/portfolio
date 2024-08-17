@@ -24,7 +24,11 @@ export default function ProjectInfo({
     >
       <div className="w-full h-fit shrink-0 flex flex-row items-center  justify-start gap-3">
         <p className="text-2xl text-white font-bold">Info about the Project</p>
-        <button className="w-fit h-fit" onClick={() => setExpanded(!expanded)}>
+        <button
+          aria-label={`${expanded ? "Collapse" : "Expand"} the info`}
+          className="w-fit h-fit"
+          onClick={() => setExpanded(!expanded)}
+        >
           <ChevronDown
             strokeWidth={3}
             className={`${
