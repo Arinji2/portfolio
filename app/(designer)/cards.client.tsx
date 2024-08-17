@@ -203,18 +203,20 @@ export function DesignCard({
         style={{ "--bgColor": cardData.bgColor } as React.CSSProperties}
         className={`${
           isExpanded ? "translate-y-0" : "translate-y-[50%]"
-        } w-full h-fit bg-[--bgColor] rounded-md rounded-b-none ease-in-out duration-500 transition-all overflow-hidden`}
+        } w-full h-fit bg-[--bgColor] rounded-md rounded-b-none ease-in-out duration-300 transition-all overflow-hidden`}
       >
         <button
           onClick={() => setIsExpanded(true)}
           className={`${
             isExpanded ? "translate-x-full" : "translate-x-0"
-          } transition-all ease-in-out duration-500 delay-500 w-full h-[50%] flex flex-row items-center z-20 justify-between px-2 absolute top-0 left-0`}
+          } transition-all ease-in-out duration-300 delay-300 w-full h-[50%] flex flex-row items-center z-20 justify-between px-2 absolute top-0 left-0`}
         >
-          <h2 className="text-white text-lg tracking-wide font-medium">
-            Expand Info
+          <h2 className="text-white text-lg tracking-wide font-medium truncate">
+            {cardData.projectName}
+            {" > "}{" "}
+            <span className="opacity-60 text-sm">{cardData.featureName}</span>
           </h2>
-          <ChevronDown className="size-5 text-white" strokeWidth={3} />
+          <ChevronDown className="size-5 shrink-0 text-white" strokeWidth={3} />
         </button>
         <div className="w-full h-fit flex flex-col items-start justify-start gap-2 p-2 relative">
           <button
@@ -231,9 +233,9 @@ export function DesignCard({
           <div
             className={`${
               isExpanded
-                ? "translate-y-0 opacity-100"
-                : "translate-y-[600px] opacity-0"
-            } -tracking-tight flex shrink-0 flex-col items-start justify-center relative text-white transition-all ease-in-out duration-500 delay-500`}
+                ? "translate-y-0 opacity-100 delay-300"
+                : "translate-y-[600px] opacity-0 "
+            } -tracking-tight flex shrink-0 flex-col items-start justify-center relative text-white transition-all ease-in-out duration-[400ms]`}
           >
             <p className="text-xs text-white/60 -mb-2">Project Name</p>
             <h3 className="text-lg text-white line-clamp-1">
@@ -251,7 +253,7 @@ export function DesignCard({
               isExpanded
                 ? "translate-y-0 opacity-100"
                 : "translate-y-[600px] opacity-0"
-            } -tracking-tight flex shrink-0 flex-col items-start justify-center text-white relative transition-all ease-in-out duration-500 delay-[550ms]`}
+            } -tracking-tight flex shrink-0 flex-col items-start justify-center text-white relative transition-all ease-in-out duration-[400ms] delay-[500ms]`}
           >
             <p className="text-xs text-white/60 -mb-2">Design Type</p>
             <h3 className="text-lg text-white line-clamp-1">
