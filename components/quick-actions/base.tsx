@@ -61,6 +61,7 @@ export default function QuickActions() {
           </Link>
           <div className="w-1 mx-3  bg-white/20"></div>
           <button
+            aria-label="Go To Top"
             disabled={!isScrollable}
             onClick={goToTop}
             className="w-fit h-fit "
