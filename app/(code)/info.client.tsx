@@ -38,12 +38,12 @@ export function InfoWrapper({
         scrollToTop();
       }, 500);
     } else {
-      const root = document.getElementById("root")!;
+      const codeModal = document.getElementById("code-modal")!;
 
       const rect = parentRef.current?.getBoundingClientRect()!;
 
       setTimeout(() => {
-        root.scrollTo({
+        codeModal.scrollTo({
           top: rect.top + rect.height / 2,
           behavior: "smooth",
         });

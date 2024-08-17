@@ -1,12 +1,15 @@
 "use client";
 
+import { isInert } from "@/utils/inert";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export default function CodeModal({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const modalRef = useRef<HTMLDivElement>(null);
   const memoizedSearchParams = useMemo(() => {
     if (searchParams.get("developer") === "true") {
       return true;
@@ -14,8 +17,6 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
       return false;
     }
   }, [searchParams]);
-
-  console.log(memoizedSearchParams);
 
   useEffect(() => {
     if (memoizedSearchParams) {
@@ -31,11 +32,26 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
     };
   }, [memoizedSearchParams]);
 
-  console.log(isOpen);
+  useEffect(() => {
+    console.log("adding");
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        router.push("/");
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      console.log("removing");
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <div
-      id="root"
+      id="code-modal"
+      inert={isInert(!isOpen) as any}
       className={`${
         isOpen ? "translate-y-0 " : "translate-y-full "
       }overflow-y-auto scrollbar-stable ease-in-out duration-700 flex flex-col items-center justify-start top-0 left-0 z-[150] w-full h-[100svh] bg-black fixed`}

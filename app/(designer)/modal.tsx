@@ -1,7 +1,8 @@
 "use client";
 
+import { isInert } from "@/utils/inert";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 export default function DesignerModal({
@@ -11,6 +12,8 @@ export default function DesignerModal({
 }) {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
   const memoizedSearchParams = useMemo(() => {
     if (searchParams.get("designer") === "true") {
       return true;
@@ -33,9 +36,24 @@ export default function DesignerModal({
     };
   }, [memoizedSearchParams]);
 
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        router.push("/");
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <div
       id="designer-modal"
+      inert={isInert(!isOpen) as any}
       className={`${
         isOpen ? "translate-y-0 " : "translate-y-full "
       }overflow-y-auto scrollbar-stable ease-in-out duration-700 flex flex-col items-center justify-start top-0 left-0  z-[150] w-full h-[100dvh] bg-[#403A3A] fixed`}
