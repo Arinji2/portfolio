@@ -1,6 +1,7 @@
 import FoodLandingImage from "@/public/designs/food-landing.png";
 import ImageeLandingImage from "@/public/designs/imagee-landing.png";
 import NewsLandingImage from "@/public/designs/news-landing.png";
+import SenseLandingImage from "@/public/designs/sense-landing.png";
 import VibeifyLandingImage from "@/public/designs/vibeify-landing.png";
 
 import FoodFeature1Image from "@/public/designs/food-feature1.png";
@@ -24,6 +25,12 @@ import VibeifyFeature5Image from "@/public/designs/vibeify-feature5.png";
 import VibeifyFeature6Image from "@/public/designs/vibeify-feature6.png";
 import VibeifyFormImage from "@/public/designs/vibeify-form.png";
 
+import SenseAuthImage from "@/public/designs/sense-auth.png";
+import SenseFeature1Image from "@/public/designs/sense-feature1.png";
+import SenseFeature2Image from "@/public/designs/sense-feature2.png";
+import SenseFeature3Image from "@/public/designs/sense-feature3.png";
+import SenseFeature4Image from "@/public/designs/sense-feature4.png";
+
 import { StaticImageData } from "next/image";
 export type FeaturedDataType = {
   name: string;
@@ -39,7 +46,7 @@ export type DesignDataType = {
   featureNumber?: number;
   image: StaticImageData;
   coverImage?: boolean;
-  imagePosition?: "left" | "right";
+  imagePosition?: "left" | "right" | "center" | "top" | "bottom";
 };
 
 export const FeaturedData: FeaturedDataType[] = [
@@ -67,6 +74,13 @@ export const FeaturedData: FeaturedDataType[] = [
     accentColor: "#f97316",
     id: "food",
     image: FoodLandingImage,
+  },
+
+  {
+    name: "Sense Or Nonsense",
+    accentColor: "#a855f7",
+    id: "sense",
+    image: SenseLandingImage,
   },
 ];
 
@@ -214,5 +228,50 @@ export const DesignData: DesignDataType[] = [
     featureName: "Feature",
     featureNumber: 2,
     image: FoodFeature2Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Landing",
+    image: SenseLandingImage,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Auth",
+    image: SenseAuthImage,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 1,
+    image: SenseFeature1Image,
+    coverImage: true,
+    imagePosition: "top",
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 2,
+    image: SenseFeature2Image,
+    coverImage: true,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 3,
+    image: SenseFeature3Image,
+    coverImage: true,
+    imagePosition: "top",
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 4,
+    image: SenseFeature4Image,
   },
 ];

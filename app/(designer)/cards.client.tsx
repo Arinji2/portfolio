@@ -279,13 +279,12 @@ export function DesignCard({
           src={cardData.image}
           placeholder="blur"
           fill
-          className={`${cardData.coverImage ? "object-cover" : "object-fill"} ${
-            cardData.imagePosition
-              ? cardData.imagePosition === "left"
-                ? "object-left"
-                : "object-right"
-              : "object-center"
-          } absolute`}
+          style={{
+            objectPosition: cardData.imagePosition,
+          }}
+          className={`${
+            cardData.coverImage ? "object-cover" : "object-fill"
+          }  absolute`}
           alt="Hero Image"
         />
       </div>
