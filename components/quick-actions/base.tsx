@@ -38,6 +38,7 @@ export default function QuickActions() {
       <div className="w-fit h-fit fixed top-0 right-0 flex flex-row items-center justify-end z-[200] p-3">
         <div className="w-fit h-fit flex flex-row items-stretch justify-center p-3 bg-black/50 backdrop-blur-sm rounded-md ">
           <Link
+            aria-label="Copy Email Address"
             onClick={() => {
               navigator.clipboard.writeText(
                 process.env.NEXT_PUBLIC_FROM_EMAIL!

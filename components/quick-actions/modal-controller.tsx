@@ -35,7 +35,11 @@ export default function ModalController() {
           hasModalsOpen ? "opacity-100" : "opacity-0"
         } w-fit h-fit flex flex-row items-stretch justify-center p-3 bg-black/50 backdrop-blur-sm rounded-md `}
       >
-        <Link tabIndex={hasModalsOpen ? 0 : -1} href={"/"}>
+        <Link
+          aria-label="Close Currently Opened Modal"
+          tabIndex={hasModalsOpen ? 0 : -1}
+          href={"/"}
+        >
           <XCircle className="size-5 md:size-8 text-red-500" />
         </Link>
       </div>

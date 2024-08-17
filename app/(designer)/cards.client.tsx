@@ -185,6 +185,10 @@ export function DesignCard({
   const params = new URLSearchParams(searchParams);
   const pathname = usePathname();
   const router = useRouter();
+  const [imageDimensions, setImageDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
   const handleSearch = (
     basisOf: "projectName" | "featureName",
@@ -273,14 +277,22 @@ export function DesignCard({
       </div>
       <div
         onClick={() => setIsExpanded(false)}
-        className="w-full shrink-0 aspect-video h-auto flex flex-col items-center justify-center bg-green-500 rounded-md rounded-t-none relative overflow-hidden"
+        className="w-full shrink-0  aspect-video h-auto flex flex-col items-center justify-center bg-green-500 rounded-md rounded-t-none relative overflow-hidden"
       >
         <Image
           src={cardData.image}
           placeholder="blur"
           fill
+          sizes="(min-width: 1280px) 414px, (min-width: 768px) 532px, 100vw"
+          onLoadingComplete={(e) => {
+            setImageDimensions({
+              width: e.naturalWidth,
+              height: e.naturalHeight,
+            });
+          }}
           style={{
             objectPosition: cardData.imagePosition,
+            aspectRatio: imageDimensions.width / imageDimensions.height,
           }}
           className={`${
             cardData.coverImage ? "object-cover" : "object-fill"
