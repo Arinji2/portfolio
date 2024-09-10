@@ -59,15 +59,29 @@ export default async function Tech() {
           </div>
           <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
             <TechBlock
-              name="POCKETBASE"
-              description="PocketBase is an open source backend in 1 executable file."
-              projects={5}
+              name="GO/GOLANG"
+              description="Go is a language that makes it simple to build secure, scalable systems."
+              projects={4}
               position="top"
             />
             <TechBlock
               name="EXPRESS"
               description="Express is a minimal and flexible Node.js web app framework."
               projects={4}
+              position="bottom"
+            />
+          </div>
+          <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
+            <TechBlock
+              name="POCKETBASE"
+              description="PocketBase is an open source backend in 1 executable file."
+              projects={5}
+              position="top"
+            />
+            <TechBlock
+              name="PAYLOAD CMS"
+              description="Payload CMS is a headless CMS with a focus on speed and developer experience."
+              projects={2}
               position="bottom"
             />
           </div>
