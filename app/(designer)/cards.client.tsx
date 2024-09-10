@@ -284,10 +284,10 @@ export function DesignCard({
           placeholder="blur"
           fill
           sizes="(min-width: 1280px) 414px, (min-width: 768px) 532px, 100vw"
-          onLoadingComplete={(e) => {
+          onLoad={(e) => {
             setImageDimensions({
-              width: e.naturalWidth,
-              height: e.naturalHeight,
+              width: e.currentTarget.naturalWidth,
+              height: e.currentTarget.naturalHeight,
             });
           }}
           style={{

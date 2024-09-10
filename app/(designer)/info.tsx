@@ -12,7 +12,7 @@ export function DesignerCTA() {
       <DesignerModal>
         <div className="h-fit flex w-[95%]  flex-col items-center justify-start gap-10 py-10">
           <WidthWrapper>
-            <div className="w-full h-fit shrink-0  flex flex-col md:flex-row items-center justify-start gap-5">
+            <div className="w-full h-fit shrink-0  flex flex-col mdn:flex-row items-center justify-start gap-5">
               <h2 className="text-white  text-2xl xl:text-4xl  tracking-wide font-bold">
                 <span className="text-brand-primary">1. </span>Featured Projects{" "}
               </h2>
