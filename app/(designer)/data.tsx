@@ -23,6 +23,8 @@ import VibeifyFeature3Image from "@/public/designs/vibeify-feature3.png";
 import VibeifyFeature4Image from "@/public/designs/vibeify-feature4.png";
 import VibeifyFeature5Image from "@/public/designs/vibeify-feature5.png";
 import VibeifyFeature6Image from "@/public/designs/vibeify-feature6.png";
+import VibeifyFeature7Image from "@/public/designs/vibeify-feature7.png";
+import VibeifyFeature8Image from "@/public/designs/vibeify-feature8.png";
 import VibeifyFormImage from "@/public/designs/vibeify-form.png";
 
 import SenseAuthImage from "@/public/designs/sense-auth.png";
@@ -140,6 +142,21 @@ export const DesignData: DesignDataType[] = [
     featureNumber: 6,
     image: VibeifyFeature6Image,
   },
+  {
+    projectName: "Vibeify",
+    bgColor: "#047857",
+    featureName: "Feature",
+    featureNumber: 7,
+    image: VibeifyFeature7Image,
+  },
+  {
+    projectName: "Vibeify",
+    bgColor: "#047857",
+    featureName: "Feature",
+    featureNumber: 8,
+    image: VibeifyFeature8Image,
+  },
+
   {
     projectName: "Vibeify",
     bgColor: "#047857",
