@@ -41,14 +41,16 @@ export default function Hero() {
                 <div className="w-full h-fit flex flex-col md:flex-row items-center justify-center xl:justify-start gap-8">
                   <Link
                     href={"?developer=true"}
-                    className="w-[250px] h-fit p-1 bg-brand-purple bg-opacity-60 flex flex-col items-center justify-center"
+                    className="w-[250px] h-fit p-1 relative bg-brand-purple bg-opacity-60 flex flex-col items-center justify-center"
                   >
+                    <div className="size-4 bg-green-500 rounded-full absolute -top-2 -right-2 animate-pulse"></div>
                     <p className="text-white text-[25px]">DEVELOPER</p>
                   </Link>
                   <Link
                     href={"?designer=true"}
-                    className="w-[250px] h-fit p-1 bg-brand-red bg-opacity-60 flex flex-col items-center justify-center"
+                    className="w-[250px] h-fit p-1 bg-brand-red bg-opacity-60 flex flex-col relative items-center justify-center"
                   >
+                    <div className="size-4 bg-green-500 rounded-full absolute -top-2 -right-2 animate-pulse"></div>
                     <p className="text-white text-[25px]">DESIGNER</p>
                   </Link>
                 </div>
