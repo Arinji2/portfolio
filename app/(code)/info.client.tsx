@@ -63,7 +63,7 @@ export function InfoWrapper({
         className={`${
           isOpen
             ? " h-[70svh] xl:h-[80svh] overflow-y-auto"
-            : " xl:h-[160px] h-[130px]  overflow-y-hidden"
+            : " xl:h-[170px] h-[130px]  overflow-y-hidden"
         } ${
           focusedIndex !== index ? "opacity-50" : "opacity-100"
         } w-full no-scrollbar rounded-md flex flex-col-reverse justify-start transition-all ease-in-out duration-500   xl:flex-row items-start px-5 bg-[#403A3A] xl:justify-center xl:gap-10`}
@@ -124,8 +124,12 @@ export function InfoContent({
         }}
         className="w-full shrink-0 h-[90px] xl:h-[120px] flex flex-row items-center justify-center p-2 "
       >
-        <h3 className="text-lg w-full overflow-hidden line-clamp-3 xl:text-3xl text-center xl:text-left font-medium text-white/80 ">
-          <span className="text-brand-primary">{index}.</span> {info.title}
+        <h3 className="text-lg w-full overflow-hidden  xl:text-3xl text-center xl:text-left font-medium text-white/80 ">
+          <span className="line-clamp-2 w-fit">
+            {" "}
+            <span className="text-brand-primary">{index}.</span> {info.title}
+          </span>
+          <span className="shrink-0 text-brand-primary text-sm xl:text-xl block md:inline">{`> ${info.language}`}</span>
         </h3>
         <div className="w-fit px-4 flex flex-col items-center justify-center h-full shrink-0">
           <ChevronDownCircle
@@ -150,19 +154,21 @@ export function InfoContent({
         <ChevronRight className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
       </Link>
 
-      <div
-        ref={targetRef as any}
-        className="w-fit h-fit max-w-[400px] xl:min-h-[200px]  rounded-md overflow-hidden mt-auto shadow-lg shadow-black"
-      >
-        <video
-          ref={videoRef}
-          src={info.video}
-          muted
-          playsInline
-          className="w-full object-fill"
-          loop
-        ></video>
-      </div>
+      {info.video.length > 0 && (
+        <div
+          ref={targetRef as any}
+          className="w-fit h-fit max-w-[400px] xl:min-h-[200px]  rounded-md overflow-hidden mt-auto shadow-lg shadow-black"
+        >
+          <video
+            ref={videoRef}
+            src={info.video}
+            muted
+            playsInline
+            className="w-full object-fill"
+            loop
+          ></video>
+        </div>
+      )}
       <ChevronDown
         strokeWidth={3}
         className="w-fit h-fit animate-bounce xl:hidden size-7 text-brand-primary/50 transition-all ease-in-out duration-500 "

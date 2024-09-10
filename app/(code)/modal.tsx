@@ -33,7 +33,6 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
   }, [memoizedSearchParams]);
 
   useEffect(() => {
-    console.log("adding");
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
         router.push("/");

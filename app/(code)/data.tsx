@@ -4,11 +4,13 @@ export type InfoType = {
   video: string;
   githubURL: string;
   code: string;
+  language: string;
 };
 const UseAnimateData = {
   title: "Custom Hook to Manage Modals",
   info: "This is a custom hook to easily manage modals with animations.",
   video: "https://cdn.arinji.com/u/oiMrbK.mp4",
+  language: "TypeScript",
   githubURL:
     "https://github.com/Arinji2/sense-or-nonsense/blob/master/utils/useAnimate.tsx",
   code: `"use client";
@@ -47,6 +49,7 @@ const InfiniteScrollData = {
   title: "Infinite Scroll Implementation",
   info: "An infinite scroll implementation using the Intersection Observer API.",
   video: "https://cdn.arinji.com/u/DDmeUY.mp4",
+  language: "TypeScript",
   githubURL:
     "https://github.com/Arinji2/sense-or-nonsense/blob/master/utils/useAnimate.tsx",
   code: `"use client";
@@ -153,6 +156,7 @@ const InteractiveFormData = {
   title: "Interactive Form Implementation",
   info: "A form with interactive elements, such as sliders, inputs and image uploads.",
   video: "https://cdn.arinji.com/u/2tWzAS.mp4",
+  language: "Next JS",
   githubURL:
     "https://github.com/Arinji2/vibeify/blob/master/app/dashboard/playlists/create/form.tsx",
   code: `export function Form() {
@@ -284,6 +288,7 @@ const InteractiveThemeSelectData = {
   title: "Interactive Theme Selector",
   info: "A interactive theme selector that allows users to switch between different themes in real-time.",
   video: "https://cdn.arinji.com/u/ZtIYwx.mp4",
+  language: "Next JS",
   githubURL:
     "https://github.com/Arinji2/vibeify/blob/master/app/%5BplaylistLink%5D/testMode.tsx",
   code: `"use client";
@@ -424,6 +429,7 @@ const URLBasedSearchData = {
   title: "URL Based Search",
   info: "A highly modular search feature that uses the URL as its only global state management.",
   video: "https://cdn.arinji.com/u/tsFdMy.mp4",
+  language: "Next JS",
   githubURL:
     "https://github.com/Arinji2/imagee/blob/master/src/app/dashboard/manage.tsx",
   code: `"use client";
@@ -632,9 +638,294 @@ export function ManageLoading() {
   );
 }`,
 };
+
+const HttpClientPackage = {
+  title: "HTTP Client Package",
+  info: "A package that provides a simple way to do HTTP requests.",
+  video: "",
+  language: "Go",
+  githubURL: "https://github.com/Arinji2/vibeify-backend/blob/main/api/base.go",
+  code: `package api
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"net/url"
+	"os"
+	"time"
+)
+
+type HTTPClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+
+type ApiClient struct {
+	BaseURL string
+	Client  HTTPClient
+}
+
+func NewApiClient(baseURL ...string) *ApiClient {
+	var url string
+	if len(baseURL) > 0 {
+		url = baseURL[0]
+	} else {
+		url = ""
+	}
+
+	if url == "" {
+
+		url = os.Getenv("PB_LINK")
+	}
+
+	return &ApiClient{
+		BaseURL: url,
+		Client:  &http.Client{},
+	}
+}
+
+func (c *ApiClient) doRequest(req *http.Request, headers map[string]string) (map[string]interface{}, int, error) {
+	req.Header.Set("Content-Type", "application/json")
+	for key, val := range headers {
+		req.Header.Set(key, val)
+	}
+
+	var result map[string]interface{}
+	var resp *http.Response
+	var err error
+	const maxRetries = 3
+	var retryDelay = 100 * time.Millisecond
+
+	for i := 0; i < maxRetries; i++ {
+		resp, err = c.Client.Do(req)
+		if err != nil {
+			return nil, 0, fmt.Errorf("error sending request: %w", err)
+		}
+		defer resp.Body.Close()
+
+		if resp.StatusCode == http.StatusTooManyRequests && c.BaseURL == "https://api.spotify.com" {
+			retryAfter := resp.Header.Get("Retry-After")
+			if retryAfter != "" {
+				delay, err := time.ParseDuration(retryAfter + "s")
+				if err != nil {
+					return nil, resp.StatusCode, fmt.Errorf("error parsing Retry-After header: %w", err)
+				}
+				time.Sleep(delay)
+			} else {
+				time.Sleep(retryDelay)
+			}
+			retryDelay *= 2 // Exponential backoff
+			continue
+		}
+
+		if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusNoContent && resp.StatusCode != http.StatusCreated {
+			return nil, resp.StatusCode, nil
+		}
+
+		if resp.StatusCode == http.StatusNoContent {
+			return result, resp.StatusCode, nil
+		}
+		if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+			return nil, resp.StatusCode, fmt.Errorf("error decoding response: %w", err)
+		}
+
+		return result, resp.StatusCode, nil
+	}
+
+	return nil, http.StatusTooManyRequests, fmt.Errorf("maximum retry attempts reached")
+}
+
+func (c *ApiClient) SendRequestWithBody(method, path string, body interface{}, headers map[string]string) (result map[string]interface{}, status int, err error) {
+	address := fmt.Sprintf("%s%s", c.BaseURL, path)
+
+	jsonBody, err := json.Marshal(body)
+	if err != nil {
+		status = 500
+		err = fmt.Errorf("error marshalling json: %w", err)
+		return
+	}
+
+	req, err := http.NewRequest(method, address, bytes.NewBuffer(jsonBody))
+	if err != nil {
+		status = 500
+		err = fmt.Errorf("error creating request: %w", err)
+		return
+	}
+
+	req.Header.Set("Content-Type", "application/json")
+	for key, val := range headers {
+		req.Header.Set(key, val)
+	}
+
+	result, status, err = c.doRequest(req, headers)
+	if err != nil {
+		err = fmt.Errorf("error from request doer: %w", err)
+		return
+	}
+
+	return
+}
+
+func (c *ApiClient) SendRequestWithQuery(method, path string, query map[string]string, headers map[string]string) (result map[string]interface{}, status int, err error) {
+	queryParams := url.Values{}
+	for key, value := range query {
+		queryParams.Add(key, value)
+	}
+
+	address, err := url.JoinPath(c.BaseURL, path)
+	if err != nil {
+		status = 500
+		err = fmt.Errorf("error joining URL paths: %w", err)
+		return
+	}
+
+	fullURL := fmt.Sprintf("%s?%s", address, queryParams.Encode())
+	req, err := http.NewRequest(method, fullURL, nil)
+	if err != nil {
+		status = 500
+		err = fmt.Errorf("error creating request: %w", err)
+		return
+	}
+
+	result, status, err = c.doRequest(req, headers)
+	if err != nil {
+		err = fmt.Errorf("error from request doer: %w", err)
+		return
+	}
+
+	return
+}`,
+};
+const CachedIndexing = {
+  title: "Cached Indexing",
+  info: "A package that provides an atomic type of caching.",
+  video: "",
+  language: "Go",
+  githubURL:
+    "https://github.com/Arinji2/vibeify-backend/blob/main/cache/base.go",
+  code: `package cache
+
+import (
+	"sync"
+	"time"
+)
+
+type CacheItem struct {
+	Value      interface{}
+	Expiration int64
+}
+
+type Cache struct {
+	items       map[string]CacheItem
+	mu          sync.RWMutex
+	maxItems    int
+	janitor     *time.Ticker
+	stopJanitor chan bool
+}
+
+func NewCache(maxItems int, cleanupInterval time.Duration) *Cache {
+	c := &Cache{
+		items:       make(map[string]CacheItem),
+		maxItems:    maxItems,
+		janitor:     time.NewTicker(cleanupInterval),
+		stopJanitor: make(chan bool),
+	}
+
+	go c.cleanupLoop()
+
+	return c
+}
+
+func (c *Cache) cleanupLoop() {
+	for {
+		select {
+		case <-c.janitor.C:
+			c.cleanup()
+		case <-c.stopJanitor:
+			c.janitor.Stop()
+			return
+		}
+	}
+}
+
+func (c *Cache) cleanup() {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	now := time.Now().Unix()
+	for key, item := range c.items {
+		if item.Expiration > 0 && now > item.Expiration {
+			delete(c.items, key)
+		}
+	}
+}
+
+func (c *Cache) Set(key string, value interface{}, duration time.Duration) {
+	var expiration int64
+	if duration > 0 {
+		expiration = time.Now().Add(duration).Unix()
+	}
+
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	if len(c.items) >= c.maxItems {
+
+		for k := range c.items {
+
+			delete(c.items, k)
+			break
+		}
+	}
+
+	c.items[key] = CacheItem{
+		Value:      value,
+		Expiration: expiration,
+	}
+}
+
+func (c *Cache) Get(key string) (interface{}, bool) {
+	c.mu.RLock()
+	item, found := c.items[key]
+	if !found {
+		c.mu.RUnlock()
+		return nil, false
+	}
+
+	if item.Expiration > 0 && time.Now().Unix() > item.Expiration {
+		c.mu.RUnlock()
+		c.mu.Lock()
+		delete(c.items, key)
+		c.mu.Unlock()
+		return nil, false
+	}
+
+	c.mu.RUnlock()
+	return item.Value, true
+}
+
+func (c *Cache) Delete(key string) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	delete(c.items, key)
+}
+
+func (c *Cache) Clear() {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	c.items = make(map[string]CacheItem)
+}
+
+func (c *Cache) Close() {
+	c.stopJanitor <- true
+}`,
+};
 export const AllCodeData = [
   UseAnimateData,
   InfiniteScrollData,
+  HttpClientPackage,
+  CachedIndexing,
   InteractiveFormData,
   InteractiveThemeSelectData,
   URLBasedSearchData,
