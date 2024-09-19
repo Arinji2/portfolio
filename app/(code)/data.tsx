@@ -921,10 +921,371 @@ func (c *Cache) Close() {
 	c.stopJanitor <- true
 }`,
 };
+const TaskManagement = {
+  title: "Task Management",
+  info: "A task management system with queue failover support, load balancing and queuing.",
+  video: "",
+  language: "Go",
+  githubURL: "https://github.com/Arinji2/ai-backend",
+  code: `package tasks
+
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+	"strings"
+	"sync"
+
+	custom_log "github.com/Arinji2/ai-backend/logger"
+)
+
+var (
+	taskManagerInstance *TaskManager
+	once                sync.Once
+)
+
+func SetupTasks() (*TaskObjects, *PendingTaskObjects) {
+	dir, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
+	keyDir := ""
+
+	if os.Getenv("ENVIRONMENT") == "PRODUCTION" {
+		keyDir = "/keys.json"
+	} else {
+		keyDir = fmt.Sprintf("%s/keys.json", dir)
+	}
+
+	jsonFile, err := os.Open(keyDir)
+	if err != nil {
+		panic(err)
+	}
+
+	defer jsonFile.Close()
+
+	byteValue, _ := io.ReadAll(jsonFile)
+	var keys []JsonKeys
+	err = json.Unmarshal(byteValue, &keys)
+	if err != nil {
+		panic(err)
+	}
+
+	tasks := &TaskObjects{
+		Tasks: make(map[string]*TaskObject),
+	}
+	for _, keyData := range keys {
+		trimmedKey := strings.TrimSpace(keyData.Key)
+		taskObject := &TaskObject{
+			ApiKey:          trimmedKey,
+			DisplayName:     keyData.Name,
+			QueuedProcesses: make([]*QueuedProcess, 0),
+		}
+		tasks.Tasks[trimmedKey] = taskObject
+		custom_log.Logger.Info("Loaded Task Key:", keyData.Name)
+	}
+
+	pendingTasks := &PendingTaskObjects{
+		PendingTasks: make([]*TaskObject, 0),
+	}
+	return tasks, pendingTasks
+}
+  
+func GetTaskManager() *TaskManager {
+	once.Do(func() {
+		taskManagerInstance = NewTaskManager()
+	})
+	return taskManagerInstance
+}
+
+func NewTaskManager() *TaskManager {
+	tasks, pendingTasks := SetupTasks()
+	taskManager := &TaskManager{AllTasks: tasks, PendingTasks: pendingTasks}
+
+	return taskManager
+}
+
+func (tm *TaskManager) AddRequest(prompt string) chan ResponseChan {
+	return tm.addRequestInternal(prompt, nil, time.Now())
+}
+
+func (tm *TaskManager) MoveAddedRequest(prompt string, done chan ResponseChan) {
+
+	tm.addRequestInternal(prompt, done, time.Time{})
+
+}
+
+func (tm *TaskManager) addRequestInternal(prompt string, done chan ResponseChan, initialTime time.Time) chan ResponseChan {
+	tm.AllTasks.TasksMu.RLock()
+	defer tm.AllTasks.TasksMu.RUnlock()
+
+	var leastBusyTask *TaskObject
+	minQueueLength := -1
+	taskAdded := false
+
+	if done == nil {
+		done = make(chan ResponseChan)
+	}
+
+	if initialTime.IsZero() {
+		initialTime = time.Now()
+	}
+
+	for _, task := range tm.AllTasks.Tasks {
+		if task.IsOverloaded {
+			continue
+		}
+		task.TaskMu.Lock()
+
+		if len(task.QueuedProcesses) == 0 && !task.IsOverloaded {
+
+			task.QueuedProcesses = append(task.QueuedProcesses, &QueuedProcess{Prompt: prompt, Done: done, TimeStarted: initialTime})
+			task.TaskMu.Unlock()
+			go taskManagerInstance.PingProcessor(task.ApiKey)
+			taskAdded = true
+			return done
+		}
+		if minQueueLength == -1 || len(task.QueuedProcesses) < minQueueLength {
+			leastBusyTask = task
+			minQueueLength = len(task.QueuedProcesses)
+		}
+		task.TaskMu.Unlock()
+	}
+
+	if leastBusyTask != nil {
+
+		leastBusyTask.TaskMu.Lock()
+		leastBusyTask.QueuedProcesses = append(leastBusyTask.QueuedProcesses, &QueuedProcess{Prompt: prompt, Done: done, TimeStarted: initialTime})
+		leastBusyTask.TaskMu.Unlock()
+		go taskManagerInstance.PingProcessor(leastBusyTask.ApiKey)
+		taskAdded = true
+	}
+
+	if !taskAdded {
+
+		taskManagerInstance.PendingTasks.PendingMu.Lock()
+		taskManagerInstance.PendingTasks.PendingTasks = append(taskManagerInstance.PendingTasks.PendingTasks, &TaskObject{
+			ApiKey: "pending",
+			QueuedProcesses: []*QueuedProcess{
+				{Prompt: prompt, Done: done, TimeStarted: initialTime},
+			},
+		})
+		taskManagerInstance.PendingTasks.PendingMu.Unlock()
+	}
+
+	return done
+}
+
+func (tm *TaskManager) CheckPendingTasks(task *TaskObject) {
+	tm.PendingTasks.PendingMu.Lock()
+	defer tm.PendingTasks.PendingMu.Unlock()
+
+	for _, pendingTask := range tm.PendingTasks.PendingTasks {
+
+		for _, queuedProcess := range pendingTask.QueuedProcesses {
+			taskManagerInstance.MoveAddedRequest(queuedProcess.Prompt, queuedProcess.Done)
+		}
+	}
+
+}
+
+func (tm *TaskManager) RemoveRequest(prompt string, task *TaskObject) {
+	task.TaskMu.Lock()
+	defer task.TaskMu.Unlock()
+
+	for i, queuedProcess := range task.QueuedProcesses {
+		if queuedProcess.Prompt == prompt {
+			task.QueuedProcesses = append(task.QueuedProcesses[:i], task.QueuedProcesses[i+1:]...)
+
+			return
+		}
+	}
+
+}
+
+func (tm *TaskManager) TaskQueueUnloaded(task *TaskObject) {
+	tm.AllTasks.TasksMu.Lock()
+	defer tm.AllTasks.TasksMu.Unlock()
+
+	var largestQueue *TaskObject
+	var largestQueueLength int = -1
+	for _, t := range tm.AllTasks.Tasks {
+		t.TaskMu.Lock()
+
+		if len(t.QueuedProcesses) > largestQueueLength {
+			largestQueue = t
+			largestQueueLength = len(t.QueuedProcesses)
+		}
+		t.TaskMu.Unlock()
+
+	}
+
+	if largestQueue != nil && largestQueueLength > 0 {
+		largestQueue.TaskMu.Lock()
+
+		numToMove := largestQueueLength / 2
+		for i := 0; i < numToMove; i++ {
+			task := largestQueue.QueuedProcesses[i]
+			tm.MoveAddedRequest(task.Prompt, task.Done)
+		}
+		largestQueue.QueuedProcesses = largestQueue.QueuedProcesses[numToMove:]
+		largestQueue.TaskMu.Unlock()
+	}
+
+	for _, taskQueue := range tm.AllTasks.Tasks {
+		if len(taskQueue.QueuedProcesses) > 0 && taskQueue != largestQueue {
+			taskQueue.TaskMu.Lock()
+
+			if len(taskQueue.QueuedProcesses) > TaskDistributionThreshold {
+				task := taskQueue.QueuedProcesses[0]
+				tm.MoveAddedRequest(task.Prompt, task.Done)
+				taskQueue.QueuedProcesses = taskQueue.QueuedProcesses[1:]
+
+			}
+			taskQueue.TaskMu.Unlock()
+
+		}
+	}
+}
+
+func (tm *TaskManager) PingProcessor(key string) {
+
+	task := tm.AllTasks.Tasks[key]
+	go task.ProcessTasks()
+}
+  
+func (task *TaskObject) ProcessTasks() {
+	defer recoverPanic(task)
+
+	if task.IsOverloaded {
+		return
+	}
+
+	defer func() {
+
+		taskManagerInstance.CheckPendingTasks(task)
+	}()
+
+	for len(task.QueuedProcesses) > 0 {
+
+		task.TaskMu.Lock()
+		queue := task.QueuedProcesses[0]
+		task.QueuedProcesses = task.QueuedProcesses[1:]
+		task.TaskMu.Unlock()
+
+		response, err := GetPromptResponse(task, queue.Prompt)
+
+		if err != nil {
+
+			if err.Error() == "googleapi: Error 429: Resource has been exhausted (e.g. check quota)." {
+
+				task.TaskMu.Lock()
+				task.QueuedProcesses = append(task.QueuedProcesses, queue)
+				task.TaskMu.Unlock()
+				task.UpdateOverloaded()
+				continue
+			}
+			queue.Retries++
+			if queue.Retries > MaxRetries {
+				queue.ErrorWithProcess(err)
+				continue
+			}
+			task.TaskMu.Lock()
+			task.QueuedProcesses = append(task.QueuedProcesses, queue)
+			task.TaskMu.Unlock()
+			continue
+		}
+
+		loggableTime := int(math.Round(time.Since(queue.TimeStarted).Seconds()))
+
+		custom_log.Logger.Debug(fmt.Sprintf("Fulfilled By %s In %d Seconds", task.DisplayName, loggableTime))
+
+		select {
+		case queue.Done <- ResponseChan{Response: response}:
+
+		default:
+
+		}
+	}
+}
+
+func (process *QueuedProcess) ErrorWithProcess(err error) {
+	select {
+	case process.Done <- ResponseChan{Response: "Error Processing Task: " + err.Error()}:
+
+	default:
+
+	}
+}
+
+func (task *TaskObject) UpdateOverloaded() {
+	custom_log.Logger.Warn(fmt.Sprintf("%s is overloaded", task.DisplayName))
+	timeForOverloaded := time.Now()
+	task.TaskMu.Lock()
+	task.IsOverloaded = true
+
+	task.TaskMu.Unlock()
+
+	task.MoveQueueOut()
+
+	go func() {
+
+		ticker := time.NewTicker(time.Second * 5)
+		for range ticker.C {
+			defer ticker.Stop()
+			isReady := GetModelStatus(task)
+
+			if isReady {
+				task.TaskMu.Lock()
+				task.IsOverloaded = false
+
+				task.TaskMu.Unlock()
+				readyTime := int(math.Round(time.Since(timeForOverloaded).Seconds()))
+				custom_log.Logger.Warn(fmt.Sprintf("%s is ready in %d seconds", task.DisplayName, readyTime))
+
+				taskManagerInstance.TaskQueueUnloaded(task)
+				break
+			}
+		}
+	}()
+}
+
+func (taskQueue *TaskObject) MoveQueueOut() {
+	taskQueue.TaskMu.Lock()
+	defer taskQueue.TaskMu.Unlock()
+	queueCopy := make([]*QueuedProcess, len(taskQueue.QueuedProcesses))
+	copy(queueCopy, taskQueue.QueuedProcesses)
+
+	var wg sync.WaitGroup
+	for _, task := range queueCopy {
+		wg.Add(1)
+		go func(t *QueuedProcess) {
+			defer wg.Done()
+			taskManagerInstance.MoveAddedRequest(t.Prompt, t.Done)
+		}(task)
+	}
+	taskQueue.QueuedProcesses = []*QueuedProcess{}
+	wg.Wait()
+	if len(taskQueue.QueuedProcesses) > 0 {
+		custom_log.Logger.Warn("Queue was not empty after clearing. Current length:", len(taskQueue.QueuedProcesses))
+	}
+}
+func recoverPanic(task *TaskObject) {
+	r := recover()
+	if r == nil {
+		return
+	}
+	custom_log.Logger.Error(fmt.Sprintf("Recovered from panic in %s for %s", task.DisplayName, r))
+}
+  `,
+};
 export const AllCodeData = [
   UseAnimateData,
   InfiniteScrollData,
   HttpClientPackage,
+  TaskManagement,
   CachedIndexing,
   InteractiveFormData,
   InteractiveThemeSelectData,
