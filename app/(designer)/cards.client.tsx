@@ -292,7 +292,10 @@ export function DesignCard({
           }}
           style={{
             objectPosition: cardData.imagePosition,
-            aspectRatio: imageDimensions.width / imageDimensions.height,
+            aspectRatio:
+              imageDimensions.width > 0
+                ? imageDimensions.width / imageDimensions.height
+                : "auto",
           }}
           className={`${
             cardData.coverImage ? "object-cover" : "object-fill"
