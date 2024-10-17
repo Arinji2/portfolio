@@ -41,7 +41,7 @@ const config: Config = {
     letterSpacing: {
       title: "0.1875rem",
       normal: "0.15rem",
-      button: "006rem",
+      button: "0.006rem",
     },
   },
   plugins: [scrollbarGutter()],
