@@ -32,6 +32,12 @@ import SenseFeature1Image from "@/public/designs/sense-feature1.png";
 import SenseFeature2Image from "@/public/designs/sense-feature2.png";
 import SenseFeature3Image from "@/public/designs/sense-feature3.png";
 import SenseFeature4Image from "@/public/designs/sense-feature4.png";
+import SenseFeature5Image from "@/public/designs/sense-feature5.png";
+import SenseFeature6Image from "@/public/designs/sense-feature6.png";
+import SenseFeature7Image from "@/public/designs/sense-feature7.png";
+import SenseFeature8Image from "@/public/designs/sense-feature8.png";
+import SenseFeature9Image from "@/public/designs/sense-feature9.png";
+import SenseFormImage from "@/public/designs/sense-form.png";
 
 import { StaticImageData } from "next/image";
 export type FeaturedDataType = {
@@ -58,7 +64,12 @@ export const FeaturedData: FeaturedDataType[] = [
     id: "vibeify",
     image: VibeifyLandingImage,
   },
-
+  {
+    name: "Sense Or Nonsense",
+    accentColor: "#a855f7",
+    id: "sense",
+    image: SenseLandingImage,
+  },
   {
     name: "Imagee",
     accentColor: "#22c55e",
@@ -76,13 +87,6 @@ export const FeaturedData: FeaturedDataType[] = [
     accentColor: "#f97316",
     id: "food",
     image: FoodLandingImage,
-  },
-
-  {
-    name: "Sense Or Nonsense",
-    accentColor: "#a855f7",
-    id: "sense",
-    image: SenseLandingImage,
   },
 ];
 
@@ -162,6 +166,87 @@ export const DesignData: DesignDataType[] = [
     bgColor: "#047857",
     featureName: "Form",
     image: VibeifyFormImage,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Landing",
+    image: SenseLandingImage,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Auth",
+    image: SenseAuthImage,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Form",
+    image: SenseFormImage,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 1,
+    image: SenseFeature1Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 2,
+    image: SenseFeature2Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 3,
+    image: SenseFeature3Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 4,
+    image: SenseFeature4Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 5,
+    image: SenseFeature5Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 6,
+    image: SenseFeature6Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 7,
+    image: SenseFeature7Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 8,
+    image: SenseFeature8Image,
+  },
+  {
+    projectName: "Sense Or Nonsense",
+    bgColor: "#7e22ce",
+    featureName: "Feature",
+    featureNumber: 9,
+    image: SenseFeature9Image,
   },
 
   {
@@ -245,50 +330,5 @@ export const DesignData: DesignDataType[] = [
     featureName: "Feature",
     featureNumber: 2,
     image: FoodFeature2Image,
-  },
-  {
-    projectName: "Sense Or Nonsense",
-    bgColor: "#7e22ce",
-    featureName: "Landing",
-    image: SenseLandingImage,
-  },
-  {
-    projectName: "Sense Or Nonsense",
-    bgColor: "#7e22ce",
-    featureName: "Auth",
-    image: SenseAuthImage,
-  },
-  {
-    projectName: "Sense Or Nonsense",
-    bgColor: "#7e22ce",
-    featureName: "Feature",
-    featureNumber: 1,
-    image: SenseFeature1Image,
-    coverImage: true,
-    imagePosition: "top",
-  },
-  {
-    projectName: "Sense Or Nonsense",
-    bgColor: "#7e22ce",
-    featureName: "Feature",
-    featureNumber: 2,
-    image: SenseFeature2Image,
-    coverImage: true,
-  },
-  {
-    projectName: "Sense Or Nonsense",
-    bgColor: "#7e22ce",
-    featureName: "Feature",
-    featureNumber: 3,
-    image: SenseFeature3Image,
-    coverImage: true,
-    imagePosition: "top",
-  },
-  {
-    projectName: "Sense Or Nonsense",
-    bgColor: "#7e22ce",
-    featureName: "Feature",
-    featureNumber: 4,
-    image: SenseFeature4Image,
   },
 ];

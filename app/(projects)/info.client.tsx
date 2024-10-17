@@ -12,7 +12,7 @@ export default function ProjectInfo({
   info: InfoType;
   imageName: string;
 }) {
-  const { stack, design, showImage, about, stats } = info;
+  const { stack, design, image, about, stats } = info;
   const [expanded, setExpanded] = useState(false);
   return (
     <div
@@ -64,10 +64,10 @@ export default function ProjectInfo({
           <p className="text-white/70  text-[14px] xl:text-[15px]">
             {design.details}
           </p>
-          {showImage && (
+          {image && (
             <div className="w-full aspect-video relative border-[5px] shadow-black shadow-lg border-black rounded-sm">
               <Image
-                src={`/projects/landings/${showImage ? imageName : ""}`}
+                src={image}
                 fill
                 className="object-fill w-full h-full"
                 alt="vibeify"
