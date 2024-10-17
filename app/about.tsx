@@ -6,7 +6,7 @@ export default async function About() {
   return (
     <section
       tabIndex={0}
-      className="w-full  relative h-[100svh]  flex flex-row items-center justify-end md:justify-center z-[90] shadow-lg shadow-black "
+      className="w-full  relative h-fit xl:h-[100svh]  flex flex-row items-center justify-end md:justify-center  z-[90] shadow-lg shadow-black "
     >
       <div className="w-[30%] h-full relative md:block hidden">
         <Image
@@ -21,32 +21,34 @@ export default async function About() {
       </div>
       <div className="w-[70%] md:w-[40%]  h-full relative flex flex-col items-center justify-start z-20">
         <WidthWrapper color="#6D6D6D">
-          <div className="w-full h-full flex flex-col items-center justify-center">
+          <div className="w-full h-full flex flex-col items-center justify-center py-3 xl:py-0 gap-6 xl:gap-0">
             <div className="w-full h-[30%] p-2 flex flex-col items-center justify-center text-center">
-              <p className="text-white text-[15px] md:text-[30px]">
-                I am a UI/UX designer from India, born in America.
+              <p className="text-white xl:text-2xl md:text-lg text-xs tracking-tight">
+                I am a UI/UX designer and developer from India, born in America.
               </p>
             </div>
             <div
-              className="h-[5%] w-full flex flex-col items-center justify-center pb-2"
+              className="h-[5%] w-full flex flex-col items-center justify-center xl:pb-2"
               aria-hidden
             >
-              <div className="h-3 w-[75%] bg-white"></div>
+              <div className="h-1 md:h-3 w-[75%] md:bg-white bg-white/20"></div>
             </div>
-            <div className="w-full h-[30%] my-4 p-2 flex flex-col items-center justify-center text-center">
-              <h2 className="text-brand-primary text-[50px] md:text-[80px] font-bold">
+            <div className="w-full xl:h-[30%] xl:my-4 p-2 flex flex-col items-center justify-center text-center">
+              <h2 className="text-brand-primary xl:text-5xl md:text-3xl text-2xl tracking-title font-bold">
                 ABOUT ME
               </h2>
             </div>
             <div
-              className="h-[5%] w-full flex flex-col items-center justify-center pt-2"
+              className="h-[5%] w-full flex flex-col items-center justify-center xl:pt-2"
               aria-hidden
             >
-              <div className="h-3 w-[75%] bg-white"></div>
+              <div className="h-1 md:h-3 w-[75%] md:bg-white bg-white/20"></div>
             </div>
             <div className="w-full h-[30%] p-2 flex flex-col items-center justify-center text-center">
-              <p className="text-white text-[15px] md:text-[30px]">
-                i am 17 years old, and started coding at the age of 14.
+              <p className="text-white xl:text-2xl md:text-lg text-xs tracking-tight">
+                I am {new Date().getFullYear() - 2007} years old, and started
+                coding at the age of 14. I love making things on my own and
+                learning through projects.
               </p>
             </div>
           </div>
