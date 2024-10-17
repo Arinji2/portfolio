@@ -1,9 +1,15 @@
 "use client";
 
+import FoodLandingImage from "@/public/designs/food-landing.png";
+import ImageeLandingImage from "@/public/designs/imagee-landing.png";
+import NewsLandingImage from "@/public/designs/news-landing.png";
+import SenseLandingImage from "@/public/designs/sense-landing.png";
+import TaskationLandingImage from "@/public/designs/task-landing.png";
+import VibeifyLandingImage from "@/public/designs/vibeify-landing.png";
 import { AppWindow, LayoutGrid } from "lucide-react";
+import { StaticImageData } from "next/image";
 import { useRef, useState } from "react";
 import { ProjectExpanded, ProjectMinified } from "./components";
-
 export type TechStackType = {
   name: string;
   used: string;
@@ -23,7 +29,7 @@ export type StatsType = {
 export type InfoType = {
   stack: TechStackType[];
   design: DesignType;
-  showImage?: boolean;
+  image?: StaticImageData;
   about?: string;
   stats?: StatsType[];
 };
@@ -57,7 +63,7 @@ const projects = [
         details:
           "The site has a modern and simplistic light mode design, with a slight new brutalist style. There are also themes you can choose, like pixel and neo brutalism.",
       },
-      showImage: true,
+      image: VibeifyLandingImage,
       about:
         "Vibeify is a web app that allows you to customize your Spotify playlists and make them unique to you. You can give your playlists a custom design, custom links, etc. Vibeify also has features to compare two playlists and split a playlist into selected genres with the help of AI.",
       stats: [
@@ -76,6 +82,63 @@ const projects = [
         {
           name: "Uses AI",
           value: true,
+        },
+      ],
+    },
+  },
+  {
+    name: "Sense or Nonsense",
+    description: "AI Game to Guess Fake or Real Words",
+    image: "word.png",
+    link: "https://sense.arinji.com",
+    github: "https://github.com/Arinji2/sense-or-nonsense",
+    info: {
+      stack: [
+        {
+          name: "Next JS",
+          used: "It is used for the frontend.",
+          key: "Frontend",
+        },
+        {
+          name: "Go",
+          used: "It is used for the backend and cron jobs.",
+          key: "Backend",
+        },
+        {
+          name: "Open AI",
+          used: "It is used for validating and generating words.",
+          key: "Helper",
+        },
+        {
+          name: "Tailwind",
+          used: "It is used for styling.",
+          key: "Styling",
+        },
+      ],
+      design: {
+        type: "Pixelated Asset Heavy",
+        details:
+          "This site has an entirely pixelated design with the use of pixelated assets. The site has a lot of contrasting colors and no clear primary palette.",
+      },
+      image: SenseLandingImage,
+      about:
+        "Sense or Nonsense is a web game that allows you to practice your English skills. It will show you a word and its definition, and you have to guess if the word is fake or not. The words are generated based on a selected difficulty level. Additional features like a leaderboard and a timer are also available.",
+      stats: [
+        {
+          name: "Dependencies",
+          value: "18",
+        },
+        {
+          name: "Uses AI",
+          value: true,
+        },
+        {
+          name: "Has separate backend",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "5 months",
         },
       ],
     },
@@ -109,7 +172,7 @@ const projects = [
         details:
           "This site has a very intense neo-brutalist design with an emphasis on vibrant colors. The site has a pocket feel with compact components placed together.",
       },
-      showImage: true,
+      image: ImageeLandingImage,
       about:
         "Imagee is a web app that allows you to upload custom emojis to be used in Discord. The site has reverse-engineered how Discord displays images and will try its best to match a normal custom emoji.",
       stats: [
@@ -157,7 +220,7 @@ const projects = [
         details:
           "A modern site with a dark background and an asset-rich design. The site has a clean and simple layout with a focus on the content. A sharp red color is used for emphasis.",
       },
-      showImage: true,
+      image: NewsLandingImage,
       about:
         "News Nest is a web app that hosts news articles from reputable news sources. You can save articles, view more about them, etc. There are sections for different topics, countries, and even live news.",
       stats: [
@@ -205,7 +268,7 @@ const projects = [
         details:
           "With large assets and minimal usage of text, this site has a lively feel. The site uses images to describe and detail different sections of the site.",
       },
-      showImage: true,
+      image: FoodLandingImage,
       about:
         "Gourmet Gusto is a web app that allows you to access food recipes. There are two ways to access recipes: by searching for one or by adding ingredients, which we then use to generate a recipe.",
       stats: [
@@ -220,58 +283,6 @@ const projects = [
         {
           name: "Time taken",
           value: "1 month",
-        },
-      ],
-    },
-  },
-  {
-    name: "Sense or Nonsense",
-    description: "AI Game to Guess Fake or Real Words",
-    image: "word.png",
-    link: "https://sense.arinji.com",
-    github: "https://github.com/Arinji2/sense-or-nonsense",
-    info: {
-      stack: [
-        {
-          name: "Next JS",
-          used: "It is used for the frontend and backend.",
-          key: "Frontend",
-        },
-        {
-          name: "Open AI",
-          used: "It is used for validating words.",
-          key: "Backend",
-        },
-        {
-          name: "Tailwind",
-          used: "It is used for styling.",
-          key: "Styling",
-        },
-      ],
-      design: {
-        type: "Pixelated Asset Heavy",
-        details:
-          "This site has an entirely pixelated design with the use of pixelated assets. The site has a lot of contrasting colors and no clear primary palette.",
-      },
-      showImage: true,
-      about:
-        "Sense or Nonsense is a web game that allows you to practice your English skills. It will show you a word and its definition, and you have to guess if the word is fake or not. The words are generated based on a selected difficulty level.",
-      stats: [
-        {
-          name: "Dependencies",
-          value: "18",
-        },
-        {
-          name: "Uses AI",
-          value: true,
-        },
-        {
-          name: "Has separate backend",
-          value: true,
-        },
-        {
-          name: "Time taken",
-          value: "4 months",
         },
       ],
     },
@@ -305,7 +316,7 @@ const projects = [
         details:
           "A minimalistic design with a monochromatic color scheme and simple highlights. The site has a clean and simple layout with a focus on the content.",
       },
-      showImage: true,
+      image: TaskationLandingImage,
       about:
         "Taskation is a web app that allows you to manage your tasks. You can add tasks, mark them as completed, delete them, etc. Each task can have multiple sub-tasks, with their own tasks. There is also a system for making your tasks public.",
       stats: [
