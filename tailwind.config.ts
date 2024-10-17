@@ -38,6 +38,10 @@ const config: Config = {
         },
       },
     },
+    letterSpacing: {
+      title: "0.1875rem",
+      normal: "0.15rem",
+    },
   },
   plugins: [scrollbarGutter()],
 };

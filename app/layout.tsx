@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
-import { Pixelify_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-const pixelifySans = Pixelify_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const dogicalPixelFont = localFont({
+  src: [
+    {
+      path: "./../fonts/dogicapixel.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./../fonts/dogicapixelbold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -40,7 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-brand-background-primary ">
-      <body className={`${pixelifySans.className} tracking-[0.2em] `}>
+      <body className={`${dogicalPixelFont.className} tracking-normal `}>
         {children}
       </body>
     </html>
