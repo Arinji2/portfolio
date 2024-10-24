@@ -29,7 +29,7 @@ export default function ModalController() {
   }, [memoizedSearchParams]);
 
   return (
-    <div className="w-fit h-fit fixed top-0 left-0 flex flex-row items-center justify-end z-[200] p-3">
+    <div className="w-fit h-fit fixed top-0 left-0 flex flex-row items-center justify-end z-[1000] p-3">
       <div
         className={`${
           hasModalsOpen ? "opacity-100" : "opacity-0"
