@@ -19,54 +19,54 @@ export default async function Tech() {
         <OverlayWrapper opacity={0.5} />
       </div>
 
-      <div className="w-full  h-full flex flex-col md:flex-row items-stretch  justify-start  z-20">
+      <div className="w-full  h-full flex flex-col md:flex-row items-stretch gap-3 md:gap-0 justify-start  z-20">
         <OverlayWrapper opacity={0.5} />
-        <div className="bg-brand-background-primary shrink-0 h-auto w-full md:w-[250px] xl:w-[450px] flex flex-col md:flex-row items-center justify-center md:justify-end gap-6 xl:justify-start z-10">
-          <h2 className="text-[40px] md:text-[50px] xl:text-[80px] pt-10 md:pt-0 text-brand-primary font-bold text-center">
+        <div className="bg-brand-background-primary xl:text-5xl md:text-3xl text-2xl shrink-0 h-auto w-full md:w-[250px] xl:w-[450px] flex flex-col md:flex-row items-center justify-center md:justify-end gap-6 xl:justify-start z-10">
+          <h2 className="text-brand-primary  md:leading-[100px] tracking-title font-bold text-center pt-10 md:pt-0 ">
             TECH STACK
           </h2>
           <div className="h-[11px] md:h-[80%] w-[80%] md:w-[11px] bg-transparent md:bg-white mr-4"></div>
         </div>
 
-        <div className="w-full min-w-[300px] snap-x snap-proximity md:py-8 gap-5 h-full flex flex-row items-center no-scrollbar justify-start overflow-x-scroll z-10">
-          <div className="w-fit h-fit flex flex-row   gap-5 md:flex-col items-center justify-center">
+        <div className="w-full min-w-[300px] snap-x md:snap-none px-10 md:px-0 snap-proximity md:py-8 gap-5 h-full flex flex-row items-center no-scrollbar justify-start overflow-x-scroll z-10">
+          <div className="w-fit h-fit flex flex-row  gap-5 md:flex-col items-center justify-center">
             <TechBlock
               name="NEXTJS"
-              description="A react framework for creating modern applications."
+              use="Full-Stack"
               projects={10}
               position="top"
             />
             <TechBlock
               name="TAILWIND"
-              description="Tailwind is a utility-first CSS framework for building modern websites."
-              projects={7}
+              use="Styling"
+              projects={10}
               position="bottom"
             />
           </div>
           <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
             <TechBlock
               name="REACT"
-              description="React is the javascript library for web and native user interfaces."
-              projects={7}
+              use="Frontend"
+              projects={10}
               position="top"
             />
             <TechBlock
               name="TYPESCRIPT"
-              description="TypeScript is a strongly typed JavaScript with syntax for types."
-              projects={7}
+              use="Other"
+              projects={10}
               position="bottom"
             />
           </div>
           <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
             <TechBlock
               name="GO/GOLANG"
-              description="Go is a language that makes it simple to build secure, scalable systems."
+              use="Backend"
               projects={4}
               position="top"
             />
             <TechBlock
               name="EXPRESS"
-              description="Express is a minimal and flexible Node.js web app framework."
+              use="Backend"
               projects={4}
               position="bottom"
             />
@@ -74,42 +74,42 @@ export default async function Tech() {
           <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
             <TechBlock
               name="POCKETBASE"
-              description="PocketBase is an open source backend in 1 executable file."
+              use="Database"
               projects={5}
               position="top"
             />
             <TechBlock
               name="PAYLOAD CMS"
-              description="Payload CMS is a headless CMS with a focus on speed and developer experience."
+              use="Other"
               projects={2}
               position="bottom"
             />
           </div>
           <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
-            <TechBlock
-              name="DOCKER"
-              description="Lightweight, secure and standalone containers to deploy applications ."
-              projects={4}
-              position="top"
-            />
-            <TechBlock
-              name="BUN"
-              description="Bun is a JavaScript runtime written in the Zig programming language."
-              projects={2}
-              position="bottom"
-            />
+            <TechBlock name="DOCKER" use="Devops" projects={4} position="top" />
+            <TechBlock name="BUN" use="Other" projects={2} position="bottom" />
           </div>
           <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
-            <TechBlock
-              name="HONO"
-              description="Hono is a simple and ultrafast web framework with an express like API."
-              projects={2}
-              position="top"
-            />
+            <TechBlock name="HONO" use="Backend" projects={2} position="top" />
             <TechBlock
               name="SUPABASE"
-              description="An open source baas, using postgress. Comes with auth and storage."
+              use="Database"
               projects={2}
+              position="bottom"
+            />
+          </div>
+          <div className="w-fit h-fit flex flex-row gap-5 md:flex-col items-center justify-center">
+            <TechBlock
+              name="PTERODACTYL"
+              use="Other"
+              projects={1}
+              position="top"
+              small={true}
+            />
+            <TechBlock
+              name="MongoDB"
+              use="Database"
+              projects={1}
               position="bottom"
             />
           </div>
@@ -121,36 +121,49 @@ export default async function Tech() {
 
 function TechBlock({
   name,
-  description,
+  use,
   projects,
   position,
+  small,
 }: {
   name: string;
-  description: string;
+  use:
+    | "Frontend"
+    | "Backend"
+    | "Full-Stack"
+    | "Styling"
+    | "Database"
+    | "Devops"
+    | "Other";
   projects: number;
   position?: "top" | "bottom";
+  small?: boolean;
 }) {
   return (
     <article
       tabIndex={0}
-      className="w-[300px] group  md:w-[370px] relative shrink-0 md:h-[300px] h-[400px] flex flex-col items-center justify-center gap-5 text-center"
+      className="w-[300px] group  md:w-[370px] snap-center relative shrink-0 md:h-[300px] h-[400px] flex flex-col items-center justify-center gap-5 text-center"
     >
       <div
         className={`${
           position === "bottom" ? "bg-white md:bg-transparent " : "bg-white "
         }  w-[90%] h-[5px] absolute top-0`}
       ></div>
-      <h3 className="text-[30px] md:text-[40px] text-brand-primary font-bold">
+      <h3
+        className={`${
+          small ? " md:text-2xl text-xl " : "md:text-3xl text-2xl "
+        } tracking-title text-brand-primary font-bold`}
+      >
         {name}
       </h3>
-      <div className="w-[90%] h-fit flex flex-col items-center justify-center text-center ">
-        <p className="text-white/60 ease-in-out duration-200 transition-colors line-clamp-3 group-hover:text-white text-[15px] md:text-[20px] my-5">
-          {description}
-        </p>
-        <p className="text-[15px] md:text-[20px] font-bold text-brand-primary">
-          Projects: {projects}
-        </p>
-      </div>
+
+      <p className=" md:text-lg text-base xl:text-xl font-bold text-white/70">
+        {use}
+      </p>
+      <p className=" md:text-lg text-base xl:text-xl  font-bold text-brand-primary">
+        Projects: {projects}
+      </p>
+
       <div
         className={`${
           position === "top" ? "bg-white md:bg-transparent " : "bg-white "
