@@ -28,9 +28,9 @@ export default function Game() {
         alt="tetris"
       />
       <div className="absolute w-full h-full bg-black bg-opacity-90 top-0 left-0 z-20"></div>
-      <h1 className="md:text-[50px] text-[45px] xl:text-[90px] font-bold text-[#66FCE1] z-30 ">
+      <h2 className="text-brand-primary xl:text-5xl md:text-3xl text-2xl tracking-title font-bold z-30">
         TETRIS
-      </h1>
+      </h2>
       <section className="z-40 h-fit w-fit flex flex-col md:flex-row items-center justify-center gap-10 gap-y-0 shadow-[-5px_4px_0px_-0px_#66FCE1]  p-4 rounded-md">
         <div className="w-full h-full xl:block hidden">
           <Board currentBoard={board} />{" "}

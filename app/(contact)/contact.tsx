@@ -13,7 +13,7 @@ export default async function Contact() {
     >
       <WidthWrapper transparent>
         <div className="w-full xl:w-[90%] h-full flex flex-col items-center justify-start gap-10 z-20">
-          <h2 className="text-brand-primary font-bold text-center md:text-left text-[50px] md:text-[80px] xl:text-[80px]">
+          <h2 className="text-brand-primary xl:text-5xl md:text-3xl text-2xl tracking-title font-bold">
             CONTACT ME!
           </h2>
           <div className="w-full mt-6 md:w-[95%] h-fit flex-nowrap flex flex-row items-center justify-center   gap-12">
