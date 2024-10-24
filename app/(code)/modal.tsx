@@ -3,13 +3,12 @@
 import { isInert } from "@/utils/inert";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function CodeModal({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-  const modalRef = useRef<HTMLDivElement>(null);
   const memoizedSearchParams = useMemo(() => {
     if (searchParams.get("developer") === "true") {
       return true;
@@ -42,10 +41,9 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      console.log("removing");
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [router]);
 
   return (
     <div
@@ -66,7 +64,7 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
           quality={50}
         />
         <div className="w-full h-full absolute  top-0 left-0 bg-gradient-to-r from-black/80 to-black/50 from-30%"></div>
-        <h2 className="text-2xl text-center xl:text-left md:text-5xl xl:text-7xl text-white/40 font-medium z-20">
+        <h2 className=" text-center xl:text-left xl:text-4xl md:text-3xl text-2xl  text-white/40 font-bold tracking-title z-20">
           A Glimpse Into My <span className="text-brand-primary">Code</span>
         </h2>
       </div>

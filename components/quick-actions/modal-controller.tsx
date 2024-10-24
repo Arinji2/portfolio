@@ -39,6 +39,7 @@ export default function ModalController() {
           aria-label="Close Currently Opened Modal"
           tabIndex={hasModalsOpen ? 0 : -1}
           href={"/"}
+          scroll={false}
         >
           <XCircle className="size-5 md:size-8 text-red-500" />
         </Link>

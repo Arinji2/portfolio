@@ -124,12 +124,12 @@ export function InfoContent({
         }}
         className="w-full shrink-0 h-[90px] xl:h-[120px] flex flex-row items-center justify-center p-2 "
       >
-        <h3 className="text-lg w-full overflow-hidden  xl:text-3xl text-center xl:text-left font-medium text-white/80 ">
+        <h3 className=" xl:text-xl md:text-lg w-full overflow-hidden text-center xl:text-left font-medium text-white/80 ">
           <span className="line-clamp-2 w-fit">
             {" "}
             <span className="text-brand-primary">{index}.</span> {info.title}
           </span>
-          <span className="shrink-0 text-brand-primary text-sm xl:text-xl block md:inline">{`> ${info.language}`}</span>
+          <span className="shrink-0 text-brand-primary xl:text-lg md:text-base text-sm block md:inline">{`> ${info.language}`}</span>
         </h3>
         <div className="w-fit px-4 flex flex-col items-center justify-center h-full shrink-0">
           <ChevronDownCircle
@@ -139,16 +139,16 @@ export function InfoContent({
           />
         </div>
       </button>
-      <p className="xl:text-lg line-clamp-3 xl:line-clamp-2 text-xs text-brand-primary/50  text-center">
+      <p className="xl:text-sm min-h-[40px] line-clamp-3 xl:line-clamp-2 text-xs text-brand-primary/50  text-center">
         {info.info}
       </p>
       <Link
         tabIndex={isOpen ? 0 : -1}
         href={info.githubURL}
         target="_blank"
-        className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-center gap-2"
+        className="w-[80%] md:w-[260px] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-between px-2 gap-2"
       >
-        <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-[12px] md:text-[15px] font-bold">
+        <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs  xl:text-sm tracking-tight font-bold">
           View In Github
         </p>
         <ChevronRight className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
