@@ -384,10 +384,10 @@ export function ExpandedProjectsSection({
 
   return (
     <div className="relative w-full">
-      <div className="sticky top-0 h-[80px] w-full z-50 bg-brand-background-primary shrink-0 flex flex-col items-center justify-center">
+      <div className="sticky top-0  h-[80px] w-full z-[50] bg-brand-background-primary shadow-black shadow-md shrink-0 flex flex-col items-center justify-center">
         <WidthWrapper transparent>
           <div className="w-[90%] h-full flex flex-row items-center justify-between">
-            <p className="text-white text-[13px] md:text-[20px] font-bold tracking-wider">
+            <p className="text-white xl:text-lg md:text-base text-sm font-bold tracking-title">
               Projects/
               <span className="text-brand-primary">{currentProject}</span>
             </p>
@@ -447,7 +447,7 @@ export default function Projects() {
     }
   };
   return (
-    <div className="w-full h-full flex flex-col items-center justify-start relative overflow-clip ">
+    <div className="w-full h-full flex flex-col items-center z-[300] justify-start relative overflow-clip ">
       <div
         className={`${
           expanded
