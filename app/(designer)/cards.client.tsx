@@ -14,7 +14,7 @@ export type FilteringType = {
 
 function formatText(text: string) {
   return text.replace(/(^\w|-\w)/g, (match) =>
-    match.replace("-", " ").toUpperCase()
+    match.replaceAll("-", " ").toUpperCase()
   );
 }
 
@@ -67,11 +67,15 @@ export function DesignsSection() {
     if (memoizedBasisOfSearchParam && memoizedIsValueOfSearchParam) {
       const formattedValue = memoizedIsValueOfSearchParam
         .toLowerCase()
-        .replace("-", " ");
+        .split(" ")
+        .join("-");
+
       const isValid = DesignData.some((data) =>
         memoizedBasisOfSearchParam === "projectName"
-          ? data.projectName.toLowerCase() === formattedValue
-          : data.featureName.toLowerCase() === formattedValue
+          ? data.projectName.toLowerCase().split(" ").join("-") ===
+            formattedValue
+          : data.featureName.toLowerCase().split(" ").join("-") ===
+            formattedValue
       );
 
       if (isValid) {
@@ -106,22 +110,22 @@ export function DesignsSection() {
     }
 
     const { basisOf, value } = isFiltering;
+    console.log(basisOf, value);
 
     setDesignDataState(
-      DesignData.filter((data) =>
-        basisOf === "projectName"
-          ? data.projectName
-              .toLowerCase()
-              .includes(value.toLowerCase().replace("-", " "))
-          : data.featureName
-              .toLowerCase()
-              .includes(value.toLowerCase().replace("-", " "))
-      )
+      DesignData.filter((data) => {
+        const dataValue =
+          basisOf === "projectName"
+            ? data.projectName.toLowerCase().split(" ").join("-")
+            : data.featureName.toLowerCase().split(" ").join("-");
+
+        return dataValue === value;
+      })
     );
   }, [isFiltering]);
 
   return (
-    <div className="w-full h-fit flex flex-col items-center justify-start gap-4">
+    <div className="w-full h-fit flex flex-col items-center pt-10 justify-start gap-2">
       <div
         className={`${
           isFiltering ? "sticky top-[70px] xl:top-2" : ""
@@ -129,7 +133,7 @@ export function DesignsSection() {
       >
         {isFiltering ? (
           <>
-            <p className="xl:text-lg text-sm text-white">
+            <p className="xl:text-sm text-xs tracking-tight text-white">
               Currently Filtering by{" "}
               <span className="text-brand-primary font-medium">
                 {isFiltering.basisOf === "projectName"
@@ -152,7 +156,9 @@ export function DesignsSection() {
             </button>
           </>
         ) : (
-          <p className="text-white xl:text-lg text-sm">Showing All Results</p>
+          <p className="text-white xl:text-lg text-xs md:text-sm">
+            Showing All Results
+          </p>
         )}
       </div>
 
@@ -195,7 +201,7 @@ export function DesignCard({
     value: string
   ) => {
     params.set("basisOf", basisOf);
-    params.set("value", value.toLowerCase().replace(" ", "-"));
+    params.set("value", value.toLowerCase().split(" ").join("-"));
     window.history.pushState(null, "", `?${params.toString()}`);
     setResetSelection(false);
     router.replace(`${pathname}?${params.toString()}`);
@@ -215,10 +221,10 @@ export function DesignCard({
             isExpanded ? "translate-x-full" : "translate-x-0"
           } transition-all ease-in-out duration-300 delay-300 w-full h-[50%] flex flex-row items-center z-20 justify-between px-2 absolute top-0 left-0`}
         >
-          <h2 className="text-white text-lg tracking-wide font-medium truncate">
+          <h2 className="text-white text-sm tracking-tight  truncate">
             {cardData.projectName}
             {" > "}{" "}
-            <span className="opacity-60 text-sm">{cardData.featureName}</span>
+            <span className="opacity-60 text-xs">{cardData.featureName}</span>
           </h2>
           <ChevronDown className="size-5 shrink-0 text-white" strokeWidth={3} />
         </button>
@@ -239,10 +245,10 @@ export function DesignCard({
               isExpanded
                 ? "translate-y-0 opacity-100 delay-300"
                 : "translate-y-[600px] opacity-0 "
-            } -tracking-tight flex shrink-0 flex-col items-start justify-center relative text-white transition-all ease-in-out duration-[400ms]`}
+            } -tracking-tight flex shrink-0 flex-col gap-2 items-start justify-center relative text-white transition-all ease-in-out duration-[400ms]`}
           >
-            <p className="text-xs text-white/60 -mb-2">Project Name</p>
-            <h3 className="text-lg text-white line-clamp-1">
+            <p className="text-[10px] text-white/60 -mb-2">Project Name</p>
+            <h3 className="text-[14px] text-white tracking-tight line-clamp-1">
               {cardData.projectName}
             </h3>
             <button
@@ -257,10 +263,10 @@ export function DesignCard({
               isExpanded
                 ? "translate-y-0 opacity-100"
                 : "translate-y-[600px] opacity-0"
-            } -tracking-tight flex shrink-0 flex-col items-start justify-center text-white relative transition-all ease-in-out duration-[400ms] delay-[500ms]`}
+            } -tracking-tight flex shrink-0 flex-col gap-2 items-start justify-center text-white relative transition-all ease-in-out duration-[400ms] delay-[500ms]`}
           >
-            <p className="text-xs text-white/60 -mb-2">Design Type</p>
-            <h3 className="text-lg text-white line-clamp-1">
+            <p className="text-[10px] text-white/60 -mb-2">Design Type</p>
+            <h3 className="text-[14px] text-white tracking-tight line-clamp-1">
               {cardData.featureName}{" "}
               <span className="opacity-60 text-sm">
                 {cardData.featureNumber ? `(#${cardData.featureNumber})` : ""}

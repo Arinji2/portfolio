@@ -20,10 +20,11 @@ export function FeaturedCard({ cardData }: { cardData: FeaturedDataType }) {
         style={{ "--accentColor": accentColor } as React.CSSProperties}
         href={`?designer=true&basisOf=projectName&value=${name
           .toLowerCase()
-          .replace(" ", "-")}`}
+          .split(" ")
+          .join("-")}`}
         className="absolute top-full left-0 bg-[--accentColor] w-[80%] h-[50px] rounded-tl-none rounded-tr-none rounded-md flex flex-row items-center justify-between px-2"
       >
-        <h2 className="text-white text-xl tracking-wide font-bold">
+        <h2 className="text-white xl:text-sm md:text-sm tracking-tight text-xs font-bold">
           {name.toUpperCase()}
         </h2>
         <ChevronRight className="size-5 text-white" strokeWidth={3} />
