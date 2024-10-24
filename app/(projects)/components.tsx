@@ -1,5 +1,5 @@
 import WidthWrapper from "@/components/widthWrapper";
-import { AppWindow, ChevronRight, LayoutGrid, Pointer } from "lucide-react";
+import { Code, MonitorSmartphone, Palette } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ProjectInfo from "./info.client";
@@ -41,103 +41,67 @@ export function ProjectExpanded({
           sizes="100vw"
           quality={50}
         />
-        <div className="bg-gradient-to-r from-[#1E1E1E] to-[#1E1E1E80] z-20 absolute w-full h-full top-0 left-0"></div>
+        <div className="bg-gradient-to-r from-[#1E1E1E] to-[#1e1e1ed0] z-20 absolute w-full h-full top-0 left-0"></div>
       </div>
-      <div className="sticky top-0 h-[80px] w-full z-50 bg-brand-background-primary flex flex-col items-center justify-center">
-        <WidthWrapper transparent>
-          <div className="w-[90%] h-full flex flex-row items-center justify-between">
-            <p className="text-white text-[13px] md:text-[20px] font-bold tracking-wider">
-              Projects/<span className="text-brand-primary">{name}</span>
-            </p>
-            <div className="w-fit h-full flex flex-row items-center justify-end gap-8">
-              <AppWindow
-                tabIndex={expanded ? 0 : -1}
-                onClick={() => {
-                  setExpanded(true);
-                }}
-                className={`${
-                  expanded ? "text-brand-primary " : "text-white "
-                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer outline-none  transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
-              />
-              <LayoutGrid
-                tabIndex={expanded ? 0 : -1}
-                onClick={() => {
-                  setExpanded(false);
 
-                  scrollFunction();
-                }}
-                className={`${
-                  !expanded ? "text-brand-primary " : "text-white "
-                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] outline-none  hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
-              />
-            </div>
-          </div>
-        </WidthWrapper>
-      </div>
       <WidthWrapper transparent>
-        <div className="w-[90%] h-full flex flex-row items-center justify-between snap-x snap-mandatory overflow-x-auto small-scrollbar gap-8 z-30">
-          <div className="shrink-0 xl:w-fit w-full h-full snap-center flex flex-col items-center xl:items-start justify-center gap-8">
+        <div className="w-[90%] h-full flex flex-row items-center justify-between snap-x snap-mandatory xl:overflow-x-hidden overflow-x-auto small-scrollbar gap-8 z-30">
+          <div className="shrink-0 xl:w-fit xl:max-w-[500px] w-full h-full snap-center  flex flex-col items-center xl:items-start justify-center gap-8">
             <div className="h-fit w-full flex flex-col items-center xl:items-start justify-center gap-3">
-              <h2 className="text-[50px] md:text-[50px] text-center text-brand-primary font-bold">
+              <h2 className="xl:text-4xl md:text-3xl text-2xl  text-center xl:text-left text-brand-primary tracking-title font-bold">
                 {name}
               </h2>
-              <p className="text-white text-[15px] text-center md:text-[20px] font-bold pl-2">
+              <p className="text-white/80 text-center xl:text-left xl:text-xl md:text-xl text-lg   pl-2">
                 {description}
               </p>
             </div>
-            <div className="w-full pt-5 h-fit flex flex-col xl:flex-row items-center justify-start gap-y-6 gap-3">
+            <div className="w-[70%] md:w-fit pt-5 h-fit grid md:grid-cols-2 grid-cols-1  justify-start gap-y-6 gap-3">
               <Link
                 tabIndex={expanded ? 0 : -1}
                 href={link}
                 target="_blank"
-                className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-center gap-2"
+                className="w-full md:w-[240px] shrink-0 group rounded-md h-fit bg-brand-background-primary flex flex-row items-center justify-between px-3 gap-2 py-3"
               >
-                <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-[15px] md:text-[20px] font-bold">
+                <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs md:text-sm xl:text-base tracking-tight font-bold">
                   View Site
                 </p>
-                <ChevronRight className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
+                <MonitorSmartphone className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
               </Link>
               <Link
                 tabIndex={expanded ? 0 : -1}
                 href={github}
                 target="_blank"
-                className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-secondary flex flex-row items-center justify-center gap-2"
+                className="w-full md:w-[240px] shrink-0 group rounded-md h-fit bg-brand-background-secondary flex flex-row items-center justify-between px-3 gap-2 py-3"
               >
-                <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-[15px] md:text-[20px] font-bold">
+                <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs md:text-sm xl:text-base tracking-tight font-bold">
                   View Code
                 </p>
+                <Code className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
               </Link>
+              <div className="w-full h-full md:col-span-2 flex flex-col items-center justify-center col-span-1 ">
+                <Link
+                  tabIndex={expanded ? 0 : -1}
+                  scroll={false}
+                  href={`?designer=true&basisOf=projectName&value=${name
+                    .split(" ")
+                    .join("-")
+                    .toLowerCase()}`}
+                  className="w-full md:w-[240px] xl:w-full shrink-0  group rounded-md h-fit transition-all ease-out duration-500 hover:bg-brand-background-primary bg-brand-primary/60 flex flex-row items-center justify-between px-3 gap-2 py-3"
+                >
+                  <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs md:text-sm xl:text-base tracking-tight font-bold">
+                    View Designs
+                  </p>
+                  <Palette className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-background-primary" />
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="h-[80%] w-fit flex flex-col items-center snap-center justify-start">
+          <div className="h-[80%] w-fit md:max-h-full max-h-[500px] flex flex-col items-center snap-center shrink-0 justify-start md:px-2 ">
             <ProjectInfo info={info} imageName={image} />
           </div>
         </div>
       </WidthWrapper>
     </section>
-  );
-}
-
-export function StackAnimation({ stack }: { stack: string[] }) {
-  return (
-    <div className="w-full md:w-[500px] shrink-0 md:aspect-video flex flex-col items-center justify-center aspect-square  relative group z-30">
-      <Pointer className="text-white w-[20px] h-[20px] z-40 absolute -top-5 right-20" />
-      <div className=" w-[30%] rounded-md aspect-[63/88] flex flex-col items-center justify-center transition-all ease-[0.7, -0.4, 0.4, 1.4] duration-500 bg-[#141414]  absolute group-hover:translate-x-[110%] group-hover:rotate-2 group-hover:translate-y-3 -rotate-2 z-30">
-        <p className="text-brand-primary font-medium text-[10px] md:text-[20px]">
-          {stack[0]}
-        </p>
-      </div>
-      <div className=" w-[30%] rounded-md aspect-[63/88] flex flex-col items-center justify-center transition-all ease-[0.7, -0.4, 0.4, 1.4] duration-500 bg-[#3f3f3f]  absolute group-hover:rotate-0 group-hover:translate-x-0 -rotate-3 -translate-y-2 z-20 -translate-x-2">
-        <p className="text-brand-primary font-medium text-[10px] md:text-[20px]">
-          {stack[1]}
-        </p>
-      </div>
-      <div className=" w-[30%] rounded-md aspect-[63/88] flex flex-col items-center justify-center transition-all ease-[0.7, -0.4, 0.4, 1.4] duration-500 ] bg-[#696969] absolute group-hover:-rotate-[2deg] -rotate-[4deg] group-hover:-translate-x-[110%] group-hover:translate-y-3 -translate-y-3 z-10 -translate-x-3">
-        <p className="text-brand-primary font-medium text-[10px] md:text-[20px]">
-          {stack[2]}
-        </p>
-      </div>
-    </div>
   );
 }
 
@@ -157,7 +121,7 @@ export function ProjectMinified({
   expanded: boolean;
 }) {
   return (
-    <section className="w-full xl:w-[500px] shrink-0 h-full flex flex-col items-center  justify-start relative">
+    <section className="w-full xl:w-[500px] shrink-0 h-full flex flex-col items-center  snap-center justify-start relative">
       <div className="h-full w-full absolute top-0 left-0">
         <Image
           src={`/projects/${image}`}
@@ -167,16 +131,16 @@ export function ProjectMinified({
           sizes="100vw"
           quality={100}
         />
-        <div className="bg-gradient-to-r from-[#1E1E1E] to-[#1E1E1E80] z-20 absolute w-full h-full top-0 left-0"></div>
+        <div className="bg-gradient-to-r from-[#1E1E1E] to-[#1e1e1ed0] z-20 absolute w-full h-full top-0 left-0"></div>
       </div>
 
-      <div className="w-[90%] xl:w-full h-full flex flex-col items-center justify-center overflow-hidden  gap-8 z-30">
+      <div className="w-[90%] xl:w-full h-full flex flex-col items-center justify-center overflow-hidden  gap-4 px-2 z-30">
         <div className="shrink-0 xl:w-fit w-full h-full flex flex-col items-center justify-center gap-8">
-          <div className="h-fit w-full flex flex-col items-center justify-center gap-3">
-            <h2 className="text-[30px] text-center text-brand-primary font-bold">
+          <div className="h-fit w-full flex flex-col items-center justify-center gap-8">
+            <h2 className="xl:text-4xl h-[80px] md:text-3xl text-2xl text-center text-brand-primary font-bold tracking-title">
               {name}
             </h2>
-            <p className="text-white text-[15px] text-center  font-bold pl-2">
+            <p className="text-white xl:text-lg md:text-xl text-lg text-center">
               {description}
             </p>
           </div>
@@ -185,22 +149,34 @@ export function ProjectMinified({
               tabIndex={!expanded ? 0 : -1}
               href={link}
               target="_blank"
-              className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-center gap-2"
+              className="w-[80%] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-between px-2 gap-2"
             >
-              <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-[15px] md:text-[20px] font-bold">
+              <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs md:text-sm xl:text-base tracking-tight font-bold">
                 View Site
               </p>
-              <ChevronRight className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
+              <MonitorSmartphone className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
             </Link>
             <Link
               tabIndex={!expanded ? 0 : -1}
               href={github}
               target="_blank"
-              className="w-[180px] md:w-[220px] group rounded-md h-fit py-3 bg-brand-background-secondary flex flex-row items-center justify-center gap-2"
+              className="w-[80%] group rounded-md h-fit py-3 bg-brand-background-secondary flex flex-row items-center justify-between px-2 gap-2"
             >
-              <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-[15px] md:text-[20px] font-bold">
+              <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs md:text-sm xl:text-base tracking-tight font-bold">
                 View Code
               </p>
+              <Code className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-primary" />
+            </Link>
+            <Link
+              tabIndex={!expanded ? 0 : -1}
+              href={github}
+              target="_blank"
+              className="w-[80%]  group rounded-md h-fit  transition-all ease-out duration-500 hover:bg-brand-background-primary bg-brand-primary/60 flex flex-row items-center justify-between px-2 gap-2 py-3"
+            >
+              <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs md:text-sm xl:text-base tracking-tight font-bold">
+                View Designs
+              </p>
+              <Palette className="w-[30px] group-hover:text-white transition-all ease-in-out duration-500 h-[30px] font-bold text-brand-background-primary" />
             </Link>
           </div>
         </div>

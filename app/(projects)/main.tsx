@@ -1,5 +1,6 @@
 "use client";
 
+import WidthWrapper from "@/components/widthWrapper";
 import FoodLandingImage from "@/public/designs/food-landing.png";
 import ImageeLandingImage from "@/public/designs/imagee-landing.png";
 import NewsLandingImage from "@/public/designs/news-landing.png";
@@ -8,7 +9,7 @@ import TaskationLandingImage from "@/public/designs/task-landing.png";
 import VibeifyLandingImage from "@/public/designs/vibeify-landing.png";
 import { AppWindow, LayoutGrid } from "lucide-react";
 import { StaticImageData } from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProjectExpanded, ProjectMinified } from "./components";
 export type TechStackType = {
   name: string;
@@ -72,7 +73,7 @@ const projects = [
           value: "12",
         },
         {
-          name: "Has separate backend",
+          name: "Has Go backend",
           value: true,
         },
         {
@@ -133,7 +134,7 @@ const projects = [
           value: true,
         },
         {
-          name: "Has separate backend",
+          name: "Has Go backend",
           value: true,
         },
         {
@@ -229,7 +230,7 @@ const projects = [
           value: "18",
         },
         {
-          name: "Has separate backend",
+          name: "Has Go backend",
           value: true,
         },
         {
@@ -337,6 +338,103 @@ const projects = [
   },
 ];
 
+export function ExpandedProjectsSection({
+  handleMinifiedScroll,
+  expanded,
+  setExpanded,
+}: {
+  handleMinifiedScroll: () => void;
+  expanded: boolean;
+  setExpanded: Function;
+}) {
+  const [currentProject, setCurrentProject] = useState("");
+
+  const observerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers = observerRefs.current.map((ref, index) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setCurrentProject(projects[index].name);
+            }
+          });
+        },
+        {
+          threshold: 0.9,
+        }
+      );
+
+      if (ref) {
+        observer.observe(ref);
+      }
+
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
+  const setRef = (index: number) => (el: HTMLDivElement | null) => {
+    observerRefs.current[index] = el;
+  };
+
+  return (
+    <div className="relative w-full">
+      <div className="sticky top-0 h-[80px] w-full z-50 bg-brand-background-primary shrink-0 flex flex-col items-center justify-center">
+        <WidthWrapper transparent>
+          <div className="w-[90%] h-full flex flex-row items-center justify-between">
+            <p className="text-white text-[13px] md:text-[20px] font-bold tracking-wider">
+              Projects/
+              <span className="text-brand-primary">{currentProject}</span>
+            </p>
+            <div className="w-fit h-full flex flex-row items-center justify-end gap-8">
+              <AppWindow
+                tabIndex={expanded ? 0 : -1}
+                onClick={() => setExpanded(true)}
+                className={`${
+                  expanded ? "text-brand-primary " : "text-white "
+                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer outline-none transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
+              />
+              <LayoutGrid
+                tabIndex={expanded ? 0 : -1}
+                onClick={() => {
+                  setExpanded(false);
+                  handleMinifiedScroll();
+                }}
+                className={`${
+                  !expanded ? "text-brand-primary " : "text-white "
+                }md:w-[40px] h-[20px] w-[20px] md:h-[40px] outline-none hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
+              />
+            </div>
+          </div>
+        </WidthWrapper>
+      </div>
+
+      <div className="w-full">
+        {projects.map((project, index) => (
+          <div key={index} ref={setRef(index)}>
+            <ProjectExpanded
+              name={project.name}
+              description={project.description}
+              image={project.image}
+              link={project.link}
+              github={project.github}
+              scrollFunction={handleMinifiedScroll}
+              expanded={expanded}
+              setExpanded={setExpanded}
+              info={project.info}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
   const [expanded, setExpanded] = useState(true);
   const minifiedRef = useRef<HTMLDivElement>(null);
@@ -349,35 +447,26 @@ export default function Projects() {
     }
   };
   return (
-    <div className="w-full h-full flex flex-col items-center justify-start relative overflow-hidden ">
+    <div className="w-full h-full flex flex-col items-center justify-start relative overflow-clip ">
       <div
         className={`${
           expanded
-            ? "translate-x-0  overflow-auto opacity-100 "
-            : "-translate-x-full  overflow-hidden opacity-0 absolute  "
+            ? "translate-x-0  opacity-100 "
+            : "-translate-x-full  overflow-clip opacity-0 absolute  "
         }transition-all ease-in-out duration-[2000ms] w-full flex flex-col items-center justify-start`}
         aria-hidden={!expanded}
       >
-        {projects.map((project, index) => (
-          <ProjectExpanded
-            key={index}
-            name={project.name}
-            description={project.description}
-            image={project.image}
-            link={project.link}
-            github={project.github}
-            scrollFunction={handleMinifiedScroll}
-            expanded={expanded}
-            setExpanded={setExpanded}
-            info={project.info}
-          />
-        ))}
+        <ExpandedProjectsSection
+          handleMinifiedScroll={handleMinifiedScroll}
+          setExpanded={setExpanded}
+          expanded={expanded}
+        />
       </div>
       <div
         className={`${
           !expanded
             ? "translate-x-0  opacity-100 "
-            : "translate-x-full overflow-hidden absolute opacity-0 "
+            : "translate-x-full overflow-clip absolute opacity-0  "
         }transition-all ease-in-out h-[100svh]  bg-black duration-[2000ms]  w-full flex flex-col items-center justify-start`}
         aria-hidden={expanded}
         ref={minifiedRef}
@@ -405,7 +494,7 @@ export default function Projects() {
             </div>
           </div>
         </div>
-        <div className="w-full relative flex h-full flex-row items-center justify-start overflow-x-scroll small-scrollbar gap-8">
+        <div className="w-full relative flex h-full flex-row items-center justify-start overflow-x-scroll md:snap-none snap-x snap-proximity small-scrollbar gap-8">
           {projects.map((project, index) => (
             <ProjectMinified
               key={index}

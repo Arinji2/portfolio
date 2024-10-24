@@ -6,9 +6,9 @@ export default async function About() {
   return (
     <section
       tabIndex={0}
-      className="w-full  relative h-fit xl:h-[100svh]  flex flex-row items-center justify-end md:justify-center  z-[90] shadow-lg shadow-black "
+      className="w-full  relative h-auto xl:h-[100svh]  flex flex-row items-stretch xl:items-center justify-end md:justify-center  z-[90] shadow-lg shadow-black "
     >
-      <div className="w-[30%] h-full relative md:block hidden">
+      <div className="w-[30%] xl:h-full relative md:block hidden">
         <Image
           src="/about-pc.png"
           fill
@@ -55,7 +55,7 @@ export default async function About() {
         </WidthWrapper>
       </div>
 
-      <div className="w-full md:w-[30%] h-full absolute md:relative ">
+      <div className="w-full md:w-[30%] md:h-auto h-full xl:h-full absolute md:relative ">
         <Image
           src="/about.png"
           fill
