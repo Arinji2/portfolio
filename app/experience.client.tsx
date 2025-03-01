@@ -1,4 +1,4 @@
-"use client;";
+"use client";
 
 import { trackEvent } from "@/analytics/events";
 import Link from "next/link";
