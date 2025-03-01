@@ -86,7 +86,10 @@ function ExpandedProjectsSection({
             <div className="w-fit h-full flex flex-row items-center justify-end gap-8">
               <AppWindow
                 tabIndex={expanded ? 0 : -1}
-                onClick={() => setExpanded(true)}
+                onClick={() => {
+                  setExpanded(true);
+                  trackEvent("projects_expanded");
+                }}
                 className={`${
                   expanded ? "text-brand-primary " : "text-white "
                 }md:w-[40px] h-[20px] w-[20px] md:h-[40px] hover:cursor-pointer outline-none transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
@@ -96,6 +99,7 @@ function ExpandedProjectsSection({
                 onClick={() => {
                   setExpanded(false);
                   handleMinifiedScroll();
+                  trackEvent("projects_collapsed");
                 }}
                 className={`${
                   !expanded ? "text-brand-primary " : "text-white "
@@ -181,7 +185,10 @@ export default function Projects() {
               />
               <LayoutGrid
                 tabIndex={!expanded ? 0 : -1}
-                onClick={() => setExpanded(false)}
+                onClick={() => {
+                  setExpanded(false);
+                  trackEvent("projects_collapsed");
+                }}
                 className={`${
                   !expanded ? "text-brand-primary " : "text-white "
                 }md:w-[40px] h-[20px] w-[20px] md:h-[40px] outline-none hover:cursor-pointer transition-all ease-in-out duration-300 hover:scale-110 will-change-transform`}
