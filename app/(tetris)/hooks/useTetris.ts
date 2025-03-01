@@ -1,14 +1,15 @@
 "use client";
+import { trackEvent } from "@/analytics/events";
+import { SHAPES } from "@/app/(tetris)/shapesTypes";
 import { useCallback, useEffect, useState } from "react";
 import { Block, BlockShape, BoardShape, EmptyCell } from "../types";
-import { SHAPES } from "@/app/(tetris)/shapesTypes";
 import { useInterval } from "./useInterval";
 import {
-  useTetrisBoard,
-  hasCollisions,
   BOARD_HEIGHT,
   getEmptyBoard,
   getRandomBlock,
+  hasCollisions,
+  useTetrisBoard,
 } from "./useTetrisBoard";
 
 enum TickSpeed {
@@ -56,7 +57,7 @@ export function useTetris() {
       droppingBlock,
       droppingShape,
       droppingRow,
-      droppingColumn
+      droppingColumn,
     );
 
     let numCleared = 0;
@@ -74,6 +75,10 @@ export function useTetris() {
     if (hasCollisions(board, SHAPES[newBlock].shape, 0, 3)) {
       setIsPlaying(false);
       setTickSpeed(null);
+      trackEvent("tetris_game_over", {
+        score: score,
+        type: "desktop",
+      });
     } else {
       setTickSpeed(TickSpeed.Normal);
     }
@@ -93,6 +98,7 @@ export function useTetris() {
     droppingRow,
     droppingShape,
     upcomingBlocks,
+    score,
   ]);
 
   const gameTick = useCallback(() => {
@@ -207,7 +213,7 @@ export function useTetris() {
       droppingBlock,
       droppingShape,
       droppingRow,
-      droppingColumn
+      droppingColumn,
     );
   }
 
@@ -242,7 +248,7 @@ function addShapeToBoard(
   droppingBlock: Block,
   droppingShape: BlockShape,
   droppingRow: number,
-  droppingColumn: number
+  droppingColumn: number,
 ) {
   droppingShape
     .filter((row) => row.some((isSet) => isSet))
