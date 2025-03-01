@@ -57,6 +57,12 @@ export function ProjectExpanded({
               <Link
                 tabIndex={expanded ? 0 : -1}
                 href={link}
+                onClick={() => {
+                  trackEvent("project_link_clicked", {
+                    projectName: name,
+                    type: "expanded",
+                  });
+                }}
                 target="_blank"
                 className="w-full md:w-[240px] shrink-0 group rounded-md h-fit bg-brand-background-primary flex flex-row items-center justify-between px-3 gap-2 py-3"
               >
@@ -68,6 +74,12 @@ export function ProjectExpanded({
               <Link
                 tabIndex={expanded ? 0 : -1}
                 href={github}
+                onClick={() => {
+                  trackEvent("project_github_clicked", {
+                    projectName: name,
+                    type: "expanded",
+                  });
+                }}
                 target="_blank"
                 className="w-full md:w-[240px] shrink-0 group rounded-md h-fit bg-brand-background-secondary flex flex-row items-center justify-between px-3 gap-2 py-3"
               >
@@ -84,6 +96,12 @@ export function ProjectExpanded({
                     .split(" ")
                     .join("-")
                     .toLowerCase()}`}
+                  onClick={() => {
+                    trackEvent("project_designs_clicked", {
+                      projectName: name,
+                      type: "expanded",
+                    });
+                  }}
                   className="w-full md:w-[240px] xl:w-full shrink-0  group rounded-md h-fit transition-all ease-out duration-500 hover:bg-brand-background-primary bg-brand-primary/60 flex flex-row items-center justify-between px-3 gap-2 py-3"
                 >
                   <p className="text-white group-hover:text-brand-primary transition-all ease-in-out duration-500 text-xs md:text-sm xl:text-base tracking-tight font-bold">
