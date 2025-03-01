@@ -1,3 +1,4 @@
+import { trackEvent } from "@/analytics/events";
 import WidthWrapper from "@/components/widthWrapper";
 import { Code, MonitorSmartphone, Palette } from "lucide-react";
 import Image from "next/image";
@@ -12,9 +13,6 @@ export function ProjectExpanded({
   link,
   github,
   expanded,
-  setExpanded,
-
-  scrollFunction,
   top,
   info,
 }: {
@@ -148,6 +146,12 @@ export function ProjectMinified({
             <Link
               tabIndex={!expanded ? 0 : -1}
               href={link}
+              onClick={() => {
+                trackEvent("project_link_clicked", {
+                  projectName: name,
+                  type: "minimized",
+                });
+              }}
               target="_blank"
               className="w-[80%] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-between px-2 gap-2"
             >
@@ -159,6 +163,12 @@ export function ProjectMinified({
             <Link
               tabIndex={!expanded ? 0 : -1}
               href={github}
+              onClick={() => {
+                trackEvent("project_github_clicked", {
+                  projectName: name,
+                  type: "minimized",
+                });
+              }}
               target="_blank"
               className="w-[80%] group rounded-md h-fit py-3 bg-brand-background-secondary flex flex-row items-center justify-between px-2 gap-2"
             >
@@ -173,6 +183,12 @@ export function ProjectMinified({
                 .split(" ")
                 .join("-")
                 .toLowerCase()}`}
+              onClick={() => {
+                trackEvent("project_designs_clicked", {
+                  projectName: name,
+                  type: "minimized",
+                });
+              }}
               target="_blank"
               className="w-[80%]  group rounded-md h-fit  transition-all ease-out duration-500 hover:bg-brand-background-primary bg-brand-primary/60 flex flex-row items-center justify-between px-2 gap-2 py-3"
             >
