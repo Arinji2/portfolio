@@ -57,7 +57,9 @@ export default function QuickActions() {
             target="_blank"
             aria-label="Github Link"
             onClick={() => {
-              trackEvent("github_link_clicked");
+              trackEvent("github_link_clicked", {
+                where: "quick-actions",
+              });
             }}
           >
             <FontAwesomeIcon
