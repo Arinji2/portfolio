@@ -1,12 +1,41 @@
 "use client";
 
+import { trackEvent } from "@/analytics/events";
 import autoAnimate from "@formkit/auto-animate";
-import { ChevronDown, Search, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Search, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { DesignData, DesignDataType } from "./data";
-
+export function ProjectCard({
+  accentColor,
+  name,
+}: {
+  accentColor: string;
+  name: string;
+}) {
+  return (
+    <Link
+      style={{ "--accentColor": accentColor } as React.CSSProperties}
+      href={`?designer=true&basisOf=projectName&value=${name
+        .toLowerCase()
+        .split(" ")
+        .join("-")}`}
+      onClick={() => {
+        trackEvent("project_card_clicked", {
+          projectName: name,
+        });
+      }}
+      className="absolute top-full left-0 bg-[--accentColor] w-[80%] h-[50px] rounded-tl-none rounded-tr-none rounded-md flex flex-row items-center justify-between px-2"
+    >
+      <h2 className="text-white xl:text-sm md:text-sm tracking-tight text-xs font-bold">
+        {name.toUpperCase()}
+      </h2>
+      <ChevronRight className="size-5 text-white" strokeWidth={3} />
+    </Link>
+  );
+}
 export type FilteringType = {
   basisOf: "projectName" | "featureName";
   value: string;
@@ -14,7 +43,7 @@ export type FilteringType = {
 
 function formatText(text: string) {
   return text.replace(/(^\w|-\w)/g, (match) =>
-    match.replaceAll("-", " ").toUpperCase()
+    match.replaceAll("-", " ").toUpperCase(),
   );
 }
 
@@ -39,11 +68,11 @@ export function DesignsSection() {
 
   const memoizedBasisOfSearchParam = useMemo(
     () => searchParams.get("basisOf"),
-    [searchParams]
+    [searchParams],
   );
   const memoizedIsValueOfSearchParam = useMemo(
     () => searchParams.get("value"),
-    [searchParams]
+    [searchParams],
   );
 
   useEffect(() => {
@@ -75,7 +104,7 @@ export function DesignsSection() {
           ? data.projectName.toLowerCase().split(" ").join("-") ===
             formattedValue
           : data.featureName.toLowerCase().split(" ").join("-") ===
-            formattedValue
+            formattedValue,
       );
 
       if (isValid) {
@@ -120,7 +149,7 @@ export function DesignsSection() {
             : data.featureName.toLowerCase().split(" ").join("-");
 
         return dataValue === value;
-      })
+      }),
     );
   }, [isFiltering]);
 
@@ -198,7 +227,7 @@ function DesignCard({
 
   const handleSearch = (
     basisOf: "projectName" | "featureName",
-    value: string
+    value: string,
   ) => {
     params.set("basisOf", basisOf);
     params.set("value", value.toLowerCase().split(" ").join("-"));
@@ -252,7 +281,13 @@ function DesignCard({
               {cardData.projectName}
             </h3>
             <button
-              onClick={() => handleSearch("projectName", cardData.projectName)}
+              onClick={() => {
+                handleSearch("projectName", cardData.projectName);
+                trackEvent("project_name_searched", {
+                  projectName: cardData.projectName,
+                  params: params.toString(),
+                });
+              }}
               className="p-1 bg-black/50 rounded-sm w-fit h-fit absolute -right-10"
             >
               <Search className="size-3 text-white" strokeWidth={2} />
@@ -273,7 +308,13 @@ function DesignCard({
               </span>
             </h3>
             <button
-              onClick={() => handleSearch("featureName", cardData.featureName)}
+              onClick={() => {
+                handleSearch("featureName", cardData.featureName);
+                trackEvent("feature_name_searched", {
+                  featureName: cardData.featureName,
+                  params: params.toString(),
+                });
+              }}
               className="p-1 bg-black/50 rounded-sm w-fit h-fit absolute -right-10"
             >
               <Search className="size-3 text-white" strokeWidth={2} />

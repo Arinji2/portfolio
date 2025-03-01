@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/analytics/events";
 import { isInert } from "@/utils/inert";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -25,10 +26,11 @@ export default function DesignerModal({
   useEffect(() => {
     if (memoizedSearchParams) {
       setIsOpen(true);
-
+      trackEvent("designer_modal_opened");
       document.body.style.overflow = "hidden";
     } else {
       setIsOpen(false);
+      trackEvent("designer_modal_closed");
     }
 
     return () => {

@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/analytics/events";
 import { isInert } from "@/utils/inert";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -20,10 +21,11 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (memoizedSearchParams) {
       setIsOpen(true);
-
+      trackEvent("code_modal_opened");
       document.body.style.overflow = "hidden";
     } else {
       setIsOpen(false);
+      trackEvent("code_modal_closed");
     }
 
     return () => {

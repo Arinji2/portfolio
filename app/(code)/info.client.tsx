@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/analytics/events";
 import WidthWrapper from "@/components/widthWrapper";
 import { useIsVisible } from "@/utils/useIsVisible";
 import { ChevronDown, ChevronDownCircle, ChevronRight } from "lucide-react";
@@ -88,7 +89,7 @@ export function InfoContent({
       rootMargin: "200px",
       threshold: 0.1,
     },
-    false
+    false,
   );
 
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -113,14 +114,21 @@ export function InfoContent({
     }
   }, [isVisible, startVideoOnMouseMove, stopVideoOnMove]);
 
-  const { setFocusedIndex } = useGlobalInfoContext();
+  const { focusedIndex, setFocusedIndex } = useGlobalInfoContext();
 
   return (
     <div className="w-full  xl:sticky top-0 h-full pt-5 flex flex-col items-center xl:items-center justify-start gap-5 xl:pb-5">
       <button
         onClick={() => {
           setIsOpen(!isOpen);
+          const previousFocusedIndex = focusedIndex;
           setFocusedIndex(parseInt(index));
+          if (!isOpen) {
+            trackEvent("code_card_clicked", {
+              tite: info.title,
+              previousFocusedIndex: previousFocusedIndex,
+            });
+          }
         }}
         className="w-full shrink-0 h-[90px] xl:h-[120px] flex flex-row items-center justify-center p-2 "
       >
@@ -145,6 +153,11 @@ export function InfoContent({
       <Link
         tabIndex={isOpen ? 0 : -1}
         href={info.githubURL}
+        onClick={() => {
+          trackEvent("code_github_clicked", {
+            title: info.title,
+          });
+        }}
         target="_blank"
         className="w-[80%] md:w-[260px] group rounded-md h-fit py-3 bg-brand-background-primary flex flex-row items-center justify-between px-2 gap-2"
       >
