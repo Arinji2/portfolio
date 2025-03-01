@@ -113,7 +113,7 @@ export function ProjectExpanded({
             </div>
           </div>
           <div className="h-[80%] w-fit md:max-h-full max-h-[500px] flex flex-col items-center snap-center shrink-0 justify-start md:px-2 ">
-            <ProjectInfo info={info} imageName={image} />
+            <ProjectInfo info={info} name={name} />
           </div>
         </div>
       </WidthWrapper>
