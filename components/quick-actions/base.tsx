@@ -1,4 +1,5 @@
 "use client";
+import { trackEvent } from "@/analytics/events";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ArrowUp, Mail } from "lucide-react";
@@ -41,9 +42,10 @@ export default function QuickActions() {
             aria-label="Copy Email Address"
             onClick={() => {
               navigator.clipboard.writeText(
-                process.env.NEXT_PUBLIC_FROM_EMAIL!
+                process.env.NEXT_PUBLIC_FROM_EMAIL!,
               );
               window.dispatchEvent(new Event("emailCopied"));
+              trackEvent("email_copied");
             }}
             href={`mailto:${process.env.NEXT_PUBLIC_FROM_EMAIL}`}
           >
@@ -54,6 +56,9 @@ export default function QuickActions() {
             href={`https://github.com/Arinji2`}
             target="_blank"
             aria-label="Github Link"
+            onClick={() => {
+              trackEvent("github_link_clicked");
+            }}
           >
             <FontAwesomeIcon
               icon={faGithub}
