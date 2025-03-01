@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useTurnstile } from "react-turnstile";
+import Turnstile, { useTurnstile } from "react-turnstile";
 import { sendMail } from "./sendMail";
 import { SubmitButton } from "./submit";
 
@@ -79,17 +79,16 @@ export function Form() {
         </div>
       </div>
       <div className="md:w-fit shrink-0 gap-5 w-[95%] md:h-fit h-[20%] flex flex-col items-center justify-end md:justify-start">
-        {/* <Turnstile
+        <Turnstile
           sitekey="0x4AAAAAAAgk0KI7mfH7t1k9"
           fixedSize
-          
           appearance="interaction-only"
           onVerify={(token) => {
             setVerified(true);
             setCaptchaToken(token);
             turnstile.reset();
           }}
-        /> */}
+        />
         <SubmitButton verified={verified} />
       </div>
     </form>
