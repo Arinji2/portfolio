@@ -179,7 +179,7 @@ export function DesignsSection() {
   );
 }
 
-export function DesignCard({
+function DesignCard({
   cardData,
   setResetSelection,
 }: {
