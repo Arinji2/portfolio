@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/analytics/events";
 import { Board } from "@/app/(tetris)/Board";
 import { useTetris } from "@/app/(tetris)/hooks/useTetris";
 import Image from "next/image";
@@ -56,6 +57,7 @@ export default function Game() {
                   }
                   startGame();
                   MobTetris.startGame();
+                  trackEvent("tetris_started");
                 }}
               >
                 New Game
@@ -67,8 +69,14 @@ export default function Game() {
                   if (vidRef.current) {
                     if (musicPaused) {
                       vidRef.current.play();
+                      trackEvent("tetris_music", {
+                        state: "play",
+                      });
                     } else {
                       vidRef.current.pause();
+                      trackEvent("tetris_music", {
+                        state: "pause",
+                      });
                     }
                     setMusicPaused(!musicPaused);
                   }
