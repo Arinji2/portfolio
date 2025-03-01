@@ -169,7 +169,10 @@ export function ProjectMinified({
             </Link>
             <Link
               tabIndex={!expanded ? 0 : -1}
-              href={github}
+              href={`?designer=true&basisOf=projectName&value=${name
+                .split(" ")
+                .join("-")
+                .toLowerCase()}`}
               target="_blank"
               className="w-[80%]  group rounded-md h-fit  transition-all ease-out duration-500 hover:bg-brand-background-primary bg-brand-primary/60 flex flex-row items-center justify-between px-2 gap-2 py-3"
             >
