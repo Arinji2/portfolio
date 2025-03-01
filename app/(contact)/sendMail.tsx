@@ -12,7 +12,9 @@ export async function sendMail(formData: FormData) {
   const body = form.get("body") as string;
 
   const token = form.get("g-recaptcha-response") as string;
-  const ip = headers().get("CF-Connecting-IP")!;
+  const cookieStore = await cookies();
+  const headersStore = await headers();
+  const ip = headersStore.get("CF-Connecting-IP")!;
 
   const secretKey = process.env.TURNSTILE_KEY!;
   // Validate the token by calling the
@@ -30,16 +32,16 @@ export async function sendMail(formData: FormData) {
 
   const outcome = await result.json();
   if (!outcome.success) {
-    cookies().set("emailSent", "true");
+    cookieStore.set("emailSent", "true");
     return;
   }
 
   const resend = new Resend(process.env.EMAIL_KEY);
 
-  if (cookies().get("emailSent")) {
+  if (cookieStore.get("emailSent")) {
     return;
   }
-  cookies().set("emailSent", "true");
+  cookieStore.set("emailSent", "true");
 
   await resend.emails.send({
     from: process.env.NEXT_PUBLIC_FROM_EMAIL!,
