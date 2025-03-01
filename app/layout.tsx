@@ -31,11 +31,11 @@ export const metadata: Metadata = {
     "Developer",
   ],
   description:
-    "A Web Developer and UI/UX Designer based in India, who loves to build things for the web.",
+    "A Developer and UI/UX Designer, who loves to build things for the web. I like to make unnecesarily complicated things, purely for the fun of it :)",
   openGraph: {
     title: "Arinji",
     description:
-      "A Web Developer and UI/UX Designer based in India, who loves to build things for the web.",
+      "A Developer and UI/UX Designer, who loves to build things for the web. I like to make unnecesarily complicated things, purely for the fun of it :)",
     images: [{ url: "/logo.png", alt: "Arinji Logo Picture" }],
   },
 };
