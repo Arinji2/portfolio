@@ -25,7 +25,6 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
       document.body.style.overflow = "hidden";
     } else {
       setIsOpen(false);
-      trackEvent("code_modal_closed");
     }
 
     return () => {

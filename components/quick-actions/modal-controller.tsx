@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/analytics/events";
 import { XCircle } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -8,12 +9,15 @@ import { useEffect, useMemo, useState } from "react";
 export default function ModalController() {
   const [hasModalsOpen, setHasModalsOpen] = useState(false);
   const searchParams = useSearchParams();
-
+  const [typeOfModal, setTypeOfModal] = useState<
+    "developer" | "designer" | null
+  >(null);
   const memoizedSearchParams = useMemo(() => {
-    if (
-      searchParams.get("developer") === "true" ||
-      searchParams.get("designer") === "true"
-    ) {
+    if (searchParams.get("developer") === "true") {
+      setTypeOfModal("developer");
+      return true;
+    } else if (searchParams.get("designer") === "true") {
+      setTypeOfModal("designer");
       return true;
     } else {
       return false;
@@ -39,6 +43,13 @@ export default function ModalController() {
           aria-label="Close Currently Opened Modal"
           tabIndex={hasModalsOpen ? 0 : -1}
           href={"/"}
+          onClick={() => {
+            if (typeOfModal === "developer") {
+              trackEvent("developer_modal_closed");
+            } else if (typeOfModal === "designer") {
+              trackEvent("designer_modal_closed");
+            }
+          }}
           scroll={false}
         >
           <XCircle className="size-5 md:size-8 text-red-500" />

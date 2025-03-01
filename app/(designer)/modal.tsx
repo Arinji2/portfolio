@@ -30,7 +30,6 @@ export default function DesignerModal({
       document.body.style.overflow = "hidden";
     } else {
       setIsOpen(false);
-      trackEvent("designer_modal_closed");
     }
 
     return () => {
