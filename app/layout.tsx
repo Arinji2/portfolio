@@ -50,7 +50,7 @@ export default function RootLayout({
       <head>
         <Script
           src="https://analytics.arinji.com/script.js"
-          data-website-id="945ddf55-ef17-44a0-a4d1-757135493f47"
+          data-website-id={process.env.ANALYTICS_ID}
           strategy="afterInteractive"
         />
       </head>
