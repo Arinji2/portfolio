@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/analytics/events";
 import { CheckCircle, ChevronDown, XCircle } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -7,10 +8,10 @@ import { InfoType } from "./main";
 
 export default function ProjectInfo({
   info,
-  imageName,
+  name,
 }: {
   info: InfoType;
-  imageName: string;
+  name: string;
 }) {
   const { stack, design, image, about, stats } = info;
   const [expanded, setExpanded] = useState(false);
@@ -27,7 +28,18 @@ export default function ProjectInfo({
         <button
           aria-label={`${expanded ? "Collapse" : "Expand"} the info`}
           className="w-fit h-fit"
-          onClick={() => setExpanded(!expanded)}
+          onClick={() => {
+            setExpanded(!expanded);
+            if (expanded) {
+              trackEvent("project_info_collapsed", {
+                projectName: name,
+              });
+            } else {
+              trackEvent("project_info_expanded", {
+                projectName: name,
+              });
+            }
+          }}
         >
           <ChevronDown
             strokeWidth={3}
