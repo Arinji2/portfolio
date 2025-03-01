@@ -1,7 +1,7 @@
 import OverlayWrapper from "@/components/overlayWrapper";
 import WidthWrapper from "@/components/widthWrapper";
 import Image from "next/image";
-import Link from "next/link";
+import { GithubButton } from "./github.client";
 
 export default async function Github() {
   return (
@@ -28,16 +28,7 @@ export default async function Github() {
             <Card name="Commits" description="2500+" />
             <Card name="Stars" description="20+" />
           </div>
-          <Link
-            href="https://github.com/Arinji2"
-            target="_blank"
-            className="w-fit h-fit flex flex-col items-center justify-center gap-1"
-          >
-            <p className="text-white  text-center text-[20px] font-medium  hover:text-brand-primary">
-              Show me More!
-            </p>
-            <div className="bg-brand-primary h-[2px] w-full"></div>
-          </Link>
+          <GithubButton />
         </div>
       </WidthWrapper>
     </section>
