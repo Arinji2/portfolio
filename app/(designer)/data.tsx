@@ -3,6 +3,11 @@ import ImageeLandingImage from "@/public/designs/imagee-landing.png";
 import NewsLandingImage from "@/public/designs/news-landing.png";
 import SenseLandingImage from "@/public/designs/sense-landing.png";
 import VibeifyLandingImage from "@/public/designs/vibeify-landing.png";
+import DosLandingImage from "@/public/designs/dos-landing.png";
+
+import DosFeature1Image from "@/public/designs/dos-feature1.png";
+import DosFeature2Image from "@/public/designs/dos-feature2.png";
+import DosFeature3Image from "@/public/designs/dos-feature3.png";
 
 import FoodFeature1Image from "@/public/designs/food-feature1.png";
 import FoodFeature2Image from "@/public/designs/food-feature2.png";
@@ -63,6 +68,13 @@ export const FeaturedData: FeaturedDataType[] = [
     accentColor: "#10b981",
     id: "vibeify",
     image: VibeifyLandingImage,
+  },
+
+  {
+    name: "DOS",
+    accentColor: "#1d6704",
+    id: "dos",
+    image: DosLandingImage,
   },
   {
     name: "Sense Or Nonsense",
@@ -166,6 +178,36 @@ export const DesignData: DesignDataType[] = [
     bgColor: "#047857",
     featureName: "Form",
     image: VibeifyFormImage,
+  },
+
+  {
+    projectName: "DOS",
+    bgColor: "#1d6704",
+    featureName: "Landing",
+    image: DosLandingImage,
+  },
+  {
+    projectName: "DOS",
+    bgColor: "#1d6704",
+    featureName: "Feature",
+    featureNumber: 1,
+    image: DosFeature1Image,
+  },
+
+  {
+    projectName: "DOS",
+    bgColor: "#1d6704",
+    featureName: "Feature",
+    featureNumber: 2,
+    image: DosFeature2Image,
+  },
+
+  {
+    projectName: "DOS",
+    bgColor: "#1d6704",
+    featureName: "Feature",
+    featureNumber: 3,
+    image: DosFeature3Image,
   },
   {
     projectName: "Sense Or Nonsense",

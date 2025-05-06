@@ -1,5 +1,54 @@
 export const ProjectsData = [
   {
+    name: "Downloads On Steroids",
+    description: "The download tool made for the power user",
+    image: "dos.png",
+    top: true,
+    link: "https://dos.arinji.com",
+    github: "https://github.com/Arinji2/dos",
+    info: {
+      stack: [
+        {
+          name: "Golang",
+          used: "It is the base for this project, used for creating the app with cross platform support",
+          key: "App",
+        },
+        {
+          name: "Go Releaser",
+          used: "It is used for creating and releasing cross platform versions for the app.",
+          key: "Devops",
+        },
+      ],
+      design: {
+        type: "Modern Terminal",
+        details:
+          "This site has a modern design for an old school terminal based look using a dark background and terminal based colors",
+      },
+      image: "/designs/dos-landing.png",
+      about:
+        "Downloads on Steroids (DOS) is a tool that makes downloading files from the web easy and fast. It works using just filenames, making it cross platform, simple and easy to use. Delete, Move and Link files with ease, only on DOS",
+      stats: [
+        {
+          name: "Platforms",
+          value: "3",
+        },
+        {
+          name: "Cross Platform Test Suite",
+          value: true,
+        },
+        {
+          name: "Time taken",
+          value: "2 months",
+        },
+        {
+          name: "Feature Count",
+          value: "6",
+        },
+      ],
+    },
+  },
+
+  {
     name: "Vibeify",
     description: "Giving Love to Your Spotify Playlists",
     image: "vibeify.png",

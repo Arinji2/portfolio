@@ -123,6 +123,7 @@ function ExpandedProjectsSection({
               expanded={expanded}
               setExpanded={setExpanded}
               info={project.info}
+              top={project.top}
             />
           </div>
         ))}
