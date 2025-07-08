@@ -1,15 +1,15 @@
-import { CellOptions } from "./types";
 import * as React from "react";
 import cells from "./game.module.css";
+import type { CellOptions } from "./types";
 
 interface Props {
-  type: CellOptions;
+	type: CellOptions;
 }
 
 export function Cell({ type }: Props) {
-  return (
-    <div
-      className={`cell w-[30px] h-[30px] border border-dashed border-white border-opacity-10 ${cells["cell"]} ${cells[type]}`}
-    ></div>
-  );
+	return (
+		<div
+			className={`cell h-[30px] w-[30px] border border-white border-dashed border-opacity-10 ${cells["cell"]} ${cells[type]}`}
+		></div>
+	);
 }

@@ -1,59 +1,59 @@
 "use client";
 import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useState,
+	createContext,
+	type Dispatch,
+	type ReactNode,
+	type SetStateAction,
+	useContext,
+	useState,
 } from "react";
 
 type InfoContextType = {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+	isOpen: boolean;
+	setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 export const InfoContext = createContext<InfoContextType>({
-  isOpen: false,
-  setIsOpen: () => {},
+	isOpen: false,
+	setIsOpen: () => {},
 });
 
 export function useInfoContext() {
-  return useContext(InfoContext);
+	return useContext(InfoContext);
 }
 
 export function InfoContextWrapper({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <InfoContext.Provider value={{ isOpen, setIsOpen }}>
-      {children}
-    </InfoContext.Provider>
-  );
+	return (
+		<InfoContext.Provider value={{ isOpen, setIsOpen }}>
+			{children}
+		</InfoContext.Provider>
+	);
 }
 
 type GlobalInfoContextType = {
-  focusedIndex: number;
-  setFocusedIndex: Dispatch<SetStateAction<number>>;
+	focusedIndex: number;
+	setFocusedIndex: Dispatch<SetStateAction<number>>;
 };
 export const GlobalInfoContext = createContext<GlobalInfoContextType>({
-  focusedIndex: 0,
-  setFocusedIndex: () => {},
+	focusedIndex: 0,
+	setFocusedIndex: () => {},
 });
 export function useGlobalInfoContext() {
-  return useContext(GlobalInfoContext);
+	return useContext(GlobalInfoContext);
 }
 
 export function GlobalInfoContextWrapper({
-  children,
+	children,
 }: {
-  children: ReactNode;
+	children: ReactNode;
 }) {
-  const [focusedIndex, setFocusedIndex] = useState(0);
+	const [focusedIndex, setFocusedIndex] = useState(0);
 
-  return (
-    <GlobalInfoContext.Provider value={{ focusedIndex, setFocusedIndex }}>
-      {children}
-    </GlobalInfoContext.Provider>
-  );
+	return (
+		<GlobalInfoContext.Provider value={{ focusedIndex, setFocusedIndex }}>
+			{children}
+		</GlobalInfoContext.Provider>
+	);
 }

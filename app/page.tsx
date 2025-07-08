@@ -11,19 +11,19 @@ import Tech from "./tech";
 import Toast from "./toast";
 
 export default function Home() {
-  return (
-    <main className="w-full h-full flex flex-col items-center justify-start ">
-      <QuickActions />
-      <Toast />
-      <Hero />
-      <About />
-      <Tech />
-      <Experience />
-      <Projects />
-      <Freelance />
-      <Github />
-      <Contact />
-      <Game />
-    </main>
-  );
+	return (
+		<main className="flex h-full w-full flex-col items-center justify-start ">
+			<QuickActions />
+			<Toast />
+			<Hero />
+			<About />
+			<Tech />
+			<Experience />
+			<Projects />
+			<Freelance />
+			<Github />
+			<Contact />
+			<Game />
+		</main>
+	);
 }

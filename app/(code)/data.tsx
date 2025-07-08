@@ -1,19 +1,19 @@
 export type InfoType = {
-  title: string;
-  info: string;
-  video: string;
-  githubURL: string;
-  code: string;
-  language: string;
+	title: string;
+	info: string;
+	video: string;
+	githubURL: string;
+	code: string;
+	language: string;
 };
 const UseAnimateData = {
-  title: "Custom Hook to Manage Modals",
-  info: "This is a custom hook to easily manage modals with animations.",
-  video: "https://cdn.arinji.com/u/oiMrbK.mp4",
-  language: "TypeScript",
-  githubURL:
-    "https://github.com/Arinji2/sense-or-nonsense/blob/master/utils/useAnimate.tsx",
-  code: `"use client";
+	title: "Custom Hook to Manage Modals",
+	info: "This is a custom hook to easily manage modals with animations.",
+	video: "https://cdn.arinji.com/u/oiMrbK.mp4",
+	language: "TypeScript",
+	githubURL:
+		"https://github.com/Arinji2/sense-or-nonsense/blob/master/utils/useAnimate.tsx",
+	code: `"use client";
 import { useEffect, useState } from "react";
 
 export default function useAnimate(animationDuration: number) {
@@ -46,13 +46,13 @@ export default function useAnimate(animationDuration: number) {
 };
 
 const InfiniteScrollData = {
-  title: "Infinite Scroll Implementation",
-  info: "An infinite scroll implementation using the Intersection Observer API.",
-  video: "https://cdn.arinji.com/u/DDmeUY.mp4",
-  language: "TypeScript",
-  githubURL:
-    "https://github.com/Arinji2/sense-or-nonsense/blob/master/utils/useAnimate.tsx",
-  code: `"use client";
+	title: "Infinite Scroll Implementation",
+	info: "An infinite scroll implementation using the Intersection Observer API.",
+	video: "https://cdn.arinji.com/u/DDmeUY.mp4",
+	language: "TypeScript",
+	githubURL:
+		"https://github.com/Arinji2/sense-or-nonsense/blob/master/utils/useAnimate.tsx",
+	code: `"use client";
 import { useEffect, useState } from "react";
 
 export default function TracksComponent({
@@ -153,13 +153,13 @@ export default function TracksComponent({
 };
 
 const InteractiveFormData = {
-  title: "Interactive Form Implementation",
-  info: "A form with interactive elements, such as sliders, inputs and image uploads.",
-  video: "https://cdn.arinji.com/u/2tWzAS.mp4",
-  language: "Next JS",
-  githubURL:
-    "https://github.com/Arinji2/vibeify/blob/master/app/dashboard/playlists/create/form.tsx",
-  code: `export function Form() {
+	title: "Interactive Form Implementation",
+	info: "A form with interactive elements, such as sliders, inputs and image uploads.",
+	video: "https://cdn.arinji.com/u/2tWzAS.mp4",
+	language: "Next JS",
+	githubURL:
+		"https://github.com/Arinji2/vibeify/blob/master/app/dashboard/playlists/create/form.tsx",
+	code: `export function Form() {
   const initialState = {
     message: "",
     status: 0,
@@ -285,13 +285,13 @@ function PrivateName() {
 };
 
 const InteractiveThemeSelectData = {
-  title: "Interactive Theme Selector",
-  info: "A interactive theme selector that allows users to switch between different themes in real-time.",
-  video: "https://cdn.arinji.com/u/ZtIYwx.mp4",
-  language: "Next JS",
-  githubURL:
-    "https://github.com/Arinji2/vibeify/blob/master/app/%5BplaylistLink%5D/testMode.tsx",
-  code: `"use client";
+	title: "Interactive Theme Selector",
+	info: "A interactive theme selector that allows users to switch between different themes in real-time.",
+	video: "https://cdn.arinji.com/u/ZtIYwx.mp4",
+	language: "Next JS",
+	githubURL:
+		"https://github.com/Arinji2/vibeify/blob/master/app/%5BplaylistLink%5D/testMode.tsx",
+	code: `"use client";
 
 import Link from "next/link";
 import WidthWrapper from "../(wrapper)/widthWrapper";
@@ -426,13 +426,13 @@ export function TestModeComponent({
 };
 
 const URLBasedSearchData = {
-  title: "URL Based Search",
-  info: "A highly modular search feature that uses the URL as its only global state management.",
-  video: "https://cdn.arinji.com/u/tsFdMy.mp4",
-  language: "Next JS",
-  githubURL:
-    "https://github.com/Arinji2/imagee/blob/master/src/app/dashboard/manage.tsx",
-  code: `"use client";
+	title: "URL Based Search",
+	info: "A highly modular search feature that uses the URL as its only global state management.",
+	video: "https://cdn.arinji.com/u/tsFdMy.mp4",
+	language: "Next JS",
+	githubURL:
+		"https://github.com/Arinji2/imagee/blob/master/src/app/dashboard/manage.tsx",
+	code: `"use client";
 
 import { H4 } from "@/primatives/typography";
 import { Loader2, PlusCircle, Search } from "lucide-react";
@@ -640,12 +640,12 @@ export function ManageLoading() {
 };
 
 const HttpClientPackage = {
-  title: "HTTP Client Package",
-  info: "A package that provides a simple way to do HTTP requests.",
-  video: "",
-  language: "Go",
-  githubURL: "https://github.com/Arinji2/vibeify-backend/blob/main/api/base.go",
-  code: `package api
+	title: "HTTP Client Package",
+	info: "A package that provides a simple way to do HTTP requests.",
+	video: "",
+	language: "Go",
+	githubURL: "https://github.com/Arinji2/vibeify-backend/blob/main/api/base.go",
+	code: `package api
 
 import (
 	"bytes"
@@ -798,13 +798,13 @@ func (c *ApiClient) SendRequestWithQuery(method, path string, query map[string]s
 }`,
 };
 const CachedIndexing = {
-  title: "Cached Indexing",
-  info: "A package that provides an atomic type of caching.",
-  video: "",
-  language: "Go",
-  githubURL:
-    "https://github.com/Arinji2/vibeify-backend/blob/main/cache/base.go",
-  code: `package cache
+	title: "Cached Indexing",
+	info: "A package that provides an atomic type of caching.",
+	video: "",
+	language: "Go",
+	githubURL:
+		"https://github.com/Arinji2/vibeify-backend/blob/main/cache/base.go",
+	code: `package cache
 
 import (
 	"sync"
@@ -922,12 +922,12 @@ func (c *Cache) Close() {
 }`,
 };
 const TaskManagement = {
-  title: "Task Management",
-  info: "A task management system with queue failover support, load balancing and queuing.",
-  video: "",
-  language: "Go",
-  githubURL: "https://github.com/Arinji2/ai-backend",
-  code: `package tasks
+	title: "Task Management",
+	info: "A task management system with queue failover support, load balancing and queuing.",
+	video: "",
+	language: "Go",
+	githubURL: "https://github.com/Arinji2/ai-backend",
+	code: `package tasks
 
 import (
 	"encoding/json"
@@ -1282,12 +1282,12 @@ func recoverPanic(task *TaskObject) {
   `,
 };
 export const AllCodeData = [
-  UseAnimateData,
-  InfiniteScrollData,
-  HttpClientPackage,
-  TaskManagement,
-  CachedIndexing,
-  InteractiveFormData,
-  InteractiveThemeSelectData,
-  URLBasedSearchData,
+	UseAnimateData,
+	InfiniteScrollData,
+	HttpClientPackage,
+	TaskManagement,
+	CachedIndexing,
+	InteractiveFormData,
+	InteractiveThemeSelectData,
+	URLBasedSearchData,
 ] as InfoType[];

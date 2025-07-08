@@ -6,5 +6,5 @@ const inertBooleanSupported = Number(version.split(".")[0]) >= 19;
  * @see {@link https://stackoverflow.com/questions/72720469}
  * */
 export const isInert = inertBooleanSupported
-  ? (x: boolean) => x
-  : (x: boolean) => (x ? "" : undefined);
+	? (x: boolean) => x
+	: (x: boolean) => (x ? "" : undefined);
