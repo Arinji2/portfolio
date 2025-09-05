@@ -161,7 +161,7 @@ function TechBlock({
 			<div
 				className={`${
 					position === "top" ? "bg-white md:bg-transparent" : "bg-white"
-				} w-[90%] absolute bottom-0 h-[5px]`}
+				} absolute bottom-0 h-[5px] w-[90%]`}
 			></div>
 		</article>
 	);
