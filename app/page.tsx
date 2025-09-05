@@ -12,7 +12,7 @@ import Toast from "./toast";
 
 export default function Home() {
 	return (
-		<main className="flex h-full w-full flex-col items-center justify-start ">
+		<main className="flex h-full w-full flex-col items-center justify-start">
 			<QuickActions />
 			<Toast />
 			<Hero />

@@ -37,7 +37,7 @@ export default function QuickActions() {
 				<ModalController />
 			</Suspense>
 			<div className="fixed top-0 right-0 z-[200] flex h-fit w-fit flex-row items-center justify-end p-3">
-				<div className="flex h-fit w-fit flex-row items-stretch justify-center rounded-md bg-black/50 p-3 backdrop-blur-sm ">
+				<div className="flex h-fit w-fit flex-row items-stretch justify-center rounded-md bg-black/50 p-3 backdrop-blur-sm">
 					<Link
 						aria-label="Copy Email Address"
 						onClick={() => {
@@ -72,11 +72,11 @@ export default function QuickActions() {
 						aria-label="Go To Top"
 						disabled={!isScrollable}
 						onClick={goToTop}
-						className="h-fit w-fit "
+						className="h-fit w-fit"
 					>
 						<ArrowUp
 							className={`${
-								isScrollable ? "opacity-100 " : "opacity-50 "
+								isScrollable ? "opacity-100" : "opacity-50"
 							} size-5 text-brand-primary md:size-8`}
 						/>
 					</button>

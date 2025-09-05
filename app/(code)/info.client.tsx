@@ -63,8 +63,8 @@ export function InfoWrapper({
 				ref={parentRef}
 				className={`${
 					isOpen
-						? " h-[70svh] overflow-y-auto xl:h-[80svh]"
-						: " h-[130px] overflow-y-hidden xl:h-[170px]"
+						? "h-[70svh] overflow-y-auto xl:h-[80svh]"
+						: "h-[130px] overflow-y-hidden xl:h-[170px]"
 				} ${
 					focusedIndex !== index ? "opacity-50" : "opacity-100"
 				} no-scrollbar flex w-full flex-col-reverse items-start justify-start rounded-md bg-[#403A3A] px-5 transition-all duration-500 ease-in-out xl:flex-row xl:justify-center xl:gap-10`}
@@ -131,9 +131,9 @@ export function InfoContent({
 						});
 					}
 				}}
-				className="flex h-[90px] w-full shrink-0 flex-row items-center justify-center p-2 xl:h-[120px] "
+				className="flex h-[90px] w-full shrink-0 flex-row items-center justify-center p-2 xl:h-[120px]"
 			>
-				<h3 className=" w-full overflow-hidden text-center font-medium text-white/80 md:text-lg xl:text-left xl:text-xl ">
+				<h3 className="w-full overflow-hidden text-center font-medium text-white/80 md:text-lg xl:text-left xl:text-xl">
 					<span className="line-clamp-2 w-fit">
 						{" "}
 						<span className="text-brand-primary">{index}.</span> {info.title}
@@ -144,7 +144,7 @@ export function InfoContent({
 					<ChevronDownCircle
 						className={`${
 							isOpen ? "rotate-180" : ""
-						} size-6 text-brand-primary/50 transition-all duration-500 ease-in-out md:size-8 `}
+						} size-6 text-brand-primary/50 transition-all duration-500 ease-in-out md:size-8`}
 					/>
 				</div>
 			</button>
@@ -185,7 +185,7 @@ export function InfoContent({
 			)}
 			<ChevronDown
 				strokeWidth={3}
-				className="size-7 h-fit w-fit animate-bounce text-brand-primary/50 transition-all duration-500 ease-in-out xl:hidden "
+				className="size-7 h-fit w-fit animate-bounce text-brand-primary/50 transition-all duration-500 ease-in-out xl:hidden"
 			/>
 		</div>
 	);

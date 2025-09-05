@@ -18,7 +18,7 @@ export default function ProjectInfo({
 	return (
 		<div
 			className={`${
-				expanded ? "h-full " : "h-[110px] overflow-hidden md:h-[90px] "
+				expanded ? "h-full" : "h-[110px] overflow-hidden md:h-[90px]"
 			}w-[90vw] group relative z-30 flex shrink-0 flex-col items-start justify-start gap-6 rounded-sm bg-brand-background-primary p-6 shadow-black shadow-lg transition-all duration-500 ease-in-out md:aspect-video md:w-[500px]`}
 		>
 			<div className="flex h-fit w-full shrink-0 flex-row items-center justify-start gap-3">
@@ -44,7 +44,7 @@ export default function ProjectInfo({
 					<ChevronDown
 						strokeWidth={3}
 						className={`${
-							expanded ? "rotate-180 " : ""
+							expanded ? "rotate-180" : ""
 						} h-[30px] w-[30px] text-brand-primary transition-all duration-500 ease-in-out`}
 					/>
 				</button>

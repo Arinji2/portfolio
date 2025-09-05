@@ -22,7 +22,7 @@ export default async function Tech() {
 			<div className="z-20 flex h-full w-full flex-col items-stretch justify-start gap-3 md:flex-row md:gap-0">
 				<OverlayWrapper opacity={0.5} />
 				<div className="z-10 flex h-auto w-full shrink-0 flex-col items-center justify-center gap-6 bg-brand-background-primary text-2xl md:w-[250px] md:flex-row md:justify-end md:text-3xl xl:w-[450px] xl:justify-start xl:text-5xl">
-					<h2 className="pt-10 text-center font-bold text-brand-primary tracking-title md:pt-0 md:leading-[100px] ">
+					<h2 className="pt-10 text-center font-bold text-brand-primary tracking-title md:pt-0 md:leading-[100px]">
 						TECH STACK
 					</h2>
 					<div className="mr-4 h-[11px] w-[80%] bg-transparent md:h-[80%] md:w-[11px] md:bg-white"></div>
@@ -146,27 +146,27 @@ function TechBlock({
 		>
 			<div
 				className={`${
-					position === "bottom" ? "bg-white md:bg-transparent " : "bg-white "
+					position === "bottom" ? "bg-white md:bg-transparent" : "bg-white"
 				} absolute top-0 h-[5px] w-[90%]`}
 			></div>
 			<h3
 				className={`${
-					small ? " text-xl md:text-2xl " : "text-2xl md:text-3xl "
+					small ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"
 				} font-bold text-brand-primary tracking-title`}
 			>
 				{name}
 			</h3>
 
-			<p className=" font-bold text-base text-white/70 md:text-lg xl:text-xl">
+			<p className="font-bold text-base text-white/70 md:text-lg xl:text-xl">
 				{use}
 			</p>
-			<p className=" font-bold text-base text-brand-primary md:text-lg xl:text-xl">
+			<p className="font-bold text-base text-brand-primary md:text-lg xl:text-xl">
 				Projects: {projects}
 			</p>
 
 			<div
 				className={`${
-					position === "top" ? "bg-white md:bg-transparent " : "bg-white "
+					position === "top" ? "bg-white md:bg-transparent" : "bg-white"
 				}w-[90%] absolute bottom-0 h-[5px]`}
 			></div>
 		</article>

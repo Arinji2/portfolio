@@ -232,7 +232,7 @@ export default function Game() {
 					ref={vidRef}
 					loop
 					muted={!isPlaying}
-					className="absolute top-0 left-0 h-0 w-0 bg-red-500 "
+					className="absolute top-0 left-0 h-0 w-0 bg-red-500"
 					src="/tetris/theme.mp3"
 				/>
 			</section>

@@ -37,7 +37,7 @@ export default function ModalController() {
 			<div
 				className={`${
 					hasModalsOpen ? "opacity-100" : "opacity-0"
-				} flex h-fit w-fit flex-row items-stretch justify-center rounded-md bg-black/50 p-3 backdrop-blur-sm `}
+				} flex h-fit w-fit flex-row items-stretch justify-center rounded-md bg-black/50 p-3 backdrop-blur-sm`}
 			>
 				<Link
 					aria-label="Close Currently Opened Modal"

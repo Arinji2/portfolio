@@ -1,4 +1,3 @@
-import * as React from "react";
 import cells from "./game.module.css";
 import type { CellOptions } from "./types";
 

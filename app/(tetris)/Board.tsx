@@ -9,7 +9,7 @@ interface Props {
 
 export function Board({ currentBoard }: Props) {
 	return (
-		<section className=" w-fit select-none">
+		<section className="w-fit select-none">
 			{currentBoard.map((row, rowIndex) => (
 				<div className="flex" key={rowIndex}>
 					{row.map((cell, colIndex) => (

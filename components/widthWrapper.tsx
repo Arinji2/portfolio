@@ -12,7 +12,7 @@ export default function WidthWrapper({
 	return (
 		<section
 			className={
-				"flex h-full w-full flex-col items-center justify-start bg-[--bg] bg-opacity-[--opacity] "
+				"flex h-full w-full flex-col items-center justify-start bg-[--bg] bg-opacity-[--opacity]"
 			}
 			style={
 				{

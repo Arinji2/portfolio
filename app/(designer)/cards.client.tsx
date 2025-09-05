@@ -274,7 +274,7 @@ function DesignCard({
 						className={`${
 							isExpanded
 								? "translate-y-0 opacity-100 delay-300"
-								: "translate-y-[600px] opacity-0 "
+								: "translate-y-[600px] opacity-0"
 						} -tracking-tight relative flex shrink-0 flex-col items-start justify-center gap-2 text-white transition-all duration-[400ms] ease-in-out`}
 					>
 						<p className="-mb-2 text-[10px] text-white/60">Project Name</p>

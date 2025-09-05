@@ -5,7 +5,7 @@ import { TechBlock } from "./experience.client";
 
 export default async function Experience() {
 	return (
-		<section className="relative flex h-fit w-full flex-row items-center justify-start ">
+		<section className="relative flex h-fit w-full flex-row items-center justify-start">
 			<div className="absolute top-0 left-0 h-full w-full">
 				<Image
 					src="/experience.png"
@@ -19,7 +19,7 @@ export default async function Experience() {
 			</div>
 			<WidthWrapper transparent>
 				<div className="z-20 flex h-full w-full flex-col items-center justify-start pt-10 pb-20">
-					<div className=" z-10 flex h-fit w-[95%] shrink-0 flex-row items-center justify-center gap-3 md:pl-10 xl:w-full">
+					<div className="z-10 flex h-fit w-[95%] shrink-0 flex-row items-center justify-center gap-3 md:pl-10 xl:w-full">
 						<h2 className="font-bold text-2xl text-brand-primary tracking-title md:text-3xl xl:text-5xl">
 							EXPERIENCE
 						</h2>

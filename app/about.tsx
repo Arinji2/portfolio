@@ -4,7 +4,7 @@ import WidthWrapper from "@/components/widthWrapper";
 
 export default async function About() {
 	return (
-		<section className="relative z-[90] flex h-auto w-full flex-row items-stretch justify-end shadow-black shadow-lg md:justify-center xl:h-[100svh] xl:items-center ">
+		<section className="relative z-[90] flex h-auto w-full flex-row items-stretch justify-end shadow-black shadow-lg md:justify-center xl:h-[100svh] xl:items-center">
 			<div className="relative hidden w-[30%] md:block xl:h-full">
 				<Image
 					src="/about-pc.png"
@@ -52,7 +52,7 @@ export default async function About() {
 				</WidthWrapper>
 			</div>
 
-			<div className="absolute h-full w-full md:relative md:h-auto md:w-[30%] xl:h-full ">
+			<div className="absolute h-full w-full md:relative md:h-auto md:w-[30%] xl:h-full">
 				<Image
 					src="/about.png"
 					fill

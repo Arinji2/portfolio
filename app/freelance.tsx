@@ -6,7 +6,7 @@ export default async function Freelance() {
 		<section className="relative mt-10 flex h-fit w-full flex-row items-center justify-start pb-10">
 			<WidthWrapper color="">
 				<div className="z-20 flex h-full w-full flex-col items-center justify-start">
-					<div className=" z-10 flex h-fit w-[95%] shrink-0 flex-row items-center justify-center gap-3 md:justify-start md:pl-10 xl:w-full">
+					<div className="z-10 flex h-fit w-[95%] shrink-0 flex-row items-center justify-center gap-3 md:justify-start md:pl-10 xl:w-full">
 						<h2 className="font-bold text-2xl text-white tracking-title md:text-3xl xl:text-5xl">
 							Let&apos;s Build The,
 							<br />
@@ -52,7 +52,7 @@ function FreelanceBlock({
 	icon: string;
 }) {
 	return (
-		<section className=" relative flex h-[350px] w-[300px] shrink-0 flex-col items-start justify-start gap-8 rounded-md bg-brand-background-secondary px-4 py-6 shadow-[-5px_4px_4px_0px_#000] md:w-[400px]">
+		<section className="relative flex h-[350px] w-[300px] shrink-0 flex-col items-start justify-start gap-8 rounded-md bg-brand-background-secondary px-4 py-6 shadow-[-5px_4px_4px_0px_#000] md:w-[400px]">
 			<div className="flex h-[60%] w-full flex-col items-start justify-start text-left">
 				<p className="text-white text-xs tracking-wide md:text-sm">
 					{description}

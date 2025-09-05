@@ -26,7 +26,7 @@ export function Form() {
 						name="name"
 						required
 						type="text"
-						className="h-[50px] w-full rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent "
+						className="h-[50px] w-full rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent"
 					/>
 				</div>
 				<div className="flex h-fit w-full flex-col items-start justify-start gap-5 md:flex-row md:items-center">
@@ -43,7 +43,7 @@ export function Form() {
 						name="subject"
 						required
 						type="text"
-						className="h-[50px] w-full rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent "
+						className="h-[50px] w-full rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent"
 					/>
 				</div>
 				<div className="flex h-fit w-full flex-col items-start justify-start gap-5 md:flex-row md:items-center">
@@ -57,7 +57,7 @@ export function Form() {
 						name="email"
 						required
 						type="email"
-						className="h-[50px] w-full rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent "
+						className="h-[50px] w-full rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent"
 					/>
 				</div>
 			</div>
@@ -74,7 +74,7 @@ export function Form() {
 						id="body"
 						name="body"
 						required
-						className="h-[120px] w-full resize-none rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent md:h-full "
+						className="h-[120px] w-full resize-none rounded-md bg-brand-background-secondary p-3 text-[20px] text-white outline-transparent md:h-full"
 					/>
 				</div>
 			</div>

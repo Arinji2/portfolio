@@ -38,7 +38,7 @@ export default async function Github() {
 function Card({ name, description }: { name: string; description: string }) {
 	return (
 		<article className="flex h-[25%] w-[90%] shrink flex-col items-center justify-center gap-3 rounded-md bg-brand-background-secondary bg-opacity-5 shadow-[5px_4px_4px_0px_#000] md:aspect-square md:h-auto md:w-[300px] xl:w-[600px]">
-			<h3 className="font-bold text-brand-primary text-xl md:text-2xl xl:text-3xl ">
+			<h3 className="font-bold text-brand-primary text-xl md:text-2xl xl:text-3xl">
 				{name}
 			</h3>
 			<p className="font-bold text-base text-white md:text-lg xl:text-xl">
