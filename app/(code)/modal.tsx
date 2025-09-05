@@ -49,7 +49,7 @@ export default function CodeModal({ children }: { children: React.ReactNode }) {
 	return (
 		<div
 			id="code-modal"
-			inert={isInert(!isOpen) as any}
+			inert={isInert(!isOpen)}
 			className={`${
 				isOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
 			}overflow-y-auto scrollbar-stable fixed top-0 left-0 z-[150] flex h-[100svh] w-full flex-col items-center justify-start bg-black duration-700 ease-in-out`}

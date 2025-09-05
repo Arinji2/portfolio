@@ -114,7 +114,6 @@ function ExpandedProjectsSection({
 
 			<div className="w-full">
 				{ProjectsData.map((project, index) => (
-					// biome-ignore lint/suspicious/noArrayIndexKey: Nothing else we can use
 					<div key={index} ref={setRef(index)}>
 						<ProjectExpanded
 							name={project.name}
@@ -203,7 +202,6 @@ export default function Projects() {
 				<div className="small-scrollbar relative flex h-full w-full snap-x snap-proximity flex-row items-center justify-start gap-8 overflow-x-scroll md:snap-none">
 					{ProjectsData.map((project, index) => (
 						<ProjectMinified
-							// biome-ignore lint/suspicious/noArrayIndexKey: Nothing else we can use
 							key={index}
 							expanded={expanded}
 							name={project.name}

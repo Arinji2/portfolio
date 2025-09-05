@@ -54,7 +54,7 @@ export default function DesignerModal({
 	return (
 		<div
 			id="designer-modal"
-			inert={isInert(!isOpen) as any}
+			inert={isInert(!isOpen)}
 			className={`${
 				isOpen ? "translate-y-0" : "translate-y-full"
 			}overflow-y-auto scrollbar-stable fixed top-0 left-0 z-[500] flex h-[100dvh] w-full flex-col items-center justify-start bg-[#403A3A] duration-700 ease-in-out`}

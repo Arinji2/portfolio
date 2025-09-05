@@ -26,6 +26,7 @@ export default function ProjectInfo({
 					Info about the Project
 				</p>
 				<button
+					type="button"
 					aria-label={`${expanded ? "Collapse" : "Expand"} the info`}
 					className="h-fit w-fit"
 					onClick={() => {

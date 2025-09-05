@@ -141,6 +141,7 @@ export function useMobTetris() {
 
 		let isPressingLeft = false;
 		let isPressingRight = false;
+		// biome-ignore lint/suspicious/noExplicitAny: We are using any because return type not used
 		let moveIntervalID: any;
 		const updateMovementInterval = () => {
 			clearInterval(moveIntervalID);

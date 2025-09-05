@@ -176,6 +176,7 @@ export function DesignsSection() {
 							</span>
 						</p>
 						<button
+							type="button"
 							onClick={() => {
 								setIsFiltering(null);
 								setResetSelection(true);
@@ -246,6 +247,7 @@ function DesignCard({
 				} h-fit w-full overflow-hidden rounded-md rounded-b-none bg-[--bgColor] transition-all duration-300 ease-in-out`}
 			>
 				<button
+					type="button"
 					onClick={() => setIsExpanded(true)}
 					className={`${
 						isExpanded ? "translate-x-full" : "translate-x-0"
@@ -260,6 +262,7 @@ function DesignCard({
 				</button>
 				<div className="relative flex h-fit w-full flex-col items-start justify-start gap-2 p-2">
 					<button
+						type="button"
 						tabIndex={isExpanded ? 0 : -1}
 						onClick={() => setIsExpanded(false)}
 						className={`${
@@ -282,6 +285,7 @@ function DesignCard({
 							{cardData.projectName}
 						</h3>
 						<button
+							type="button"
 							onClick={() => {
 								handleSearch("projectName", cardData.projectName);
 								trackEvent("project_name_searched", {
@@ -309,6 +313,7 @@ function DesignCard({
 							</span>
 						</h3>
 						<button
+							type="button"
 							onClick={() => {
 								handleSearch("featureName", cardData.featureName);
 								trackEvent("feature_name_searched", {
@@ -323,7 +328,8 @@ function DesignCard({
 					</div>
 				</div>
 			</div>
-			<div
+			<button
+				type="button"
 				onClick={() => setIsExpanded(false)}
 				className="relative flex aspect-video h-auto w-full shrink-0 flex-col items-center justify-center overflow-hidden rounded-md rounded-t-none bg-green-500"
 			>
@@ -350,7 +356,7 @@ function DesignCard({
 					} absolute`}
 					alt="Hero Image"
 				/>
-			</div>
+			</button>
 		</div>
 	);
 }

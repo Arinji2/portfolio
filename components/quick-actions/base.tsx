@@ -33,7 +33,7 @@ export default function QuickActions() {
 
 	return (
 		<>
-			<Suspense fallback={<></>}>
+			<Suspense fallback={<div></div>}>
 				<ModalController />
 			</Suspense>
 			<div className="fixed top-0 right-0 z-[200] flex h-fit w-fit flex-row items-center justify-end p-3">
@@ -69,6 +69,7 @@ export default function QuickActions() {
 					</Link>
 					<div className="mx-3 w-1 bg-white/20"></div>
 					<button
+						type="button"
 						aria-label="Go To Top"
 						disabled={!isScrollable}
 						onClick={goToTop}
