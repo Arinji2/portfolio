@@ -34,6 +34,7 @@ export default function Hero() {
 								</h2>
 								<div className="flex h-fit w-full flex-col items-center justify-center gap-8 md:flex-row xl:justify-start">
 									<Link
+										prefetch={true}
 										href={"?developer=true"}
 										className="relative flex h-fit w-[250px] flex-col items-center justify-center bg-brand-purple bg-opacity-60 py-2"
 									>
@@ -43,6 +44,7 @@ export default function Hero() {
 										</p>
 									</Link>
 									<Link
+										prefetch={true}
 										href={"?designer=true"}
 										className="relative flex h-fit w-[250px] flex-col items-center justify-center bg-brand-red bg-opacity-60 py-2"
 									>
