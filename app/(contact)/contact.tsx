@@ -7,10 +7,7 @@ import { Form } from "./form";
 
 export default async function Contact() {
 	return (
-		<section
-			tabIndex={0}
-			className="relative flex h-fit w-full flex-col items-center justify-center px-2 py-5"
-		>
+		<section className="relative flex h-fit w-full flex-col items-center justify-center px-2 py-5">
 			<WidthWrapper transparent>
 				<div className="z-20 flex h-full w-full flex-col items-center justify-start gap-10 xl:w-[90%]">
 					<h2 className="font-bold text-2xl text-brand-primary tracking-title md:text-3xl xl:text-5xl">

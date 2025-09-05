@@ -79,17 +79,6 @@ const review = {
 	borderRadius: "4px",
 };
 
-const button = {
-	backgroundColor: "#ff5a5f",
-	borderRadius: "3px",
-	color: "#fff",
-	fontSize: "18px",
-	textDecoration: "none",
-	textAlign: "center" as const,
-	display: "block",
-	width: "100%",
-};
-
 const hr = {
 	borderColor: "#cccccc",
 	margin: "20px 0",

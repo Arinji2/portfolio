@@ -3,10 +3,7 @@ import OverlayWrapper from "@/components/overlayWrapper";
 
 export default async function Tech() {
 	return (
-		<section
-			tabIndex={0}
-			className="relative z-[80] flex h-fit w-full flex-row items-center justify-start pb-3 shadow-black shadow-lg md:pb-0"
-		>
+		<section className="relative z-[80] flex h-fit w-full flex-row items-center justify-start pb-3 shadow-black shadow-lg md:pb-0">
 			<div className="absolute top-0 left-0 h-full w-full">
 				<Image
 					src="/tech.png"
@@ -140,10 +137,7 @@ function TechBlock({
 	small?: boolean;
 }) {
 	return (
-		<article
-			tabIndex={0}
-			className="group relative flex h-[400px] w-[300px] shrink-0 snap-center flex-col items-center justify-center gap-5 text-center md:h-[300px] md:w-[370px]"
-		>
+		<article className="group relative flex h-[400px] w-[300px] shrink-0 snap-center flex-col items-center justify-center gap-5 text-center md:h-[300px] md:w-[370px]">
 			<div
 				className={`${
 					position === "bottom" ? "bg-white md:bg-transparent" : "bg-white"

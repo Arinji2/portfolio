@@ -27,7 +27,7 @@ export function InfoWrapper({
 		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [focusedIndex, index]);
+	}, [focusedIndex, index, setIsOpen]);
 
 	useEffect(() => {
 		function scrollToTop() {
@@ -123,7 +123,7 @@ export function InfoContent({
 				onClick={() => {
 					setIsOpen(!isOpen);
 					const previousFocusedIndex = focusedIndex;
-					setFocusedIndex(parseInt(index));
+					setFocusedIndex(parseInt(index, 10));
 					if (!isOpen) {
 						trackEvent("code_card_clicked", {
 							tite: info.title,

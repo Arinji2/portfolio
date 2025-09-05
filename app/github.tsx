@@ -5,10 +5,7 @@ import { GithubButton } from "./github.client";
 
 export default async function Github() {
 	return (
-		<section
-			tabIndex={0}
-			className="relative flex h-[100svh] w-full flex-col items-center justify-start px-2 py-10"
-		>
+		<section className="relative flex h-[100svh] w-full flex-col items-center justify-start px-2 py-10">
 			<Image
 				src="/github.png"
 				fill

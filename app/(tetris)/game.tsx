@@ -11,10 +11,10 @@ import { useMobTetris } from "./hooks/useMobTetris";
 export default function Game() {
 	const { board, isPlaying, startGame, score } = useTetris();
 	const MobTetris = useMobTetris();
-	const [playMusic, setPlayMusic] = React.useState(false);
+	const [_playMusic, setPlayMusic] = React.useState(false);
 	useEffect(() => {
 		setPlayMusic(isPlaying);
-	}, [playMusic, isPlaying]);
+	}, [isPlaying]);
 	const [musicPaused, setMusicPaused] = React.useState(false);
 	const vidRef = useRef<HTMLVideoElement | null>(null);
 
@@ -50,6 +50,7 @@ export default function Game() {
 						</h2>
 						{!isPlaying || !MobTetris.isPlaying ? (
 							<button
+								type="button"
 								className="h-fit w-[150px] rounded-sm bg-[#5A5A5A] py-3 text-white"
 								onClick={() => {
 									if (vidRef.current) {
@@ -64,6 +65,7 @@ export default function Game() {
 							</button>
 						) : (
 							<button
+								type="button"
 								className="h-fit w-[150px] rounded-sm bg-[#5A5A5A] py-3 text-white"
 								onClick={() => {
 									if (vidRef.current) {
@@ -89,6 +91,7 @@ export default function Game() {
 
 					<div className="grid h-fit w-full grid-cols-3 grid-rows-3 md:mt-10">
 						<button
+							type="button"
 							className="col-start-1 row-start-2 flex flex-col items-end justify-center"
 							onClick={() => {
 								const event = new KeyboardEvent("keydown", {
@@ -123,6 +126,7 @@ export default function Game() {
 							/>
 						</button>
 						<button
+							type="button"
 							className="col-start-2 row-start-1 flex flex-col items-center justify-end"
 							onClick={() => {
 								const event = new KeyboardEvent("keydown", {
@@ -157,6 +161,7 @@ export default function Game() {
 							/>
 						</button>
 						<button
+							type="button"
 							className="col-start-2 row-start-3 flex flex-col items-center justify-start"
 							onClick={() => {
 								const event = new KeyboardEvent("keydown", {
@@ -193,6 +198,7 @@ export default function Game() {
 							/>
 						</button>
 						<button
+							type="button"
 							className="col-start-3 row-start-2 flex flex-col items-start justify-center"
 							onClick={() => {
 								const event = new KeyboardEvent("keydown", {

@@ -14,6 +14,9 @@
 		"indentStyle": "tab"
 	},
 	"linter": {
+		"domains": {
+			"react": "recommended"
+		},
 		"enabled": true,
 		"rules": {
 			"recommended": true,

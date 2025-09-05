@@ -65,7 +65,7 @@ export function DesignsSection() {
 
 	useEffect(() => {
 		if (parent.current) autoAnimate(parent.current);
-	}, [parent]);
+	}, []);
 
 	const memoizedBasisOfSearchParam = useMemo(
 		() => searchParams.get("basisOf"),
