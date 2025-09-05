@@ -37,7 +37,7 @@ function ExpandedProjectsSection({
 }: {
 	handleMinifiedScroll: () => void;
 	expanded: boolean;
-	setExpanded: Function;
+	setExpanded: (expanded: boolean) => void;
 }) {
 	const [currentProject, setCurrentProject] = useState("");
 
@@ -66,7 +66,9 @@ function ExpandedProjectsSection({
 		});
 
 		return () => {
-			observers.forEach((observer) => observer.disconnect());
+			observers.forEach((observer) => {
+				observer.disconnect();
+			});
 		};
 	}, []);
 
@@ -91,7 +93,7 @@ function ExpandedProjectsSection({
 									trackEvent("projects_expanded");
 								}}
 								className={`${
-									expanded ? "text-brand-primary " : "text-white "
+									expanded ? "text-brand-primary" : "text-white"
 								}md:w-[40px] h-[20px] w-[20px] outline-none transition-all duration-300 ease-in-out will-change-transform hover:scale-110 hover:cursor-pointer md:h-[40px]`}
 							/>
 							<LayoutGrid
@@ -102,7 +104,7 @@ function ExpandedProjectsSection({
 									trackEvent("projects_collapsed");
 								}}
 								className={`${
-									!expanded ? "text-brand-primary " : "text-white "
+									!expanded ? "text-brand-primary" : "text-white"
 								}md:w-[40px] h-[20px] w-[20px] outline-none transition-all duration-300 ease-in-out will-change-transform hover:scale-110 hover:cursor-pointer md:h-[40px]`}
 							/>
 						</div>
@@ -112,6 +114,7 @@ function ExpandedProjectsSection({
 
 			<div className="w-full">
 				{ProjectsData.map((project, index) => (
+					// biome-ignore lint/suspicious/noArrayIndexKey: Nothing else we can use
 					<div key={index} ref={setRef(index)}>
 						<ProjectExpanded
 							name={project.name}
@@ -144,12 +147,12 @@ export default function Projects() {
 		}
 	};
 	return (
-		<div className="relative z-[300] flex h-full w-full flex-col items-center justify-start overflow-clip ">
+		<div className="relative z-[300] flex h-full w-full flex-col items-center justify-start overflow-clip">
 			<div
 				className={`${
 					expanded
-						? "translate-x-0 opacity-100 "
-						: "-translate-x-full absolute overflow-clip opacity-0 "
+						? "translate-x-0 opacity-100"
+						: "-translate-x-full absolute overflow-clip opacity-0"
 				}transition-all flex w-full flex-col items-center justify-start duration-[2000ms] ease-in-out`}
 				aria-hidden={!expanded}
 			>
@@ -162,8 +165,8 @@ export default function Projects() {
 			<div
 				className={`${
 					!expanded
-						? "translate-x-0 opacity-100 "
-						: "absolute translate-x-full overflow-clip opacity-0 "
+						? "translate-x-0 opacity-100"
+						: "absolute translate-x-full overflow-clip opacity-0"
 				}transition-all flex h-[100svh] w-full flex-col items-center justify-start bg-black duration-[2000ms] ease-in-out`}
 				aria-hidden={expanded}
 				ref={minifiedRef}
@@ -181,7 +184,7 @@ export default function Projects() {
 									trackEvent("projects_expanded");
 								}}
 								className={`${
-									expanded ? "text-brand-primary " : "text-white "
+									expanded ? "text-brand-primary" : "text-white"
 								}md:w-[40px] h-[20px] w-[20px] outline-none transition-all duration-300 ease-in-out will-change-transform hover:scale-110 hover:cursor-pointer md:h-[40px]`}
 							/>
 							<LayoutGrid
@@ -191,7 +194,7 @@ export default function Projects() {
 									trackEvent("projects_collapsed");
 								}}
 								className={`${
-									!expanded ? "text-brand-primary " : "text-white "
+									!expanded ? "text-brand-primary" : "text-white"
 								}md:w-[40px] h-[20px] w-[20px] outline-none transition-all duration-300 ease-in-out will-change-transform hover:scale-110 hover:cursor-pointer md:h-[40px]`}
 							/>
 						</div>
@@ -200,6 +203,7 @@ export default function Projects() {
 				<div className="small-scrollbar relative flex h-full w-full snap-x snap-proximity flex-row items-center justify-start gap-8 overflow-x-scroll md:snap-none">
 					{ProjectsData.map((project, index) => (
 						<ProjectMinified
+							// biome-ignore lint/suspicious/noArrayIndexKey: Nothing else we can use
 							key={index}
 							expanded={expanded}
 							name={project.name}

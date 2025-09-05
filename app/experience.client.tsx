@@ -31,13 +31,13 @@ export function TechBlock({
 				{name}
 			</h3>
 			<div className="flex h-fit w-[90%] flex-col items-center justify-center gap-7 text-center">
-				<p className="text-base text-white/60 transition-color duration-200 ease-in-out group-hover:text-white md:text-lg xl:text-xl ">
+				<p className="text-base text-white/60 transition-color duration-200 ease-in-out group-hover:text-white md:text-lg xl:text-xl">
 					{description}
 				</p>
-				<p className=" font-bold text-base text-white/80 md:text-lg xl:text-xl">
+				<p className="font-bold text-base text-white/80 md:text-lg xl:text-xl">
 					{post}
 				</p>
-				<p className=" text-base text-brand-primary md:text-lg xl:text-xl">
+				<p className="text-base text-brand-primary md:text-lg xl:text-xl">
 					{time}
 				</p>
 			</div>

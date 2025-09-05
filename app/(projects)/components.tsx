@@ -22,14 +22,14 @@ export function ProjectExpanded({
 	link: string;
 	github: string;
 	expanded: boolean;
-	setExpanded: () => void;
+	setExpanded: (expanded: boolean) => void;
 
 	scrollFunction: () => void;
 	top?: boolean;
 	info: InfoType;
 }) {
 	return (
-		<section className="relative flex h-[100svh] w-full flex-col items-center justify-start ">
+		<section className="relative flex h-[100svh] w-full flex-col items-center justify-start">
 			<div className="absolute top-0 left-0 h-[100svh] w-full">
 				<Image
 					src={`/projects/${image}`}
@@ -88,7 +88,7 @@ export function ProjectExpanded({
 								</p>
 								<Code className="h-[30px] w-[30px] font-bold text-brand-primary transition-all duration-500 ease-in-out group-hover:text-white" />
 							</Link>
-							<div className="col-span-1 flex h-full w-full flex-col items-center justify-center md:col-span-2 ">
+							<div className="col-span-1 flex h-full w-full flex-col items-center justify-center md:col-span-2">
 								<Link
 									tabIndex={expanded ? 0 : -1}
 									scroll={false}
@@ -112,7 +112,7 @@ export function ProjectExpanded({
 							</div>
 						</div>
 					</div>
-					<div className="flex h-[80%] max-h-[500px] w-fit shrink-0 snap-center flex-col items-center justify-start md:max-h-full md:px-2 ">
+					<div className="flex h-[80%] max-h-[500px] w-fit shrink-0 snap-center flex-col items-center justify-start md:max-h-full md:px-2">
 						<ProjectInfo info={info} name={name} />
 					</div>
 				</div>
