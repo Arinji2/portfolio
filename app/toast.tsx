@@ -32,7 +32,7 @@ export default function Toast() {
 		<div
 			className={`${
 				toast ? "translate-y-0" : "-translate-y-[100px]"
-			}transition-all fixed top-0 z-[190] flex h-[100px] w-full flex-col items-start justify-center bg-brand-background-primary p-4 duration-300 ease-in-out`}
+			} transition-all fixed top-0 z-[190] flex h-[100px] w-full flex-col items-start justify-center bg-brand-background-primary p-4 duration-300 ease-in-out`}
 		>
 			<p className="text-[20px] text-white">{toastMessage}</p>
 		</div>
