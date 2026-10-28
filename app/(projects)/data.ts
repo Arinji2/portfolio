@@ -5,7 +5,7 @@ export const ProjectsData = [
 		image: "dos.png",
 		top: true,
 		link: "https://dos.arinji.com",
-		github: "https://github.com/Arinji2/dos",
+		github: "https://github.com/Arinji2/downloads-cli",
 		info: {
 			stack: [
 				{
